@@ -6,4 +6,6 @@ class User < ApplicationRecord
   has_many :gardens
   has_many :favorites
   has_many :gardens, through: :favorites
+
+  has_one_attached :avatar
 end
