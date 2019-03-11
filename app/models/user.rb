@@ -6,4 +6,7 @@ class User < ApplicationRecord
   has_many :gardens
   has_many :favorites
   has_many :gardens, through: :favorites
+
+  validates :description, length: { in: 6..100 }, allow_nil: true 
+  validates :age, numericality: true, allow_nil: true
 end
