@@ -6,6 +6,9 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
+config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
+
 module MonPotager
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
