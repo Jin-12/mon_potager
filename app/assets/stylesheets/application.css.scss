@@ -1,7 +1,6 @@
  @import 'bootstrap';
  @import 'gardens.css.scss';
 
-
 body {
   font-family: -apple-system, BlinkMacSystemFont,
   'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
@@ -32,9 +31,7 @@ p {
   font-family: HelveticaNeue-Light, sans-serif;
   font-size: 18px;
   color: #515151;
-  font-weight: bold;
   letter-spacing: 0.5px;
-  line-height: 30px;
 }
 
 .titre-dark {
@@ -42,7 +39,6 @@ p {
   font-size: 28px;
   color: #3F3F3F;
   letter-spacing: 0.5px;
-  line-height: 35px;
 }
 
 .para-strong {
@@ -50,6 +46,13 @@ p {
   font-size: 20px;
   color: #3F3F3F;
   letter-spacing: 0.5px;
+}
+
+.para-small {
+	font-family: HelveticaNeue, sans-serif;
+	font-size: 15px;
+	color: #7B7B7B;
+	letter-spacing: 0.9px;
 }
 
 
