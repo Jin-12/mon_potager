@@ -1,5 +1,6 @@
  @import 'bootstrap';
  @import 'gardens.css.scss';
+ @import 'users.css.scss';
 
 
 body {
@@ -32,7 +33,6 @@ p {
   font-family: HelveticaNeue-Light, sans-serif;
   font-size: 18px;
   color: #515151;
-  font-weight: bold;
   letter-spacing: 0.5px;
   line-height: 30px;
 }
@@ -58,11 +58,11 @@ p {
   a {
     text-decoration: none;
   }
-  
+
   .container_ui{
     margin: 50px 40px 100px;
   }
-  
+
   .nav-link-hover {
     color: #44c8b5;
     text-decoration: none;
@@ -139,3 +139,4 @@ html, body {
   margin: auto;
   margin-top:20px;
 }
+
