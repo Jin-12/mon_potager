@@ -1,5 +1,7 @@
  @import 'bootstrap';
  @import 'gardens.css.scss';
+ @import 'users.css.scss';
+
 
 body {
   font-family: -apple-system, BlinkMacSystemFont,
@@ -13,29 +15,31 @@ body {
 
 h1 {
   color: #44c8b5;
-  font-family: HelveticaNeue-Bold;
+  font-family: HelveticaNeue-Bold, sans-serif;
   font-size: 50px;
   color: #44C8B5;
+  font-weight: bold;
   letter-spacing: 1.2px;
 }
 
 h2 {
-  font-family: HelveticaNeue-Bold;
+  font-family: HelveticaNeue-Bold, sans-serif;
   font-size: 24px;
   color: #44C8B5;
   letter-spacing: 0.5px;
 }
 
 p {
-  font-family: HelveticaNeue-Light;
+  font-family: HelveticaNeue-Light, sans-serif;
   font-size: 18px;
   color: #515151;
+  font-weight: bold;
   letter-spacing: 0.5px;
   line-height: 30px;
 }
 
 .titre-dark {
-  font-family: HelveticaNeue-Medium;
+  font-family: HelveticaNeue-Medium, sans-serif;
   font-size: 28px;
   color: #3F3F3F;
   letter-spacing: 0.5px;
@@ -43,7 +47,7 @@ p {
 }
 
 .para-strong {
-  font-family: HelveticaNeue-Medium;
+  font-family: HelveticaNeue-Medium, sans-serif;
   font-size: 20px;
   color: #3F3F3F;
   letter-spacing: 0.5px;
@@ -55,11 +59,11 @@ p {
   a {
     text-decoration: none;
   }
-  
+
   .container_ui{
     margin: 50px 40px 100px;
   }
-  
+
   .nav-link-hover {
     color: #44c8b5;
     text-decoration: none;
