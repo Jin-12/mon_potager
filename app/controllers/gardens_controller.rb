@@ -11,7 +11,7 @@ class GardensController < ApplicationController
     end
 
     def edit
-        @garden = Garden.find_by(user_id: current_session.id)
+        @garden = Garden.find_by(user_id: current_user.id)
     end
 
     def destroy
