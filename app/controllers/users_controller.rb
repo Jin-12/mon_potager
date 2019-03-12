@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     def show
       @user = User.find(params[:id].to_i)
       @status = Status.where(user_id: @user.id)
-      @garden = Garden.find_by(user_id)
+      @garden = Garden.find_by(user_id: @user.id)
       @products = @garden.products
     end
 
