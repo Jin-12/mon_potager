@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :gardens
   has_many :favorites
+  has_many :statuses
   has_many :gardens, through: :favorites
 
   validates :description, length: { in: 6..100 }, allow_nil: true 
