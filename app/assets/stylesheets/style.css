@@ -1,12 +1,24 @@
 .footer {
-  height: 100px;
+  height: 80px;
   background-color: #44c8b5;
-  margin-top: 400px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  }
+
+.footer-container {
+  padding-left:20px;
+  display:flex;
+  align-content: space-between;
 }
 
 html, body {
   margin: 0;
-}
+  }
 
 .connexion-info {
    color: #44c8b5;
@@ -78,25 +90,46 @@ h2{
   color: #44c8b5
 }
 
-.reverse-logo {
-  display:flex;
-  align-content:left;
-}
-
-.footer .container {
-     margin:none;
-}
-
 input[type=text] {
   border: none;
 }
 
 .form-row {
   margin: auto;
-  margin-top: 5px;
+  margin-top: 10px;
   width: 90%;
   display: flex;
   justify-content: space-around;
+  padding-top:4px;
+  padding-bottom:4px;
+}
+
+.links {
+text-decoration: none;
+color:white;
+}
+
+ul {
+  list-style-type: none;
+  vertical-align:center;
+ }
+
+li {
+  font-size:0.8em;
+  padding-left:50px;
+  line-height: 1.3em;
+  padding-top:5px;
+}
+
+.fab, .far {
+  color:white;
+  font-size:2em;
+  padding:10px;
+}
+
+.social-media {
+  text-align:right;
+  padding-right:30px;
 }
 
 
