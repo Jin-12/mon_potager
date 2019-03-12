@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :favorites 
   resources :status
 
-  root 'gardens#index'
+  root :to => "gardens#index"
 end
