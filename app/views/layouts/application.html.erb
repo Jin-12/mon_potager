@@ -2,12 +2,16 @@
 <html>
   <head>
     <title>MonPotager</title>
+
+    <%= render 'layouts/navbar' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <%= stylesheet_link_tag "style" %>
+  
+    </head>
 
   <body>
   <% if notice %>
@@ -17,5 +21,6 @@
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
     <%= yield %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
