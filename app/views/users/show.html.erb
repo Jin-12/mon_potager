@@ -1,15 +1,17 @@
 <center>
-<div class="main_show_user">
-	<div class="show_user_head">
+<div class="main">
+	<div class="show_user_head main">
 <% provide(:title, "Profil utilisateur") %>
 
-<p class="profil-titre">Ma page de profil</p>
+<p class="titre-dark">Ma page de profil</p>
 <p> <%= @user.email %></p>
+</div>
+<div class="presentation">
+<p class="title-dark">Présentation</p>	
+</div>
 
 <%= link_to "Editer", edit_user_registration_path, class:"btn btn-primary" %>
-
 <%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class:"btn btn-primary" %>
-	</div>
 <br><br>
 </div>
 <center>
