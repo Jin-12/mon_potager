@@ -7,4 +7,7 @@ class Garden < ApplicationRecord
     validates :name, length: { in: 5..100 }
 
     has_many_attached :images
+
+    geocoded_by :adress
+    after_validation :geocode
 end
