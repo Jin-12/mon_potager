@@ -9,4 +9,5 @@ class User < ApplicationRecord
 
   validates :description, length: { in: 6..100 }, allow_nil: true 
   validates :age, numericality: true, allow_nil: true
+  has_one_attached :avatar
 end

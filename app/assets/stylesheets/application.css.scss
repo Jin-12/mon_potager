@@ -1,0 +1,94 @@
+ @import 'bootstrap';
+ @import 'gardens.css.scss';
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont,
+  'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+  'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  font-size: 20px;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.3
+}
+
+h1 {
+  color: #44c8b5;
+  font-family: HelveticaNeue-Bold;
+  font-size: 50px;
+  color: #44C8B5;
+  letter-spacing: 1.2px;
+}
+
+h2 {
+  font-family: HelveticaNeue-Bold;
+  font-size: 24px;
+  color: #44C8B5;
+  letter-spacing: 0.5px;
+}
+
+p {
+  font-family: HelveticaNeue-Light;
+  font-size: 18px;
+  color: #515151;
+  letter-spacing: 0.5px;
+  line-height: 30px;
+}
+
+.titre-dark {
+  font-family: HelveticaNeue-Medium;
+  font-size: 28px;
+  color: #3F3F3F;
+  letter-spacing: 0.5px;
+  line-height: 35px;
+}
+
+.para-strong {
+  font-family: HelveticaNeue-Medium;
+  font-size: 20px;
+  color: #3F3F3F;
+  letter-spacing: 0.5px;
+}
+
+
+/* FOOTER */
+
+  a {
+    text-decoration: none;
+  }
+  
+  .container_ui{
+    margin: 50px 40px 100px;
+  }
+  
+  .nav-link-hover {
+    color: #44c8b5;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  #footer {
+    height: 150px;
+    background-color: black;
+}
+
+html, body {
+    height: 100;
+    margin: 0;
+  }
+
+.connexion-info {
+    display: flex;
+    color: #44c8b5;
+}
+
+.nav-connexion {
+    margin: 15px;
+}
+
+.nav-research {
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    box-shadow: 0 5px 10px 3px rgba(194,194,194,0.50);
+    border-radius: 16px;
+}

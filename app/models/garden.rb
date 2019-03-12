@@ -5,4 +5,6 @@ class Garden < ApplicationRecord
     has_many :favorites
     has_many :users, through: :favorites
     validates :name, length: { in: 5..100 }
+
+    has_many_attached :images
 end

@@ -13,4 +13,5 @@ class GardensController < ApplicationController
 
     def destroy
     end
+
 end
