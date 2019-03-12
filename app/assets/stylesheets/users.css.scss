@@ -1,0 +1,44 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main {
+  background: #FFFFFF;
+  box-shadow: 0 4px 10px 1px rgba(203,203,203,0.50);
+  border-radius: 6px 6px 0 6px 6px;
+  border: 2px black solid;
+  margin: 10px 25px 10px 25px;
+}
+
+.container {
+  background: #FFFFFF;
+  box-shadow: 0 4px 10px 1px rgba(203,203,203,0.50);
+  border-radius: 6px 6px 0 6px 6px;
+  border: 2px red solid;
+  margin: 10px 25px 10px 25px;
+  padding: 10px 10px 10px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.presentation {
+  background: red;
+  box-shadow: 0 4px 10px 1px rgba(203,203,203,0.50);
+  border-radius: 6px 6px 0 6px 6px;
+  border: 2px black solid;
+  width: 50%;
+  margin: 10px 0px 10px 0px;
+  padding: 10px 10px 10px 10px;
+  display: flex;
+  align-self: start;
+}
+.contact {
+  background: red;
+  box-shadow: 0 4px 10px 1px rgba(203,203,203,0.50);
+  border-radius: 6px 6px 0 6px 6px;
+  border: 2px black solid;
+  width: 50%;
+  margin: 10px 0px 10px 0px;
+  padding: 10px 10px 10px 10px;
+  display: flex;
+  align-self: end;
+}

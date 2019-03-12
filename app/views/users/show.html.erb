@@ -1,0 +1,22 @@
+<center>
+	<div class="main">
+		<div class="show_user_head main">
+			<% provide(:title, "Profil utilisateur") %>
+
+				<p class="titre-dark">Ma page de profil</p>
+				<p>
+					<%= @user.email %></p>
+			</div>
+			<div class="container">
+				<div class="presentation">
+					<p class="title-dark">Présentation</p>
+				</div>
+				<div class="contact">
+					<p class="title-dark">Contact</p>
+				</div>
+			</div>
+			<%= link_to "Editer", edit_user_registration_path, class:"btn btn-primary" %>
+			<%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class:"btn btn-primary" %>
+			<br><br>
+		</div>
+		<center>

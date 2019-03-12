@@ -1,5 +1,6 @@
  @import 'bootstrap';
  @import 'gardens.css.scss';
+ @import 'users.css.scss';
 
 
 body {
@@ -58,11 +59,11 @@ p {
   a {
     text-decoration: none;
   }
-  
+
   .container_ui{
     margin: 50px 40px 100px;
   }
-  
+
   .nav-link-hover {
     color: #44c8b5;
     text-decoration: none;
