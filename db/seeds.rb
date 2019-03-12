@@ -7,13 +7,15 @@ User.create(email: "oliv@oliv.com", age: 21, description: "une force tranquille"
 
 Status.create(user_id: 1, content: "Ca s'affiche?")
 Status.create(user_id: 2, content: "Mais oui tu t'affiches")
-Status.create(user_id: 3, content: "Arretez de vous affichez")
+Status.create(user_id: 3, content: "Arretez de vous afficher")
 
-Garden.create(name: "Kikotager", adress: "17 rue pierre Fosses Paris", user_id: 1)
+Garden.create(name: "Kikotager", adress: "17 rue pierre Loup Paris", user_id: 1)
 Garden.create(name: "Porte des lilas", adress: "17 rue pierre Fosses Paris", user_id: 2)
 Garden.create(name: "Nation Potager", adress: "17 rue pierre Fosses Paris", user_id: 3)
-Garden.create(name: "94ger", adress: "17 rue pierre Fosses Paris", user_id: 4)
-Garden.create(name: "Opotager", adress: "17 rue pierre Fosses Paris", user_id: 5)
+Garden.create(name: "94G", adress: "17 rue pierre Fosses Paris", user_id: 4)
+Garden.create(name: "Opotager", adress: "17 rue pierre Fosses Paris", user_id: 6)
+Garden.create(name: "Potamille", adress: "17 rue pierre Fosses Paris", user_id: 6)
+
 
 Product.create(name: "Tomates")
 Product.create(name: "Patates")

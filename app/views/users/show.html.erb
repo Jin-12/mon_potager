@@ -1,22 +1,30 @@
 <center>
-	<div class="main">
-		<div class="show_user_head main">
+<%= stylesheet_link_tag "users" %>
+
+	<div class="main col-lg-10">
+		<div class="show_user_head border-15 main col-lg-4">
 			<% provide(:title, "Profil utilisateur") %>
 
-				<p class="titre-dark">Ma page de profil</p>
+				<p class="titre-dark"> <%= @user.first_name %> <%= @user.last_name %></p>
 				<p>
-					<%= @user.email %></p>
+					<%= @user.age %></p>
 			</div>
-			<div class="container">
-				<div class="presentation">
-					<p class="title-dark">Présentation</p>
+			<div class="container col-lg-10">
+				<div class="presentation border-15 col-lg-5">
+ 					 <div class="card-body">
+ 					   <h2>Présentation</h2>
+ 					   <p class="card-text"><%= @user.description %></p>
+ 					</div>
 				</div>
-				<div class="contact">
-					<p class="title-dark">Contact</p>
+				<div class="contact border-15 col-lg-5">
+ 					 <div class="card-body">
+ 					   <h2>Contact</h2>
+ 					   <p class="card-text"><%= @user.email %></p>
+ 					</div>
 				</div>
 			</div>
 			<%= link_to "Editer", edit_user_registration_path, class:"btn btn-primary" %>
 			<%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class:"btn btn-primary" %>
 			<br><br>
 		</div>
-		<center>
+	<center>
