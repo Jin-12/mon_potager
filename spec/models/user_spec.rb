@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
 	  	it { is_expected.to be_a(User) }
 	  	it { expect(test_user.first_name).to eq('Urbain') }
 	  	it { expect(test_user.last_name).to eq('Test') }
-	  	it { expect(test_user.age).to eq(22) }
+	  	it { expect(test_user.birthdate).to eq(Date.new(1997, 3, 13)) }
 	  	it { expect(test_user.email).to eq('urbain@example.org') }
 	  	it { expect(test_user.description).to eq('For 3 years known as "Holy Cucumber", so big, so good') }
 	  	it { expect(test_user.password).to eq('password') }
@@ -25,7 +25,7 @@ RSpec.describe User, type: :model do
 	  	it { is_expected.to be_a(User) }
 	  	it { expect(test_user.first_name).to be_a(String) }
 	  	it { expect(test_user.last_name).to be_a(String) }
-	  	it { expect(test_user.age).to be_a(Integer) }
+	  	it { expect(test_user.birthdate).to be_a(Date) }
 	  	it { expect(test_user.email).to match /\A#{test_user.first_name}@\w+\.\w+/i }
 	  	it { expect(test_user.description).to be_a(String) }
 	  	it { expect(test_user.password).to eq(test_user.password_confirmation) }
@@ -89,7 +89,7 @@ RSpec.describe User, type: :model do
 	  	it { is_expected.to be_a(User) }
 	  	it { expect(test_user.first_name).to eq(nil) }
 	  	it { expect(test_user.last_name).to eq(nil) }
-	  	it { expect(test_user.age).to eq(nil) }
+	  	it { expect(test_user.birthdate).to eq(nil) }
 	  	it { expect(test_user.email).to match /\A\w+@\w+\.\w+/i }
 	  	it { expect(test_user.description).to eq(nil) }
 	  	it { expect(test_user.password).to eq(test_user.password_confirmation) }

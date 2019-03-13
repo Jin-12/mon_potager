@@ -4,5 +4,5 @@ class Garden < ApplicationRecord
     has_many :comments
     has_many :favorites, as: :favoritable
 
-    validate :name, length: { in: 5..150 }
+    validates :name, length: { in: 5..150 }
 end

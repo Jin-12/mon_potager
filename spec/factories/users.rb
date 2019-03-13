@@ -9,7 +9,7 @@ FactoryBot.define do
 		rand_password = Faker::Internet.password(10, 20, true)
 		first_name { Faker::Name.first_name }
 		last_name { Faker::Name.last_name }
-		age { 18 + rand(100) }
+		birthdate { rand(Date.new(1900, 1, 1)..Date.today) }
 		email { Faker::Internet.unique.safe_email(first_name) }
 		description { Faker::Quote.most_interesting_man_in_the_world }
 		password { rand_password }
@@ -19,7 +19,7 @@ FactoryBot.define do
 			if options.constant
 				user.first_name = 'Urbain'
 				user.last_name = 'Test'
-				user.age = 22
+				user.birthdate = Date.new(1997, 3, 13)
 				user.email = "#{user.first_name.downcase}@example.org"
 				user.description = 'For 3 years known as "Holy Cucumber", so big, so good'
 				user.password = 'password'
@@ -33,7 +33,7 @@ FactoryBot.define do
 				user.email { Faker::Internet.unique.safe_email(user.first_name) }
 				user.first_name = nil
 				user.last_name = nil
-				user.age = nil
+				user.birthdate = nil
 				user.description = nil
 				user.password { rand_password }
 				user.password_confirmation { rand_password }

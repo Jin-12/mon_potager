@@ -8,19 +8,19 @@ class User < ApplicationRecord
   has_many :statuses
 
   validates :description, length: { in: 6..1000 }, allow_nil: true 
-  validate :is_date, :is_past
+  # validate :is_date, :is_past
 
-  private
+  # private
 
-  def is_date
-    if birthdate.is_a?(Date)
-      errors.add(:birthdate, "Must be a Date class variable")
-    end
-  end
+  # def is_date
+  #   if birthdate.is_a?(Date)
+  #     errors.add(:birthdate, "Must be a Date class variable")
+  #   end
+  # end
 
-  def is_past
-    if birthdate < Date.today
-      errors.add(:birthdate, "Must be in the past")
-    end
-  end
+  # def is_past
+  #   if birthdate < Date.today
+  #     errors.add(:birthdate, "Must be in the past")
+  #   end
+  # end
 end

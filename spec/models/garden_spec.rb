@@ -9,7 +9,7 @@ RSpec.describe Garden, type: :model do
 
 	  	it { is_expected.to be_a(Garden) }
 	  	it { expect(test_garden.name).to eq('Kikotager') }
-	  	it { expect(test_garden.users[0]).to eq(FactoryBot.build(:user, constant: true)) }
+	  	it { expect(test_garden.user).to equal(FactoryBot.build(:user, constant: true)) }
 	  	# it { expect(test_user.age).to eq(22) }
 	  	# it { expect(test_user.email).to eq('urbain@example.org') }
 	  	# it { expect(test_user.description).to eq('For 3 years known as "Holy Cucumber", so big, so good') }
