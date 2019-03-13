@@ -51,7 +51,7 @@ class GardensController < ApplicationController
       @products = @garden.products
       @garden.update(name: params[:gardenname], adress: params[:adress])
       @products.update(name: params[:productname])
-      redirect_to root_path
+      redirect_to (garden_path(@garden))
     end
 
     def destroy
