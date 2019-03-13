@@ -1,7 +1,7 @@
 class GardensController < ApplicationController
     def index
         puts '#' * 60
-        @gardens = Garden.all
+        @gardens = Garden.where(["name LIKE ?","%#{params[:search]}%"])
         puts @gardens
         @hash = Gmaps4rails.build_markers(@gardens) do |garden, marker|
             marker.lat garden.latitude
@@ -13,8 +13,6 @@ class GardensController < ApplicationController
                 "height": 32
             })
             marker.infowindow("<em>" + garden.name + "</em> " + garden.id.to_s)
-
-            @research = Garden.where(["name LIKE ?","%#{params[:search]}%"],["adress LIKE ?","%#{params[:search]}%"])
         end
     end
 
