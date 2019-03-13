@@ -9,12 +9,16 @@ Status.create(user_id: 1, content: "Ca s'affiche?")
 Status.create(user_id: 2, content: "Mais oui tu t'affiches")
 Status.create(user_id: 3, content: "Arretez de vous afficher")
 
-Garden.create(name: "Kikotager", adress: "17 rue pierre Loup Paris", user_id: 1)
-Garden.create(name: "Porte des lilas", adress: "17 rue pierre Fosses Paris", user_id: 2)
-Garden.create(name: "Nation Potager", adress: "17 rue pierre Fosses Paris", user_id: 3)
-Garden.create(name: "94G", adress: "17 rue pierre Fosses Paris", user_id: 4)
-Garden.create(name: "Opotager", adress: "17 rue pierre Fosses Paris", user_id: 6)
-Garden.create(name: "Potamille", adress: "17 rue pierre Fosses Paris", user_id: 6)
+Garden.create(name: "Kikotager",
+              adress: "15, avenue Secrétan Paris",
+              user_id: 1,
+              latitude: 48.882132,
+              longitude: 2.3696279)
+Garden.create(name: "Porte des lilas", adress: "Porte de Lilas, Paris", user_id: 2, latitude: 48.8765823, longitude: 2.4047709)
+Garden.create(name: "Nation Potager", adress: "Place de la Nation, Paris", user_id: 3, latitude: 48.8483995, longitude: 2.3937312)
+Garden.create(name: "94ger", adress: "Opéra Bastille, Paris", user_id: 4, latitude: 48.8517628, longitude: 2.3684249)
+Garden.create(name: "Opotager", adress: "Rue des 3 Frères, Paris", user_id: 5, latitude: 48.88434, longitude: 2.3395218)
+Garden.create(name: "Potamille", adress: "17 rue pierre Fosses Paris", user_id: 6, latitude: 48.8617628, longitude: 2.3884249)
 
 
 Product.create(name: "Tomates")
