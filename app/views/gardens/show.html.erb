@@ -14,22 +14,22 @@
 
 					<div id="cerclejaune"></div>
 					<p class="para-strong"><%= "Pas de status pour ce jardin." %></p>
-			
+
 
 				<% else %>
-				
+
 				<div class="status-user">
-		
+
 					<div id="cercle"></div>
-					<p class="para-strong status-content"><%= @status.content %></p> 
-				
+					<p class="para-strong status-content"><%= @status.content %></p>
+
 				</div>
-				
+
 				<div class="howmanydays">
 					<% if @how_many_days == 0 %>
-					
+
 					<p class="para-small">Aujourd'hui</p>
-					
+
 					<% else %>
 
 					<p class="para-small">Il y a <%= @how_many_days %> jours</p>
@@ -38,7 +38,7 @@
 					<% end %>
 				</div>
 		</div> <!-- fin de div div-status -->
-	
+
 		<div><%= image_tag("tomato.jpg", :alt => "", class:'img-fluid slider-photos') %></div>
 
 		<div class="products-garden">
@@ -88,8 +88,9 @@
 			<p class="para-strong">Contact</p>
 			<p><i class="far fa-envelope-open"></i> <%= @user.email %></p>
 		</div>
-		
+
 		<button class="btn-yeah2">Envoyer un message</button>
+		<%=link_to "Edit ton potager", edit_garden_path(@garden), class:"btn btn-primary my-2"%>
 	</div> <!-- fin de div gardenshow-2 -->
 
 
