@@ -13,9 +13,8 @@
 				<div class="status-user">
 
 					<div id="cerclejaune"></div>
-					<p class="para-strong"><%= "Pas de status pour ce jardinier." %></p>
+					<p class="para-strong"><%= "Pas de status pour ce jardin." %></p>
 			
-				</div>
 
 				<% else %>
 				
@@ -30,9 +29,11 @@
 					<% if @how_many_days == 0 %>
 					
 					<p class="para-small">Aujourd'hui</p>
+					
 					<% else %>
 
 					<p class="para-small">Il y a <%= @how_many_days %> jours</p>
+
 					<% end %>
 					<% end %>
 				</div>
@@ -67,13 +68,29 @@
 			
 		</div> <!-- fin de div map-garden -->
 
-		<button class="btn-yeah">Ajouter aux favoris</button>
+		<button class="btn-yeah2">Ajouter aux favoris</button>
 
 
 	</div> <!-- fin de div gardenshow-1 -->
 
 
 	<div class="col-lg-5 gardenshow-2">
+		<div class="name-usergarden">
+			<p class="titre-dark"><%= @user.first_name %> <%= @user.last_name %></p>
+			<p class="interlign-name"><%= @garden.adress %></p>
+		</div>
+
+		<div class="description-usergarden">
+			<p class="para-strong">Présentation</p>
+			<p><%= @user.description %></p>
+		</div>
+
+		<div class="description-usergarden">
+			<p class="para-strong">Contact</p>
+			<p><i class="far fa-envelope-open"></i> <%= @user.email %></p>
+		</div>
+		
+		<button class="btn-yeah2">Envoyer un message</button>
 	</div> <!-- fin de div gardenshow-2 -->
 
 
