@@ -1,9 +1,7 @@
 require 'rails_helper'
 
-# @user = FactoryBot.create(:user)
-
 RSpec.describe User, type: :model do
-	describe '.create' do
+	describe 'User factory' do
 
 	  context 'with constant attributes' do
 	  	test_user = FactoryBot.build(:user, constant: true)
@@ -32,7 +30,9 @@ RSpec.describe User, type: :model do
 	  	it { expect(test_user.description).to be_a(String) }
 	  	it { expect(test_user.password).to eq(test_user.password_confirmation) }
 	  end
+	end
 
+	describe '.create' do
 	  context 'with taken email' do
 	  	test_email = Faker::Internet.safe_email
 	  	user = FactoryBot.create(:user, email: test_email)
@@ -96,10 +96,9 @@ RSpec.describe User, type: :model do
 	  end
 	end
 
-	describe 'associations' do
-	  	test_user = FactoryBot.create(:user)
-		it { expect(test_user).to have_many(:gardens) }
-		it { expect(test_user).to have_many(:favorites) }
-		it { expect(test_user).to have_many(:statuses) }
+	context 'associations' do
+		it { is_expected.to have_many(:gardens) }
+		it { is_expected.to have_many(:favorites) }
+		it { is_expected.to have_many(:statuses) }
 	end
 end

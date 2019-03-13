@@ -1,8 +1,8 @@
 class Garden < ApplicationRecord
     belongs_to :user
-    has_many :harvests
-    has_many :products, through: :harvests
-    has_many :favorites
-    has_many :users, through: :favorites
-    validates :name, length: { in: 5..100 }
+    has_many :products
+    has_many :comments
+    has_many :favorites, as: :favoritable
+
+    validate :name, length: { in: 5..150 }
 end

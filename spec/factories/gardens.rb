@@ -1,26 +1,19 @@
 FactoryBot.define do
 
-	# factory :user do
-	# 	transient do
-	# 		custom_first_name { 'Friendly' }
-	# 		custom_last_name { 'Test' }
-	# 		custom_age { nil }
-	# 		is_admin { false }
-	# 		custom_password { 'password' }
-	# 		custom_password_confirmation { 'password' }
-	# 	end
+	factory :garden do
+		transient do
+			constant { false }
+		end
 
-	# 	first_name { custom_first_name }
-	# 	last_name { custom_last_name }
-	# 	age { custom_age }
-	# 	email { Faker::Internet.email(custom_first_name) }
-	# 	description { Faker::Quote.most_interesting_man_in_the_world }
-	# 	password { custom_password }
-	# 	password_confirmation { custom_password_confirmation }
+		name { Faker::Nation.capital_city }
+		user { FactoryBot.create(:user) }
 
-	# 	after(:create) do |user, evaluator|
-	# 		user.statuses << 'admin' if evaluator.is_admin
-	# 	end
-	# end
+		after :build do |garden, options|
+			if options.constant
+				garden.name = 'Kikotager'
+				garden.user = FactoryBot.build(:user, constant: true)
+			end
+		end
+	end
 
 end
