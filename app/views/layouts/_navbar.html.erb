@@ -2,22 +2,27 @@
 
   <div ><%= link_to(image_tag('logo', width:200))  %> </div>
      <div class="connexion-info">
-        <div class="nav-connexion"> Créer mon potager </div>
+        <div class="nav-create"> Créer mon potager </div>
         <div class="nav-connexion"> Me connecter </div>
       </div>
 </nav>
 
 <form class="nav-research">
-  <div class="form-row">
-    <div class="col-4">
+  <div class="form-row"> 
+  <div ><i class="fa fa-search" aria-hidden="true"></i>
+</div>
+    <div class="col-3">
       <input type="text" class="form-control" placeholder="Rechercher">
     </div>
+    <div ><i class="fas fa-map-marker-alt"></i></div>
     <div class="col-3">
       <input type="text" class="form-control" placeholder="Où ?">
     </div>
+    <div><i class="fas fa-carrot"></i></div>
     <div class="col-3">
       <input type="text" class="form-control" placeholder="Quoi ?">
-    </div>
+      </div>
+   </div>
   </div>
 </form>
 
