@@ -2,34 +2,41 @@ FactoryBot.define do
 
 	factory :user do
 		transient do
-			fakered { false }
-			# is_admin { false }
+			constant { false }
+			empty_profile { false }
 		end
 
-		# trait :admin do
-		# 	after(:create) do |user, evaluator|
-		# 		FactoryBot.create(:status, content: 'admin', user: user)
-		# 	end
-		# end
+		rand_password = Faker::Internet.password(10, 20, true)
+		first_name { Faker::Name.first_name }
+		last_name { Faker::Name.last_name }
+		age { 18 + rand(100) }
+		email { Faker::Internet.unique.safe_email(first_name) }
+		description { Faker::Quote.most_interesting_man_in_the_world }
+		password { rand_password }
+		password_confirmation { rand_password }
 
-		first_name { 'Urbain' }
-		last_name { 'Test' }
-		age { 22 }
-		email { "#{first_name.downcase}@example.org" }
-		description { 'For 3 years known as "Holy Cucumber", so big, so good' }
-		password { 'password' }
-		password_confirmation { 'password' }
+		after :build do |user, options|
+			if options.constant
+				user.first_name = 'Urbain'
+				user.last_name = 'Test'
+				user.age = 22
+				user.email = "#{user.first_name.downcase}@example.org"
+				user.description = 'For 3 years known as "Holy Cucumber", so big, so good'
+				user.password = 'password'
+				user.password_confirmation = 'password'
+			end
+		end
 
 		after :create do |user, options|
-			if options.fakered
+			if options.empty_profile
 				rand_password = Faker::Internet.password(10, 20, true)
-				first_name { Faker::Name.first_name }
-				last_name { Faker::Name.last_name }
-				age { 18 + rand(0, 100) }
-				email { Faker::Internet.safe_email(first_name) }
-				description { Faker::Quote.most_interesting_man_in_the_world }
-				password { rand_password }
-				password_confirmation { rand_password }
+				user.email { Faker::Internet.unique.safe_email(user.first_name) }
+				user.first_name = nil
+				user.last_name = nil
+				user.age = nil
+				user.description = nil
+				user.password { rand_password }
+				user.password_confirmation { rand_password }
 			end
 		end
 	end

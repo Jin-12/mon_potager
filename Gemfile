@@ -47,6 +47,8 @@ group :development do
 end
 
 group :test do
+  gem 'shoulda-matchers'
+  gem 'rails-controller-testing'
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
