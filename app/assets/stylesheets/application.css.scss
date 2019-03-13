@@ -93,11 +93,8 @@ p {
   }
 
   .footer {
-    height: 80px;
+    height: 100px;
     background-color: #44c8b5;
-    position: fixed;
-    left: 0;
-    bottom: 0;
     width: 100%;
     display:flex;
     flex-direction: column;
@@ -111,8 +108,8 @@ p {
     }
 
 html, body {
-    height: 100;
-    margin: 0;
+    height: 100%;
+    // margin: 0;
   }
 
   .connexion-info {
@@ -236,6 +233,10 @@ a:hover {
   padding-top:10px;
   font-size:1.5em;
   padding-bottom:15px;
+}
+
+.container-form .card {
+  padding:50px;
 }
 
 label {
