@@ -1,18 +1,16 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <div class="container">
   <div class="row" style='width:100%'>
     <div class="col">
       <ul class="list-group">
         <% @gardens.each do |garden| %>
-        <li class="list-item">
+        <li class="list-group-item">
           <%= garden.name %>
         </li>
         <% end %>
       </ul>
     </div>
     <div class="col">
-      <%= render 'map' %>
+      <%= render 'map_for_index' %>
     </div>
   </div>
-
 </div>
