@@ -7,40 +7,39 @@ RSpec.describe Garden, type: :model do
 	  	test_garden = FactoryBot.build(:garden, constant: true)
 	  	subject(:garden) { test_garden }
 
+			it { is_expected.to be_valid }
 	  	it { is_expected.to be_a(Garden) }
 	  	it { expect(test_garden.name).to eq('Kikotager') }
-	  	it { expect(test_garden.user).to equal(FactoryBot.build(:user, constant: true)) }
-	  	# it { expect(test_user.age).to eq(22) }
-	  	# it { expect(test_user.email).to eq('urbain@example.org') }
-	  	# it { expect(test_user.description).to eq('For 3 years known as "Holy Cucumber", so big, so good') }
-	  	# it { expect(test_user.password).to eq('password') }
-	  	# it { expect(test_user.password_confirmation).to eq('password') }
+	  	it { expect(test_garden.user).to be_valid }
+	  	it { expect(test_garden.user).to be_a(User) }
+	  end
+
+	  context "with Faker's attributes" do
+	  	test_garden = FactoryBot.build(:garden)
+	  	subject(:garden) { test_garden }
+
+			it { is_expected.to be_valid }
+	  	it { is_expected.to be_a(Garden) }
+	  	it { expect(test_garden.name).to be_a(String) }
+	  	it { expect(test_garden.user).to be_valid }
+	  	it { expect(test_garden.user).to be_a(User) }
+	  end
+
+	  context "with invalid name" do
+			test_garden = FactoryBot.build(:garden, name: 3)
+	  	it { expect(test_user).to_not be_valid }
+			test_garden = FactoryBot.build(:garden, name: 'eoe')
+	  	it { expect(test_user).to_not be_valid }
+			test_garden = FactoryBot.build(:garden)
+	  	it { expect(test_user).to_not be_valid }
+			test_garden = FactoryBot.build(:garden)
+	  	it { expect(test_user).to_not be_valid }
+			test_garden = FactoryBot.build(:garden)
+	  	it { expect(test_user).to_not be_valid }
 	  end
 	end
 end
 
-# 	  context "with Faker's attributes" do
-# 	  	test_user = FactoryBot.create(:user)
-# 	  	subject(:user) { test_user }
-
-# 	  	it { is_expected.to be_valid }
-# 	  	it { is_expected.to be_a(User) }
-# 	  	it { expect(test_user.first_name).to be_a(String) }
-# 	  	it { expect(test_user.last_name).to be_a(String) }
-# 	  	it { expect(test_user.age).to be_a(Integer) }
-# 	  	it { expect(test_user.email).to match /\A#{test_user.first_name}@\w+\.\w+/i }
-# 	  	it { expect(test_user.description).to be_a(String) }
-# 	  	it { expect(test_user.password).to eq(test_user.password_confirmation) }
-# 	  end
-
-# 	  context 'with taken email' do
-# 	  	test_email = Faker::Internet.safe_email
-# 	  	user = FactoryBot.create(:user, email: test_email)
-# 	  	test_user = FactoryBot.build(:user, email: test_email)
-
-# 	  	it { expect(user).to be_valid }
-# 	  	it { expect(test_user).to_not be_valid }
-# 	  end
 
 # 	  context 'with invalid email' do
 # 	  	test_user = FactoryBot.build(:user, email: 'lucie@example.')

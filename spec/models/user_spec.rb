@@ -7,6 +7,7 @@ RSpec.describe User, type: :model do
 	  	test_user = FactoryBot.build(:user, constant: true)
 	  	subject(:user) { test_user }
 
+			it { is_expected.to be_valid }
 	  	it { is_expected.to be_a(User) }
 	  	it { expect(test_user.first_name).to eq('Urbain') }
 	  	it { expect(test_user.last_name).to eq('Test') }
