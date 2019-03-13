@@ -13,6 +13,8 @@ class GardensController < ApplicationController
                 "height": 32
             })
             marker.infowindow("<em>" + garden.name + "</em> " + garden.id.to_s)
+
+            @research = Garden.where(["name LIKE ?","%#{params[:search]}%"],["adress LIKE ?","%#{params[:search]}%"])
         end
     end
 
