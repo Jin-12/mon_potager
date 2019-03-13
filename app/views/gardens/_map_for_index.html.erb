@@ -1,0 +1,11 @@
+<div class="map" id="GardenMap" style="width:600px;height:400px;">
+</div>
+<%= link_to 'Voir la fiche', garden_path(1) %>
+<script>
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'GardenMap'}}, function(){
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+</script>

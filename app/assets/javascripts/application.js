@@ -15,5 +15,7 @@
 //= require bootstrap
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+//= require underscore
+//= require gmaps/google
+//  DELETED require turbolinks
 //= require_tree .

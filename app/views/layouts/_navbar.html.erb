@@ -1,11 +1,19 @@
-
-
 <nav class="navbar">
 
-  <div ><%= link_to(image_tag('logo', width:350))  %> </div>
+  <div ><%= link_to(image_tag('logo', width:200))  %> </div>
      <div class="connexion-info">
-        <div class="nav-create"> Créer mon potager </div>
-        <div class="nav-connexion"> Me connecter </div>
+        <% if user_signed_in?  %>
+          <li class="nav-item">
+            <%= link_to "Deconnexion",destroy_user_session_path, method: :delete, class: "nav-create noHover" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Me connecter", user_session_path, class: "nav-connexion noHover" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Creer mon potager", new_user_registration_path, class: "nav-create noHover" %>
+          </li>
+          <% end %>
       </div>
 </nav>
 
