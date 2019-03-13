@@ -27,15 +27,9 @@ RSpec.describe Garden, type: :model do
 
 	  context "with invalid name" do
 			test_garden = FactoryBot.build(:garden, name: 3)
-	  	it { expect(test_user).to_not be_valid }
+	  	it { expect(test_garden).to_not be_valid }
 			test_garden = FactoryBot.build(:garden, name: 'eoe')
-	  	it { expect(test_user).to_not be_valid }
-			test_garden = FactoryBot.build(:garden)
-	  	it { expect(test_user).to_not be_valid }
-			test_garden = FactoryBot.build(:garden)
-	  	it { expect(test_user).to_not be_valid }
-			test_garden = FactoryBot.build(:garden)
-	  	it { expect(test_user).to_not be_valid }
+	  	it { expect(test_garden).to_not be_valid }
 	  end
 	end
 end

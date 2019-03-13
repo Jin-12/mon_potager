@@ -1,0 +1,23 @@
+<div class="container col-md-8 order-md-1">
+  <div class="form-group"><br><br>
+    <h3>
+      Créé ton potager !
+    </h3>
+    <br/>
+    <%=form_tag url_for(action: 'create'), method: "post" do %>
+    <%= label_tag 'Nom de ton potager' %>
+    <%= text_field_tag 'gardenname', @gardenname, class:'form-control' %>
+    <br/>
+
+    <%= label_tag 'Adresse de ton potager' %>
+    <%= text_field_tag 'adress', @adress, class:'form-control' %>
+    <br/>
+
+    <%= label_tag 'Tes Récoltes' %>
+    <%= text_field_tag 'productname', @productname, class:'form-control' %>
+    <br/>
+
+    <%= submit_tag "Confirmer la modification", class:"btn btn-light" %>
+  <% end %>
+
+</div>

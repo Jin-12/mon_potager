@@ -139,8 +139,10 @@ GEM
     ffi (1.10.0)
     font-awesome-rails (4.7.0.4)
       railties (>= 3.2, < 6.0)
+    geocoder (1.5.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gmaps4rails (2.1.2)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
@@ -172,7 +174,7 @@ GEM
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
-    msgpack (1.2.8)
+    msgpack (1.2.7)
     multi_json (1.13.1)
     multipart-post (2.0.0)
     net-http-persistent (3.0.0)
@@ -317,6 +319,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
+    underscore-rails (1.8.3)
     unicode-display_width (1.4.1)
     unicode_utils (1.4.0)
     warden (1.2.8)
@@ -351,6 +354,8 @@ DEPENDENCIES
   factory_bot_rails
   faker!
   font-awesome-rails
+  geocoder
+  gmaps4rails
   jbuilder (~> 2.5)
   jquery-rails
   letter_opener
@@ -372,6 +377,7 @@ DEPENDENCIES
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
+  underscore-rails
   web-console (>= 3.3.0)
 
 RUBY VERSION

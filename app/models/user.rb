@@ -23,4 +23,6 @@ class User < ApplicationRecord
   #     errors.add(:birthdate, "Must be in the past")
   #   end
   # end
+
+  has_one_attached :avatar
 end
