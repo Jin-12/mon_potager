@@ -18,6 +18,7 @@ class GenerateMapForIndex
       marker.lat garden.latitude
       marker.lng garden.longitude
       marker.json({title: garden.name})
+      marker.title garden.name
       marker.picture({
           "url": ac.helpers.image_url('carrot.png'),
           "width": 32,
