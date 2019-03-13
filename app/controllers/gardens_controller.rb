@@ -3,7 +3,7 @@ class GardensController < ApplicationController
         puts '#' * 60
         @gardens = Garden.where(["name LIKE ?","%#{params[:search]}%"])
         puts @gardens
-        @hash = GenerateMapForIndex.new(@gardens).perform
+        @hash = GenerateMapForIndex.new(Garden.all).perform
     end
 
     def new
@@ -12,7 +12,7 @@ class GardensController < ApplicationController
     def show
         @garden = Garden.find_by(id: params[:id])
         @user = User.find(@garden.user_id)
-        @hash = GenerateMapForIndex.new([@garden]).perform
+        @hash = GenerateMapForShow.new([@garden]).perform
 
         @products = @garden.products
         @status = Status.find_by(user_id:@garden.user_id)
