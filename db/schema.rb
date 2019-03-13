@@ -37,20 +37,23 @@ ActiveRecord::Schema.define(version: 2019_03_12_155650) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string "commentable_type"
-    t.integer "commentable_id"
+    t.bigint "user_id"
+    t.bigint "garden_id"
     t.text "content"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["garden_id"], name: "index_comments_on_garden_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id"
     t.string "favoritable_type"
-    t.integer "favoritable_id"
-    t.integer "user_id"
+    t.bigint "favoritable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["favoritable_type", "favoritable_id"], name: "index_favorites_on_favoritable_type_and_favoritable_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "gardens", force: :cascade do |t|
@@ -64,24 +67,17 @@ ActiveRecord::Schema.define(version: 2019_03_12_155650) do
     t.index ["user_id"], name: "index_gardens_on_user_id"
   end
 
-  create_table "harvests", force: :cascade do |t|
-    t.bigint "garden_id"
-    t.bigint "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["garden_id"], name: "index_harvests_on_garden_id"
-    t.index ["product_id"], name: "index_harvests_on_product_id"
-  end
-
   create_table "products", force: :cascade do |t|
+    t.bigint "garden_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["garden_id"], name: "index_products_on_garden_id"
   end
 
   create_table "statuses", force: :cascade do |t|
-    t.text "content"
     t.bigint "user_id"
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_statuses_on_user_id"
@@ -90,7 +86,7 @@ ActiveRecord::Schema.define(version: 2019_03_12_155650) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.integer "age"
+    t.date "birthdate"
     t.text "description"
     t.string "first_name"
     t.string "last_name"
