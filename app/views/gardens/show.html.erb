@@ -4,7 +4,6 @@
 <div class="container col-lg-12">
 
 	<div class="col-lg-7 gardenshow-1">
-
 		<div class="div-status">
 			<div class="flex-title">
 				<h1><%= @garden.name %></h1>
@@ -94,8 +93,21 @@
 		<div class="map-garden">
 			<h2>Sur la carte</h2>
 			<%= render 'map_for_show' %>
+		</div> <!-- fin de div map-garden -->
+
+			<button class="btn-yeah2">Ajouter aux favoris</button>
+			<hr />
+			<div class="near">
+				<h2>Potagers proches</h2>
+				<ul class="list-group">
+					<% @nearby.each do |near| %>
+					<%= link_to near.name, near, class: "list-group-item" %>
+					<% end %>
+				</ul>
+			</div>
 		</div>
-		<!-- fin de div map-garden -->
+	
+		<!-- fin de div gardenshow-1 -->
 
 		<button class="btn-yeah2">Ajouter aux favoris</button>
 
