@@ -87,7 +87,7 @@ button:focus {outline:0;}
 	background: white;
 	box-shadow: 0 4px 10px 1px rgba(203,203,203,0.50);
 	border-radius: 6px 6px 0 6px 6px;
-	height: 800px;
+	height: 500px;
 }
 
 .name-usergarden {
@@ -137,23 +137,8 @@ button:focus {outline:0;}
   background: red;
 }
 
-.btn-file {
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-file input[type=file] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    font-size: 100px;
-    text-align: right;
-    filter: alpha(opacity=0);
-    opacity: 0;
-    outline: none;
-    background: white;
-    cursor: inherit;
-    display: block;
+.flex-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

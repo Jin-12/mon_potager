@@ -1,5 +1,5 @@
 <nav class="navbar">
-  <div ><%= link_to(image_tag('logo', width:220))  %>
+  <div ><%= link_to (image_tag('logo', width:220)), root_path %>
   </div>
   <form class="nav-research col-lg-5">
     <div class="form-row">
@@ -16,6 +16,14 @@
   </form>
   <div class="connexion-info">
     <% if user_signed_in?  %>
+    <% if !current_user.gardens.empty? %>
+    <li><%= link_to 'Voir mon potager', garden_path(current_user), class: "nav-create noHover" %></li>
+    <% else %>
+    <li><%= link_to 'Créer mon potager', new_garden_path, class: "nav-create noHover" %></li>
+    <% end %>
+    <li>
+      <%= link_to "Mon profil", user_path(current_user), class: "nav-create noHover" %>
+    </li>
       <li class="nav-item">
         <%= link_to "Deconnexion",destroy_user_session_path, method: :delete, class: "nav-create noHover" %>
       </li>
