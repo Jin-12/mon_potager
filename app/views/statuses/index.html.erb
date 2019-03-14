@@ -1,21 +1,12 @@
-<h1> Les statuts de <%= @user.first_name %></h1>
+<div class="col">
+  <h1>
+    Les statuts de
+    <%= @user.first_name %></h1>
 
-<% @user.statuses.each do |status| %>
-<p><%= status.content %> </p>
-<p>Posté le <%= status.created_at.to_date %></p>
-<% if @how_many_days.to_i == 1 %>
-  <p class="para-small">Il y a
-    <%= @how_many_days.to_i %>
-    jour</p>
-
-  <% elsif @how_many_days.to_i == 0 %>
-    <p class="para-small">Posté aujourd'hui</p>
-
-  <% else %>
-    <p class="para-small">Il y a
-      <%= @how_many_days.to_i %>
-      jours</p>
+  <% @user.statuses.each do |status| %>
+    <p><%= status.content %></p>
+    <p>Posté le
+      <%= status.created_at.to_date %></p>
+        <br><br><br><br>
   <% end %>
-<% end %>
-<br>
-<% end %>
+</div>

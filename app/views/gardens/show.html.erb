@@ -26,15 +26,16 @@
 					<div class="status-user">
 
 						<div id="cercle"></div>
-						<p class="para-strong status-content"><%= @status.content %><%= link_to 'Nouveau statut', new_user_status_path(@user) %></p>
-
+						<p class="para-strong status-content"><%= @status.content %>
+							<% if current_user == @user %>
+							<%= link_to 'Nouveau statut', new_user_status_path(@user), class:"btn btn-primary" %>
+							<% end %>
+							<%= link_to 'Tous les statuts', user_statuses_path(@user), class:"btn btn-light" %>
 					</div>
 
 					<div class="howmanydays">
 						<% if @how_many_days.to_i == 1 %>
-							<p class="para-small">Il y a
-								<%= @how_many_days.to_i %>
-								jour</p>
+							<p class="para-small">Posté hier</p>
 
 							<% elsif @how_many_days.to_i == 0 %>
 								<p class="para-small">Posté aujourd'hui</p>
