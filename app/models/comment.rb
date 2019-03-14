@@ -1,3 +1,4 @@
 class Comment < ApplicationRecord
-    belongs_to :commentable, polymorphic: true 
+    belongs_to :garden
+    belongs_to :user
 end
