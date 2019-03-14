@@ -55,8 +55,8 @@
 						<i class="fas fa-carrot"></i>
 						Les légumes</p>
 					<div class="legumes-list">
-						<% @harvest.each do |h| %>
-							<p><%= Product.find(h.product_id).name %></p>
+						<% @products.each do |h| %>
+							<p><%= h.name %></p>
 						<% end %>
 					</div>
 				</div>
