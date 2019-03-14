@@ -2,10 +2,7 @@ class GardensController < ApplicationController
     def index
         @gardens = Garden.all
         @hash = GenerateMapForIndex.new(@gardens).perform
-        @search = Garden.search(params[:search])
-        puts Product.where(name: "#{params[:search]}")
-        Product.where(name: "#{params[:search]}").each do |product|
-            @search << Garden.where(id: product.garden_id)
+        @search = Garden.search(params[:search])     
         end 
     end
 
