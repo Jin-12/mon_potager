@@ -252,3 +252,13 @@ a:hover {
     cursor: inherit;
     display: block;
 }
+
+
+.status-group {
+  padding: 3%;
+  height: 300px;
+  width: 25%;
+  background: white;
+  box-shadow: 0 4px 10px 1px rgba(203, 203, 203, 0.5);
+  overflow: scroll;
+}

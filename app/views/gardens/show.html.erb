@@ -18,14 +18,15 @@
 				<div class="status-user">
 
 					<div id="cerclejaune"></div>
-					<p class="para-strong"><%= "Pas de status pour ce jardin." %></p>
+					<p class="para-strong"><%= "Pas de status pour ce jardin." %>
+						<%= link_to 'Ajouter un status', new_user_status_path(@user) %></p>
 
 				<% else %>
 
 					<div class="status-user">
 
 						<div id="cercle"></div>
-						<p class="para-strong status-content"><%= @status.content %></p>
+						<p class="para-strong status-content"><%= @status.content %><%= link_to 'Nouveau statut', new_user_status_path(@user) %></p>
 
 					</div>
 

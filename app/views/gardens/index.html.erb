@@ -4,14 +4,24 @@
     <div class="col">
       <ul class="list-group">
         <% @gardens.each do |garden| %>
-        <li class="list-item">
-        <%= link_to garden.name , garden_path(garden.id) %>
-        </li>
+          <li class="list-item">
+            <%= link_to garden.name , garden_path(garden.id) %>
+          </li>
         <% end %>
       </ul>
     </div>
     <div class="col">
       <%= render 'map_for_index' %>
     </div>
+  </div>
+</div>
+<div class='status-group'>
+  <ul class="list-group">
+    <% @status.each do |status| %>
+      <li><%= link_to status.content, garden_path(status.user) %></li>
+      <li>Par <%= status.user.first_name %></li>
+      <li>Il y a <%= @how_many_days %> jours</li>
+      <br>
+    <% end %>
   </div>
 </div>

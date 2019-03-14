@@ -4,6 +4,11 @@ class GardensController < ApplicationController
         @gardens = Garden.where(["name LIKE ?","%#{params[:search]}%"])
         puts @gardens
         @hash = GenerateMapForIndex.new(@gardens).perform
+        @status = Status.all.sort_by{ |status| status.created_at }.reverse
+        @status.each do |status|
+          @how_many_days = (Time.now - status.updated_at) / 86400
+        end
+
     end
 
     def new
@@ -18,7 +23,7 @@ class GardensController < ApplicationController
         @status = Status.find_by(user_id:@garden.user_id)
 
         if @status != nil
-          @how_many_days = (Time.now - @status.updated_at) /86400 * 10
+          @how_many_days = (Time.now - @status.updated_at) / 86400 * 10
         end
     end
 
