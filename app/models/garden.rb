@@ -12,17 +12,17 @@ class Garden < ApplicationRecord
     after_validation :geocode
 
     def self.search(search)
-        if search 
+        if search
             result = []
-            puts " -------------------------------"
             result << where(["adress LIKE ?","%#{search}%"])
-            puts result 
-            puts " ###############################"
             result << where(["name LIKE ?","%#{search}%"])
-            puts result 
-            puts " ###############################"
+
+            Product.where(["name LIKE ?","%#{search}%"]).each do |product|
+                result << Garden.where(id: product.garden_id)
+            end
+
             final_result = result.map do |collection|
-                collection.map { |garden| garden }
+                collection.map(&:itself)
             end
             final_result.flatten.uniq
         else

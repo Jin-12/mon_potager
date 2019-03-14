@@ -1,19 +1,13 @@
 class GardensController < ApplicationController
     def index
-        @hash = GenerateMapForIndex.new(@gardens).perform
         @gardens = Garden.all
+        @hash = GenerateMapForIndex.new(@gardens).perform
         @search = Garden.search(params[:search])
-
+        puts Product.where(name: "#{params[:search]}")
+        Product.where(name: "#{params[:search]}").each do |product|
+            @search << Garden.where(id: product.garden_id)
+        end 
     end
-
-    def filter
-        @search.select.with_index do |e,i|
-            for index in 0..(i - 1)
-                @search[index].ids == e.ids
-                break
-            end
-        end
-    end 
 
     def new
     end
