@@ -1,10 +1,17 @@
 class GardensController < ApplicationController
     def index
-        puts '#' * 60
-        @gardens = Garden.where(["name LIKE ?","%#{params[:search]}%"])
-        puts @gardens
         @hash = GenerateMapForIndex.new(@gardens).perform
+        @gardens = Garden.all
+        @search = search_gardens
     end
+
+    def search_gardens
+        @search = Garden.all 
+        @search = Garden.where(["name LIKE ?","%#{params[:search]}%"]) if params[:search].present?
+        @search = Garden.where(["adress LIKE ?","%#{params[:search]}%"]) if params[:search].present?
+        return @search 
+    end
+
 
     def new
     end
