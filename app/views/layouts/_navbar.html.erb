@@ -1,69 +1,25 @@
-<nav class="navbar">
-
-  <div ><%= link_to(image_tag('logo', width:200))  %> </div>
-     <div class="connexion-info">
-        <% if user_signed_in?  %>
-          <li class="nav-item">
-            <%= link_to "Deconnexion",destroy_user_session_path, method: :delete, class: "nav-create noHover" %>
+<nav>
+  <div class="navbar">
+    <div>
+      <%= link_to(image_tag('logo', width:200)) %>
+    </div>
+    <div class="connexion-info">
+      <% if user_signed_in?  %>
+        <% if !current_user.gardens.empty? %>
+          <li>
+            <%= link_to 'Voir mon potager', garden_path(current_user), class: "nav-create noHover" %>
           </li>
         <% else %>
-          <li class="nav-item"><div class="col-5">
-      <%= form_tag gardens_path, :method => 'get' do %>
-        <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "rechercher" %>
-      <% end %>
-      </div>
-      <div ><i class="fas fa-carrot"><i class="fas fa-map-marker-alt"></i></i></div>
-    </div>
-  </form>
-            <%= link_to "Creer <div class="col-5 nav-research">
-             <div class="form-row"> 
-  <div ><i class="fa fa-search" aria-hidden="true"></i>
-      <%= form_tag gardens_path, :method => 'get' do %>
-        <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "rechercher" %>
-      <% end %>
-      </div>
-      </div>
-      <div class="col-3" ><i class="fas fa-carrot"><i class="fas fa-map-marker-alt"></i></i></div>
-    </div>
-  </form>ion_path, class: "nav-create noHover" %>
-          </li>
-          <li class="nav-item"><div class="col-5">
-      <%= form_tag gardens_path, :method => 'get' do %>
-        <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "rechercher" %>
-      <% end %>
-      </div>
-      <div class="col-3" ><i class="fas fa-carrot"><i class="fas fa-map-marker-alt"></i></i></div>
-    </div>
-  </form>
-            <%= link_to "Me con<div class="col-5">
-      <%= form_tag gardens_path, :method => 'get' do %>
-        <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "rechercher" %>
-      <% end %>
-      </div>
-      <div ><i class="fas fa-carrot"><i class="fas fa-map-marker-alt"></i></i></div>
-    </div>
-  </form>s: "nav-connexion noHover" %>
+          <li>
+            <%= link_to 'Créer mon potager', new_garden_path, class: "nav-create noHover" %>
           </li>
         <% end %>
-      </div>
-      <div class="col-5">
-      <%= form_tag gardens_path, :method => 'get' do %>
-        <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "rechercher" %>
-      <% end %>
-      </div>
-      <div class="col-3"><i class="fas fa-carrot"><i class="fas fa-map-marker-alt"></i></i></div>
-    </div>
-  </form>
-  <div class="connexion-info">
-    <% if user_signed_in?  %>
-      <li class="nav-item">
-        <%= link_to "Deconnexion",destroy_user_session_path, method: :delete, class: "nav-create noHover" %>
-      </li>
+        <li>
+          <%= link_to "Mon profil", user_path(current_user), class: "nav-create noHover" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Deconnexion",destroy_user_session_path, method: :delete, class: "nav-create noHover" %>
+        </li>
       <% else %>
         <li class="nav-item">
           <%= link_to "Creer mon potager", new_user_registration_path, class: "nav-create noHover" %>
@@ -72,5 +28,24 @@
           <%= link_to "Me connecter", user_session_path, class: "nav-connexion noHover" %>
         </li>
       <% end %>
+    </div>
   </div>
+
+  <form>
+    <div class="col-5 nav-research">
+      <div class="form-row"> 
+        <div>
+          <i class="fa fa-search" aria-hidden="true"></i>
+          <%= form_tag gardens_path, :method => 'get' do %>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "rechercher" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-3">
+        <i class="fas fa-carrot"></i>
+        <i class="fas fa-map-marker-alt"></i>
+      </div>
+    </div>
+  </form>
 </nav>
