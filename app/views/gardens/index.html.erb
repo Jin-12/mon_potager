@@ -16,17 +16,17 @@
 
         <% end %>
       </div>
-
-      <ul class="list-group">
-        <% @gardens.each do |garden| %>
-        <li class="list-group-item">
-          <%= link_to garden.name , garden_path(garden.id) %>
-        </li>
-        <% end %>
-      </ul>
+      <div>
+        <ul class="list-group">
+          <% @gardens.each do |garden| %>
+          <li class="list-group-item">
+            <%= link_to garden.name , garden_path(garden.id) %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
     <div class="col">
       <%= render 'map_for_index' %>
     </div>
   </div>
-</div>
