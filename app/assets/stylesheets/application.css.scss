@@ -93,12 +93,13 @@ p {
   }
 
   .footer {
-    height: 100px;
+    min-height: 100px;
     background-color: #44c8b5;
     width: 100%;
     display:flex;
     flex-direction: column;
     justify-content: center;
+    
     }
 
     .footer-container {
@@ -111,31 +112,30 @@ html, body {
     height: 100%;
    }
 
-  .connexion-info {
-    color: #44c8b5;
-    display:flex;
-    justify-self: end;
-    flex-direction: column;
-    text-align: end;
-    padding-right:15px;
-    padding-top:5px;
- }
-
  .fab, .far {
   color:white;
-  font-size:2em;
-  padding:10px;
+  font-size:2.3em;
+  padding:15px;
 }
 
 .social-media {
-  text-align:right;
-  padding-right:30px;
-}
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  }
 
+  .icons {
+  display:flex;
+  flex-direction: row;  
+  }
 
 .links {
   text-decoration: none;
   color:white;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  
   }
   
   ul {
@@ -145,7 +145,7 @@ html, body {
   
   li {
     font-size:0.8em;
-    padding-left:50px;
+    padding-left:0px;
     line-height: 1.3em;
     padding-top:5px;
   }
@@ -157,6 +157,16 @@ a {
 }
 a:hover {
   color: #44C8B5;
+}
+
+.connexion-info {
+  color: #44c8b5;
+  display:flex;
+  justify-self: end;
+  flex-direction: column;
+  text-align: end;
+  padding-right:15px;
+  padding-top:5px;
 }
 
 .navbar-header {
@@ -239,8 +249,9 @@ a:hover {
 
 }
 
-.container-form .card {
-  padding:50px;
+.container-card {
+  padding-top: 60px;
+  padding-bottom: 50px;
 }
 
 label {
