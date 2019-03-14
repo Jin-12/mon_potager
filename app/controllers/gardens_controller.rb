@@ -1,18 +1,11 @@
 class GardensController < ApplicationController
     def index
-        respond_to do |format|
-            format.html do
-                @gardens = Garden.all
-                @search = params[:search]
-                if @search.present?
-                    @name = @search["name"]
-                    @gardens = Garden.where(["name LIKE ?","%#{@search}%"])
-                end
-                @hash = GenerateMapForIndex.new(@gardens).perform
-            end
-
-            format.js
-        end
+        puts '#' * 60
+        @gardens = Garden.where(["name LIKE ?","%#{params[:search]}%"])
+        puts @gardens
+        @hash = GenerateMapForIndex.new(@gardens).perform
+        @status = Status.all.sort_by{ |status| status.created_at }.reverse
+        
     end
 
     def new
@@ -28,7 +21,7 @@ class GardensController < ApplicationController
         @status = Status.find_by(user_id:@garden.user_id)
 
         if @status != nil
-          @how_many_days = (Time.now.to_i - @status.updated_at.to_i) / 86400
+          @how_many_days = (Time.now - @status.updated_at) / 86400 * 10
         end
     end
 

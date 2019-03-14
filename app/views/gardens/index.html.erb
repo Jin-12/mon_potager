@@ -30,3 +30,21 @@
       <%= render 'map_for_index' %>
     </div>
   </div>
+</div>
+<div class='status-group'>
+  <ul class="list-group">
+    <% @status.each do |status| %>
+      <li><%= link_to status.content, garden_path(status.user) %></li>
+      <li>Par <%= status.user.first_name %></li>
+      <% @date = ((Time.now - status.updated_at) / 86400 * 10).to_i %>
+      <% if @date == 0 %>
+      <li>Posté aujoud'hui</li>
+      <% elsif @date == 1 %>
+      <li>Posté hier</li>
+      <% else %>
+      <li>Il y a <%= @date %> jours</li>
+      <% end %>
+      <br>
+    <% end %>
+  </div>
+</div>

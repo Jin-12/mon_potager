@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
 .main {
   background: #FFFFFF;
   box-shadow: 0 4px 10px 1px rgba(203,203,203,0.50);
@@ -20,12 +22,14 @@
   justify-content: space-between;
   border: none;
 }
+
 .presentation {
   background: white;
   box-shadow: 0 4px 10px 1px rgba(203,203,203,0.50);
   border: 2px black solid;
   display: flex;
 }
+
 .contact {
   background: white;
   box-shadow: 0 4px 10px 1px rgba(203,203,203,0.50);
@@ -33,11 +37,19 @@
   border: 2px black solid;
   width: 50%;
   // margin: 10px 0px 10px 0px;
-  
+
   // display: flex;
   // align-self: end;
 }
 
 .border-15 {
   border-radius: 15px;
+}
+
+.avatar-user {
+  width: 200px;
+  height: 200px;
+  border-radius: 200px;
+  margin: -60px 0 0 130px;
+  background: red;
 }

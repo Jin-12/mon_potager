@@ -93,11 +93,8 @@ p {
   }
 
   .footer {
-    height: 80px;
+    min-height: 100px;
     background-color: #44c8b5;
-    position: fixed;
-    left: 0;
-    bottom: 0;
     width: 100%;
     display:flex;
     flex-direction: column;
@@ -111,56 +108,66 @@ p {
     }
 
 html, body {
-    height: 100;
-    margin: 0;
-  }
-
-  .connexion-info {
-    color: #44c8b5;
-    display:flex;
-    justify-self: end;
-    flex-direction: column;
-    text-align: end;
-    padding-right:15px;
-    padding-top:5px;
- }
+    height: 100%;
+   }
 
  .fab, .far {
   color:white;
-  font-size:2em;
-  padding:10px;
+  font-size:2.3em;
+  padding:15px;
+}
+
+ul.horizontalist li{
+	display: inline;
 }
 
 .social-media {
-  text-align:right;
-  padding-right:30px;
-}
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  }
 
+  .icons {
+  display:flex;
+  flex-direction: row;  
+  }
 
 .links {
   text-decoration: none;
   color:white;
+  display:flex;
+  align-items: center;
+  justify-content: center;
   }
-  
+
   ul {
     list-style-type: none;
-    vertical-align:center;
+   margin:0;
    }
-  
-  li {
+
+ .links li {
     font-size:0.8em;
-    padding-left:50px;
-    line-height: 1.3em;
-    padding-top:5px;
+    text-align: center;
   }
 
-
 /* NAVBAR */
+
 a {
   color: #44C8B5
 }
+
 a:hover {
   color: #44C8B5;
+}
+
+.connexion-info {
+  color: #44c8b5;
+  display:flex;
+  justify-self: end;
+  flex-direction: column;
+  text-align: end;
+  padding-right:15px;
+  padding-top:5px;
 }
 
 .navbar-header {
@@ -176,6 +183,10 @@ a:hover {
   display: flex;
   flex-direction: column;
   padding-bottom:50px;
+}
+
+.nav-item {
+  list-style: none;
 }
 
 .nav-connect {
@@ -227,3 +238,87 @@ a:hover {
   margin-top:20px;
 }
 
+/* FORMULAIRES */
+
+
+
+.card h2 {
+  text-align: center;
+  padding-top:10px;
+  font-size:1.5em;
+  padding-bottom:30px;
+
+}
+
+.container-card {
+  padding-top: 60px;
+  padding-bottom: 50px;
+}
+
+label {
+  display: none;
+}
+
+.boolean {
+  display: inline-block;
+  font-size:0.9em;
+  color:#515151;
+  padding-top:25px;
+}
+
+.text-muted {
+  font-size:0.7em;
+  padding-left:10px;
+}
+
+.submit-btn {
+  background-color:#44C8B5;
+  color:white;
+  font-size: 1.1em;
+  float:right;
+}
+
+.card input {
+  margin-top:30px;
+}
+
+.card a {
+  float:right;
+  display:block;
+  font-size:0.8em;
+}
+
+.form-connexion {
+  padding-top:10px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+
+.status-group {
+  padding: 3%;
+  height: 300px;
+  width: 25%;
+  background: white;
+  box-shadow: 0 4px 10px 1px rgba(203, 203, 203, 0.5);
+  overflow: scroll;
+}
