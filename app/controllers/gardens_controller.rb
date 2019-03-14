@@ -2,16 +2,18 @@ class GardensController < ApplicationController
     def index
         @hash = GenerateMapForIndex.new(@gardens).perform
         @gardens = Garden.all
-        @search = search_gardens
+        @search = Garden.search(params[:search])
+
     end
 
-    def search_gardens
-        @search = Garden.all 
-        @search = Garden.where(["name LIKE ?","%#{params[:search]}%"]) if params[:search].present?
-        @search = Garden.where(["adress LIKE ?","%#{params[:search]}%"]) if params[:search].present?
-        return @search 
-    end
-
+    def filter
+        @search.select.with_index do |e,i|
+            for index in 0..(i - 1)
+                @search[index].ids == e.ids
+                break
+            end
+        end
+    end 
 
     def new
     end
