@@ -1,13 +1,18 @@
 class GardensController < ApplicationController
     def index
-        puts '#' * 60
-        @gardens = Garden.all
-        @search = params[:search]
-        if @search.present?
-            @name = @search["name"]
-            @gardens = Garden.where(["name LIKE ?","%#{@search}%"])
+        respond_to do |format|
+            format.html do
+                @gardens = Garden.all
+                @search = params[:search]
+                if @search.present?
+                    @name = @search["name"]
+                    @gardens = Garden.where(["name LIKE ?","%#{@search}%"])
+                end
+                @hash = GenerateMapForIndex.new(@gardens).perform
+            end
+
+            format.js
         end
-        @hash = GenerateMapForIndex.new(@gardens).perform
     end
 
     def new
@@ -16,7 +21,8 @@ class GardensController < ApplicationController
     def show
         @garden = Garden.find_by(id: params[:id])
         @user = User.find(@garden.user_id)
-        @hash = GenerateMapForShow.new([@garden]).perform
+        @nearby = helpers.locate_nearby_gardens(@garden)
+        @hash = GenerateMapForShow.new(@garden, @nearby).perform
 
         @products = @garden.products
         @status = Status.find_by(user_id:@garden.user_id)

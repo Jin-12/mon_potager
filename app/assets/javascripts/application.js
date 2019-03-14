@@ -10,8 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require bootstrap
-//= require popper
 //= require rails-ujs
 //= require activestorage
 //= require underscore
@@ -19,4 +17,18 @@
 //  DELETED require turbolinks
 //= require jquery3
 //= require jquery_ujs
+//= require bootstrap
+//= require popper
 //= require_tree .
+
+
+$(document).ready(function() {
+
+  const $gardens = $(".list-group").children();
+  $gardens.each(function() {
+    var $links = $(this).find('a').attr('href');
+  
+    console.log($links);
+  });
+}
+);

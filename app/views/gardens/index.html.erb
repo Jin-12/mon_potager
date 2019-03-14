@@ -4,18 +4,23 @@
 
 
     <div class="col">
-<!--
       <div class="card p-2 search">
-        <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-        <%= f.input :location, input_html: {value: "", placeholder: "chercher un endroit"} %>   
+        <%= simple_form_for :search,
+          url: root_path,
+          method: "GET",
+          html: { class: 'form-inline' },
+          remote: true do |f| %>
+
+        <%= f.input :location, input_html: {value: "", placeholder: "filtrer par endroit"} %>
         <%= f.submit "Search", class: "btn btn-primary" %>
-      <% end %>
-    </div>
--->
-            <ul class="list-group">
+
+        <% end %>
+      </div>
+
+      <ul class="list-group">
         <% @gardens.each do |garden| %>
         <li class="list-group-item">
-        <%= link_to garden.name , garden_path(garden.id) %>
+          <%= link_to garden.name , garden_path(garden.id) %>
         </li>
         <% end %>
       </ul>
