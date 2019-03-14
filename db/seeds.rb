@@ -1,3 +1,7 @@
+require 'faker'
+
+Faker::Config.locale = 'fr'
+
 User.create(email: "kiko@kiko.com",
 	birthdate: Date.new(1958, 3, 13),
 	description: "un humble serviteur",
@@ -62,7 +66,18 @@ Garden.create(name: "Opotager",
 Garden.create(name: "Potamille",
 	adress: "17 rue pierre Fosses Paris",
 	user_id: 6, latitude: 48.8617628, longitude: 2.3884249)
-
+	Garden.create(name: "Potacent",
+		adress: "17 rue pierre Fosses Paris",
+		user_id: 6, latitude: 48.9617628, longitude: 2.8884249)
+	
+50.times do |t|
+	puts Faker::Cannabis.buzzword.upcase
+	g = Garden.create(name: Faker::Cannabis.buzzword.upcase,
+		adress: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+		user_id: rand(1...6),
+		latitude: rand(43.000000..49.000000),
+		longitude: rand(-2.000000..7.000000))
+end
 
 Product.create(name: "Tomates", garden: Garden.all.sample)
 Product.create(name: "Patates", garden: Garden.all.sample)
