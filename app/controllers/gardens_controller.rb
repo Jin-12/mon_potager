@@ -1,7 +1,7 @@
 class GardensController < ApplicationController
     def index
         puts '#' * 60
-        @gardens = Garden.all
+        @gardens = Garden.where(["name LIKE ?","%#{params[:search]}%"])
         puts @gardens
         @hash = GenerateMapForIndex.new(@gardens).perform
     end
@@ -11,6 +11,7 @@ class GardensController < ApplicationController
 
     def show
         @garden = Garden.find_by(id: params[:id])
+        @user = User.find(@garden.user_id)
         @hash = GenerateMapForIndex.new([@garden]).perform
 
         @products = @garden.products
@@ -19,16 +20,11 @@ class GardensController < ApplicationController
         if @status != nil
           @how_many_days = (Time.now.to_i - @status.updated_at.to_i) / 86400
         end
-
-        @harvest = Harvest.where(garden_id: @garden)
-        @user = User.find(@garden.user_id)
-
     end
 
     def create
         Garden.create(user_id: current_user.id, name: params[:gardenname], adress: params[:adress])
-        Product.create(name: params[:productname])
-        Harvest.create(product_id: (Product.last.id), garden_id: (Garden.last.id))
+        Product.create(name: params[:productname], garden_id: (Garden.last.id))
         redirect_to root_path
     end
 
@@ -43,7 +39,7 @@ class GardensController < ApplicationController
       @products = @garden.products
       @garden.update(name: params[:gardenname], adress: params[:adress])
       @products.update(name: params[:productname])
-      redirect_to root_path
+      redirect_to (garden_path(@garden))
     end
 
     def destroy
