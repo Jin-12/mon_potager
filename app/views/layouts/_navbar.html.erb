@@ -14,8 +14,6 @@
           <%= link_to "Deconnexion",destroy_user_session_path, method: :delete, class: "nav-create noHover nav-item" %>
       <% else %>
           <%= link_to "Creer mon potager", new_user_registration_path, class: "nav-create noHover nav-item" %>
-      <% else %>
-          <%= link_to 'Créer mon potager', new_garden_path, class: "nav-create noHover" %>
       <% end %>
     </div>
   </div>
