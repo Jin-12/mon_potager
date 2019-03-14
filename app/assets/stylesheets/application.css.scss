@@ -135,19 +135,18 @@ html, body {
   display:flex;
   align-items: center;
   justify-content: center;
-  
   }
   
   ul {
     list-style-type: none;
-    vertical-align:center;
+   margin:0;
    }
   
-  li {
+ .links li {
     font-size:0.8em;
-    padding-left:0px;
-    line-height: 1.3em;
-    padding-top:5px;
+    
+    text-align: center;
+   
   }
 
 
@@ -245,7 +244,7 @@ a:hover {
   text-align: center;
   padding-top:10px;
   font-size:1.5em;
-  padding-bottom:60px;
+  padding-bottom:30px;
 
 }
 
@@ -258,7 +257,36 @@ label {
   display: none;
 }
 
+.boolean {
+  display: inline-block;
+  font-size:0.9em;
+  color:#515151;
+  padding-top:25px;
+}
+
 .text-muted {
   font-size:0.7em;
   padding-left:10px;
 }
+
+.submit-btn {
+  background-color:#44C8B5;
+  color:white;
+  font-size: 1.1em;
+  float:right;
+}
+
+.card input {
+  margin-top:30px;
+}
+
+.card a {
+  float:right;
+  display:block;
+  font-size:0.8em;
+}
+
+.form-connexion {
+padding-top:10px;
+}
+
