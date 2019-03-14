@@ -6,27 +6,16 @@
     <div class="connexion-info">
       <% if user_signed_in?  %>
         <% if !current_user.gardens.empty? %>
-          <li>
             <%= link_to 'Voir mon potager', garden_path(current_user), class: "nav-create noHover" %>
-          </li>
         <% else %>
-          <li>
             <%= link_to 'Créer mon potager', new_garden_path, class: "nav-create noHover" %>
-          </li>
         <% end %>
-        <li>
           <%= link_to "Mon profil", user_path(current_user), class: "nav-create noHover" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Deconnexion",destroy_user_session_path, method: :delete, class: "nav-create noHover" %>
-        </li>
+          <%= link_to "Deconnexion",destroy_user_session_path, method: :delete, class: "nav-create noHover nav-item" %>
       <% else %>
-        <li class="nav-item">
-          <%= link_to "Creer mon potager", new_user_registration_path, class: "nav-create noHover" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Me connecter", user_session_path, class: "nav-connexion noHover" %>
-        </li>
+          <%= link_to "Creer mon potager", new_user_registration_path, class: "nav-create noHover nav-item" %>
+      <% else %>
+          <%= link_to 'Créer mon potager', new_garden_path, class: "nav-create noHover" %>
       <% end %>
     </div>
   </div>

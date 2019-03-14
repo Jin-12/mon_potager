@@ -99,7 +99,6 @@ p {
     display:flex;
     flex-direction: column;
     justify-content: center;
-    
     }
 
     .footer-container {
@@ -116,6 +115,10 @@ html, body {
   color:white;
   font-size:2.3em;
   padding:15px;
+}
+
+ul.horizontalist li{
+	display: inline;
 }
 
 .social-media {
@@ -136,19 +139,16 @@ html, body {
   align-items: center;
   justify-content: center;
   }
-  
+
   ul {
     list-style-type: none;
    margin:0;
    }
-  
+
  .links li {
     font-size:0.8em;
-    
     text-align: center;
-   
   }
-
 
 /* NAVBAR */
 
@@ -289,5 +289,36 @@ label {
 }
 
 .form-connexion {
-padding-top:10px;
+  padding-top:10px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+
+.status-group {
+  padding: 3%;
+  height: 300px;
+  width: 25%;
+  background: white;
+  box-shadow: 0 4px 10px 1px rgba(203, 203, 203, 0.5);
+  overflow: scroll;
 }

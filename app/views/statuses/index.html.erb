@@ -1,0 +1,12 @@
+<div class="col">
+  <h1>
+    Les statuts de
+    <%= @user.first_name %></h1>
+
+  <% @user.statuses.each do |status| %>
+    <p><%= status.content %></p>
+    <p>Posté le
+      <%= status.created_at.to_date %></p>
+        <br><br><br><br>
+  <% end %>
+</div>
