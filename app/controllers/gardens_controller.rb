@@ -5,10 +5,7 @@ class GardensController < ApplicationController
         puts @gardens
         @hash = GenerateMapForIndex.new(@gardens).perform
         @status = Status.all.sort_by{ |status| status.created_at }.reverse
-        @status.each do |status|
-          @how_many_days = (Time.now - status.updated_at) / 86400
-        end
-
+        
     end
 
     def new
