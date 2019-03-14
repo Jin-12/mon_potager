@@ -1,0 +1,111 @@
+<%= stylesheet_link_tag "gardens" %>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+<div class="col-lg-12 container-garden">
+
+	<div class="col-lg-7 gardenshow-1">
+
+		<div class="div-status">
+			<h1><%= @garden.name %></h1>
+			<% if @status.nil? %>
+
+				<div class="status-user">
+
+					<div id="cerclejaune"></div>
+					<p class="para-strong"><%= "Pas de status pour ce jardin." %></p>
+
+				<% else %>
+
+					<div class="status-user">
+
+						<div id="cercle"></div>
+						<p class="para-strong status-content"><%= @status.content %></p>
+
+					</div>
+
+					<div class="howmanydays">
+						<% if @how_many_days == 0 %>
+
+							<p class="para-small">Aujourd'hui</p>
+
+						<% else %>
+
+							<p class="para-small">Il y a
+								<%= @how_many_days %>
+								jours</p>
+
+						<% end %>
+					<% end %>
+				</div>
+			</div>
+			<!-- fin de div div-status -->
+
+			<div>
+				<% @garden.images.each do |image| %>
+					<%= image_tag(image, alt: 'garden_image', class:'img-fluid slider-photos') %>
+				<% end %>
+			</div>
+
+
+			<div class="products-garden">
+				<h2>Les Produits</h2>
+
+				<div class="legumes-garden">
+					<p class="para-strong">
+						<i class="fas fa-carrot"></i>
+						Les légumes</p>
+					<div class="legumes-list">
+						<% @products.each do |h| %>
+							<p><%= h.name %></p>
+						<% end %>
+					</div>
+				</div>
+		</div> <!-- fin de div produits-garden -->
+
+		<div class="map-garden">
+			<h2>Sur la carte</h2>
+			<%= render 'map_for_show' %>
+		</div> <!-- fin de div map-garden -->
+
+			<button class="btn-yeah2">Ajouter aux favoris</button>
+
+		</div>
+		<!-- fin de div gardenshow-1 -->
+
+		<div class="col-lg-5 gardenshow-2">
+			<div class="name-usergarden">
+				<p class="titre-dark"><%= @user.first_name %>
+					<%= @user.last_name %></p>
+				<p class="interlign-name"><%= @garden.adress %></p>
+			</div>
+
+			<div class="description-usergarden">
+				<p class="para-strong">Présentation</p>
+				<p><%= @user.description %></p>
+			</div>
+
+			<div class="description-usergarden">
+				<p class="para-strong">Contact</p>
+				<p>
+					<i class="far fa-envelope-open"></i>
+					<%= @user.email %></p>
+			</div>
+
+			<button class="btn-yeah2">Envoyer un message</button>
+			<div>
+				<% if current_user == @user %>
+					<%=link_to "Edit ton potager", edit_garden_path(@garden), class:"btn btn-primary my-2"%>
+					<%= form_tag garden_images_path(@garden), multipart: true do %>
+					<%= file_field_tag :images %>
+					<%= submit_tag "mettre à jour" %>
+				<% end %>
+
+				<%= form_tag garden_image_path(@garden), method: "delete", style: "display: inline" do %>
+				<%= submit_tag "Supprimer", class:"btn btn-light" %>
+			<% end %>
+		<% end %>
+	</div>
+</div>
+<!-- fin de div gardenshow-2 -->
+
+</div>
