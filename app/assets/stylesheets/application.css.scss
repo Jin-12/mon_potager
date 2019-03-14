@@ -109,8 +109,7 @@ p {
 
 html, body {
     height: 100%;
-    // margin: 0;
-  }
+   }
 
   .connexion-info {
     color: #44c8b5;
@@ -175,6 +174,10 @@ a:hover {
   padding-bottom:50px;
 }
 
+.nav-item {
+  list-style: none;
+}
+
 .nav-connect {
   font-size: 0.7em;
  }
@@ -232,7 +235,8 @@ a:hover {
   text-align: center;
   padding-top:10px;
   font-size:1.5em;
-  padding-bottom:15px;
+  padding-bottom:60px;
+
 }
 
 .container-form .card {
@@ -241,4 +245,9 @@ a:hover {
 
 label {
   display: none;
+}
+
+.text-muted {
+  font-size:0.7em;
+  padding-left:10px;
 }

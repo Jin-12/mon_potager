@@ -8,12 +8,12 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Me connecter", user_session_path, class: "nav-connexion noHover" %>
-          </li>
-          <li class="nav-item">
             <%= link_to "Creer mon potager", new_user_registration_path, class: "nav-create noHover" %>
           </li>
-          <% end %>
+          <li class="nav-item">
+            <%= link_to "Me connecter", user_session_path, class: "nav-connexion noHover" %>
+          </li>
+        <% end %>
       </div>
 </nav>
 
