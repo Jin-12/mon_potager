@@ -94,6 +94,7 @@ p {
 
   .footer {
     height: 80px;
+    padding: 1%;
     background-color: #44c8b5;
     position: fixed;
     left: 0;
@@ -129,6 +130,10 @@ html, body {
   color:white;
   font-size:2em;
   padding:10px;
+}
+
+ul.horizontalist li{
+	display: inline;
 }
 
 .social-media {

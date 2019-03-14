@@ -7,6 +7,9 @@
 
 		<div class="div-status">
 			<h1><%= @garden.name %></h1>
+			<% if current_user == @user %>
+				<%=link_to "Editer le potager", edit_garden_path(@garden), class:"btn btn-light"%>
+			<% end %>
 			<% if @status.nil? %>
 
 				<div class="status-user">
@@ -24,17 +27,19 @@
 					</div>
 
 					<div class="howmanydays">
-						<% if @how_many_days == 0 %>
+						<% if @how_many_days.to_i == 1 %>
+							<p class="para-small">Il y a
+								<%= @how_many_days.to_i %>
+								jour</p>
 
-							<p class="para-small">Aujourd'hui</p>
+						<% elsif @how_many_days.to_i == 0 %>
+						<p class="para-small">Posté aujourd'hui</p>
 
 						<% else %>
-
-							<p class="para-small">Il y a
-								<%= @how_many_days %>
-								jours</p>
-
-						<% end %>
+						<p class="para-small">Il y a
+							<%= @how_many_days.to_i %>
+							jours</p>
+					<% end %>
 					<% end %>
 				</div>
 			</div>
@@ -48,12 +53,9 @@
 
 
 			<div class="products-garden">
-				<h2>Les Produits</h2>
+				<h2><i class="fas fa-carrot"></i> Les Produits</h2>
 
 				<div class="legumes-garden">
-					<p class="para-strong">
-						<i class="fas fa-carrot"></i>
-						Les légumes</p>
 					<div class="legumes-list">
 						<% @products.each do |h| %>
 							<p><%= h.name %></p>
@@ -73,9 +75,13 @@
 		<!-- fin de div gardenshow-1 -->
 
 		<div class="col-lg-5 gardenshow-2">
+			<%if @user.avatar.attached?%>
+			<%= image_tag @user.avatar, alt: 'avatar', class:'img-fluid avatar-user' %>
+			<% else %>
+			<div class="avatar-user"></div>
+			<% end %>
 			<div class="name-usergarden">
-				<p class="titre-dark"><%= @user.first_name %>
-					<%= @user.last_name %></p>
+				<p><%= link_to (@user.first_name + " " + @user.last_name), user_path(@user), class:"titre-dark"%></p>
 				<p class="interlign-name"><%= @garden.adress %></p>
 			</div>
 
@@ -95,13 +101,17 @@
 			<div>
 				<% if current_user == @user %>
 					<%=link_to "Edit ton potager", edit_garden_path(@garden), class:"btn btn-primary my-2"%>
+
 					<%= form_tag garden_images_path(@garden), multipart: true do %>
-					<%= file_field_tag :images %>
-					<%= submit_tag "mettre à jour" %>
-				<% end %>
+						<span class="btn btn-large btn-warning btn-file">
+							Choisi ton image !!
+						<%= file_field_tag :images %>
+						</span>
+						<%= submit_tag "mettre à jour", class:"btn btn-primary" %>
+					<% end %>
 
 				<%= form_tag garden_image_path(@garden), method: "delete", style: "display: inline" do %>
-				<%= submit_tag "Supprimer", class:"btn btn-light" %>
+				<%= submit_tag "Supprimer les images", class:"btn btn-light" %>
 			<% end %>
 		<% end %>
 	</div>

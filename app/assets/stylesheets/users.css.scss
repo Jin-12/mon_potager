@@ -33,11 +33,20 @@
   border: 2px black solid;
   width: 50%;
   // margin: 10px 0px 10px 0px;
-  
+
   // display: flex;
   // align-self: end;
 }
 
 .border-15 {
   border-radius: 15px;
+}
+
+
+.avatar-user {
+  width: 200px;
+  height: 200px;
+  border-radius: 200px;
+  margin: -60px 0 0 130px;
+  background: red;
 }

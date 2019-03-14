@@ -18,7 +18,7 @@ class GardensController < ApplicationController
         @status = Status.find_by(user_id:@garden.user_id)
 
         if @status != nil
-          @how_many_days = (Time.now.to_i - @status.updated_at.to_i) / 86400
+          @how_many_days = (Time.now - @status.updated_at) /86400 * 10
         end
     end
 

@@ -1,30 +1,47 @@
 <center>
-<%= stylesheet_link_tag "users" %>
+	<%= stylesheet_link_tag "users" %>
 
 	<div class="main col-lg-10">
+		<%if @user.avatar.attached?%>
+		<%= image_tag @user.avatar, alt: 'avatar', class:'img-fluid avatar-user' %>
 		<div class="show_user_head border-15 main col-lg-4">
 			<% provide(:title, "Profil utilisateur") %>
+			<% end %>
 
-				<p class="titre-dark"> <%= @user.first_name %> <%= @user.last_name %></p>
+				<p class="titre-dark">
+					<%= @user.first_name %>
+					<%= @user.last_name %></p>
 				<p>
-					<%= @user.age %></p>
+					<%= @user.birthdate %></p>
 			</div>
 			<div class="container col-lg-10">
 				<div class="presentation border-15 col-lg-5">
- 					 <div class="card-body">
- 					   <h2>Présentation</h2>
- 					   <p class="card-text"><%= @user.description %></p>
- 					</div>
+					<div class="card-body">
+						<h2>Présentation</h2>
+						<p class="card-text"><%= @user.description %></p>
+					</div>
 				</div>
 				<div class="contact border-15 col-lg-5">
- 					 <div class="card-body">
- 					   <h2>Contact</h2>
- 					   <p class="card-text"><%= @user.email %></p>
- 					</div>
+					<div class="card-body">
+						<h2>Contact</h2>
+						<p class="card-text"><%= @user.email %></p>
+					</div>
 				</div>
 			</div>
-			<%= link_to "Editer", edit_user_registration_path, class:"btn btn-primary" %>
-			<%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class:"btn btn-primary" %>
-			<br><br>
-		</div>
-	<center>
+			<div class="coucou">
+				<%= link_to "Editer", edit_user_registration_path, class:"btn btn-primary" %>
+				<%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class:"btn btn-primary" %>
+
+				<%= form_tag user_avatars_path(@user), multipart: true do %>
+				<%= file_field_tag :avatar %>
+				<%= submit_tag "mettre à jour" %>
+			<% end %>
+
+			<%= form_tag user_avatar_path(@user), method: "delete", style: "display: inline" do %>
+			<%= submit_tag "Supprimer", class:"btn btn-light" %>
+		<% end %>
+	</div>
+
+	<br><br>
+</div>
+<center>
