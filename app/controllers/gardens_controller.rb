@@ -1,9 +1,13 @@
 class GardensController < ApplicationController
     def index
         puts '#' * 60
-        @gardens = Garden.where(["name LIKE ?","%#{params[:search]}%"])
-        puts @gardens
-        @hash = GenerateMapForIndex.new(Garden.all).perform
+        @gardens = Garden.all
+        @search = params[:search]
+        if @search.present?
+            @name = @search["name"]
+            @gardens = Garden.where(["name LIKE ?","%#{@search}%"])
+        end
+        @hash = GenerateMapForIndex.new(@gardens).perform
     end
 
     def new
@@ -27,7 +31,6 @@ class GardensController < ApplicationController
         Product.create(name: params[:productname], garden_id: (Garden.last.id))
         redirect_to root_path
     end
-
 
     def edit
         @garden = Garden.find_by(user_id: current_user.id)

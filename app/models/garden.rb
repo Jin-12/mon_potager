@@ -10,4 +10,5 @@ class Garden < ApplicationRecord
 
     geocoded_by :adress
     after_validation :geocode
+    # TODO Add conditions to geocoder validation
 end
