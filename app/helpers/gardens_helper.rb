@@ -26,8 +26,11 @@ module GardensHelper
     return [@distance, @closest]
   end
 
-  def locate_by_departement(zipcode)
-
+  def locate_by_departement(dept)
+    @dept = dept
+    @gardens = Garden.all
+    @dept_gardens = Garden.where("zipcode LIKE ?", @dept)
+    # binding.pry
   end
 
 end

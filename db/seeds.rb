@@ -1,6 +1,7 @@
 require 'faker'
 
 Faker::Config.locale = 'fr'
+I18n.reload!
 
 User.create(email: "kiko@kiko.com",
 	birthdate: Date.new(1958, 3, 13),
@@ -47,13 +48,16 @@ Status.create(user_id: 3,
 	content: "Arretez de vous afficher")
 
 Garden.create(name: "Kikotager",
-              adress: "15, avenue Secrétan Paris",
-              user_id: 1,
-              latitude: 48.882132,
-              longitude: 2.3696279)
+	adress: "15, avenue Secrétan Paris",
+	city: "Paris",
+	zipcode: "75019",
+	user_id: 1,
+	latitude: 48.882132,
+	longitude: 2.3696279)
 Garden.create(name: "Porte des lilas",
 	adress: "10 rue de la verrerie",
 	city: "Paris",
+	zipcode: "75001",
 	user_id: 2)
 Garden.create(name: "Nation Potager",
 	adress: "10 avenue philippe Auguste",
@@ -64,33 +68,38 @@ Garden.create(name: "Nation Potager",
 Garden.create(name: "94ger",
 	adress: "10 rue poissoniere",
 	city: "Paris",
+	zipcode: "75009",
 	country: "France",
 	user_id: 4)
 Garden.create(name: "Opotager",
 	adress: "Rue des 3 Frères",
 	city: "Paris",
+	zipcode: "75018",
 	country: "France",
 	user_id: 5)
 Garden.create(name: "Potamille",
 	adress: "17 rue pierre Semard",
 	city: "Paris",
+	zipcode: "75020",
 	country: "France",
 	user_id: 6)
-	Garden.create(name: "Potacent",
-		adress: "via fornacci",
-		city: "Sernaglia",
-		zipcode: "31020",
-		country: "Italy",
-		user_id: 6)
-	
+Garden.create(name: "Potacent",
+	adress: "via fornacci",
+	city: "Sernaglia",
+	zipcode: "31020",
+	country: "Italy",
+	user_id: 6)
+
 50.times do |t|
-	puts Faker::Cannabis.buzzword.upcase
-	g = Garden.create(name: Faker::Cannabis.buzzword.upcase,
-		adress: "#{Faker::Address.street_address}", 
-		city: "#{Faker::Address.city}",
-		user_id: rand(1...6),
-		latitude: rand(43.000000..49.000000),
-		longitude: rand(-2.000000..7.000000))
+puts Faker::Cannabis.buzzword.upcase
+g = Garden.create(name: Faker::Cannabis.buzzword.upcase,
+adress: Faker::Address.street_address,
+city: Faker::Address.city,
+zipcode: "75001", # Faker::Address.zipcode,
+country: "France",
+user_id: rand(1...6),
+latitude: rand(43.000000..49.000000),
+longitude: rand(-2.000000..7.000000))
 end
 
 Product.create(name: "Tomates", garden: Garden.all.sample)

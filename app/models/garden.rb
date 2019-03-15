@@ -33,4 +33,8 @@ class Garden < ApplicationRecord
         end
     end
 
+    def departement
+        zipcode[0..1]
+    end
+
 end
