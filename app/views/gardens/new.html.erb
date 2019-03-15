@@ -1,6 +1,6 @@
 <div class="container-form">
   <div class="container-card row justify-content-md-center align-items-center">
-    <div class="col col-md-5 col-sm3">
+    <div class="col col-md-8 col-sm5 col-lg-5 col-xl-4">
       <div class="card border shadow-lg p-4">
     <h2>
       Créé ton potager !
@@ -9,17 +9,23 @@
     <%=form_tag url_for(action: 'create'), method: "post" do %>
     <%= label_tag 'Nom de ton potager' %>
     <%= text_field_tag 'gardenname', @gardenname, placeholder: 'Nom de ton potager', class:'form-control' %>
-    <br/>
-
+    
     <%= label_tag 'Adresse de ton potager' %>
     <%= text_field_tag 'adress', @adress, placeholder: 'Adresse de ton potager', class:'form-control' %>
-    <br/>
-
+    
     <%= label_tag 'Tes Récoltes' %>
     <%= text_field_tag 'productname', @productname, placeholder: 'Tes récoltes', class:'form-control' %>
-    <br/>
 
-    <%= submit_tag "Confirmer la modification", class:"btn submit-btn" %>
+    <%= label_tag 'Tes Récoltes' %>
+    <%= text_field_tag 'productname1', 'Ajoute ton produit 1', class:'form-control' %>
+
+    <%= text_field_tag 'productname2', 'Ajoute ton produit 2', class:'form-control' %>
+
+    <%= text_field_tag 'productname3', 'Ajoute ton produit 3', class:'form-control' %>
+    
+
+    <%= submit_tag "Créer ton potager", class:"btn submit-btn" %>
+
   <% end %>
 </div>
         </div>

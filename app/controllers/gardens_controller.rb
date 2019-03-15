@@ -2,7 +2,7 @@ class GardensController < ApplicationController
     def index
         @gardens = Garden.all
         @hash = GenerateMapForIndex.new(@gardens).perform
-        @search = Garden.search(params[:search])     
+        @search = Garden.search(params[:search])
         @status = Status.all.sort_by{ |status| status.created_at }.reverse
     end
 
@@ -25,7 +25,9 @@ class GardensController < ApplicationController
 
     def create
         Garden.create(user_id: current_user.id, name: params[:gardenname], adress: params[:adress])
-        Product.create(name: params[:productname], garden_id: (Garden.last.id))
+        Product.create(name: params[:productname1], garden_id: (Garden.last.id))
+        Product.create(name: params[:productname2], garden_id: (Garden.last.id))
+        Product.create(name: params[:productname3], garden_id: (Garden.last.id))
         redirect_to root_path
     end
 

@@ -106,7 +106,7 @@
 				</ul>
 			</div>
 		</div>
-	
+
 		<!-- fin de div gardenshow-1 -->
 
 		<button class="btn-yeah2">Ajouter aux favoris</button>
@@ -121,7 +121,11 @@
 			<div class="avatar-user"></div>
 		<% end %>
 		<div class="name-usergarden">
+			<% if @user.first_name.nil? %>
+				<p><%= link_to "Utilisateur Anonyme", user_path(@user), class:"titre-dark"%></p>
+			<% else %>
 			<p><%= link_to (@user.first_name + " " + @user.last_name), user_path(@user), class:"titre-dark"%></p>
+			<% end %>
 			<p class="interlign-name"><%= @garden.adress %></p>
 		</div>
 

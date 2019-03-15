@@ -27,8 +27,12 @@ $(document).ready(function() {
   const $gardens = $(".list-group").children();
   $gardens.each(function() {
     var $links = $(this).find('a').attr('href');
-  
+
     console.log($links);
   });
 }
 );
+
+
+let b = document.querySelector('#btn-adder');
+console.log(b)
