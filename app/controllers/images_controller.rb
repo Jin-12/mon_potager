@@ -9,7 +9,8 @@ class ImagesController < ApplicationController
     @garden = Garden.find(params[:garden_id])
     @images = @garden.images
     @images.each do |image|
-      redirect_to(garden_path(@garden)) if image.purge
+    image.purge
+      redirect_to(garden_path(@garden))
     end
-end
+  end
 end

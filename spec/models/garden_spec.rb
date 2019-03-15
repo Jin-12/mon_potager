@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Garden, type: :model do
-	describe 'Garden factory' do
+	describe 'factory' do
 
 	  context 'with constant attributes' do
 	  	test_garden = FactoryBot.build(:garden, constant: true)
@@ -10,6 +10,8 @@ RSpec.describe Garden, type: :model do
 			it { is_expected.to be_valid }
 	  	it { is_expected.to be_a(Garden) }
 	  	it { expect(test_garden.name).to eq('Kikotager') }
+	  	it { expect(test_garden.latitude).to eq(0.0) }
+	  	it { expect(test_garden.longitude).to eq(0.0) }
 	  	it { expect(test_garden.user).to be_valid }
 	  	it { expect(test_garden.user).to be_a(User) }
 	  end
@@ -21,78 +23,44 @@ RSpec.describe Garden, type: :model do
 			it { is_expected.to be_valid }
 	  	it { is_expected.to be_a(Garden) }
 	  	it { expect(test_garden.name).to be_a(String) }
+	  	it { expect(test_garden.latitude).to be_a(Float) }
+	  	it { expect(test_garden.longitude).to be_a(Float) }
 	  	it { expect(test_garden.user).to be_valid }
 	  	it { expect(test_garden.user).to be_a(User) }
 	  end
+	end
 
+	describe '.create' do
 	  context "with invalid name" do
-			test_garden = FactoryBot.build(:garden, name: 3)
+			test_garden = FactoryBot.build(:garden, name: Faker::Alphanumeric.alphanumeric(3))
 	  	it { expect(test_garden).to_not be_valid }
-			test_garden = FactoryBot.build(:garden, name: 'eoe')
+			test_garden = FactoryBot.build(:garden, name: Faker::Alphanumeric.alphanumeric(101))
+	  	it { expect(test_garden).to_not be_valid }
+			test_garden = FactoryBot.build(:garden, name: '')
+	  	it { expect(test_garden).to_not be_valid }
+			test_garden = FactoryBot.build(:garden, name: 7)
+	  	it { expect(test_garden).to_not be_valid }
+			test_garden = FactoryBot.build(:garden, name: 618)
+	  	it { expect(test_garden).to_not be_valid }
+	  end
+
+	  context 'when name missing' do
+			test_garden = FactoryBot.build(:garden, name: nil)
+	  	it { expect(test_garden).to_not be_valid }
+	  end
+
+	  context 'with nil coords' do
+			test_garden = FactoryBot.build(:garden, latitude: nil, longitude: nil)
 	  	it { expect(test_garden).to_not be_valid }
 	  end
 	end
+
+	describe 'associations' do
+	  test_garden = FactoryBot.create(:garden)
+		it { expect(test_garden).to belong_to(:user) }
+		it { expect(test_garden).to have_many(:products) }
+		it { expect(test_garden).to have_many(:comments) }
+		it { expect(test_garden).to have_many(:favorites) }
+		# it { expect(test_garden).to have_many_attached(:images) }
+	end
 end
-
-
-# 	  context 'with invalid email' do
-# 	  	test_user = FactoryBot.build(:user, email: 'lucie@example.')
-# 	  	it { expect(test_user).to_not be_valid }
-# 	  	test_user = FactoryBot.build(:user, email: '@example.com')
-# 	  	it { expect(test_user).to_not be_valid }
-# 	  	test_user = FactoryBot.build(:user, email: 'lucieexample.com')
-# 	  	it { expect(test_user).to_not be_valid }
-# 	  	test_user = FactoryBot.build(:user, email: 'lucie@.com')
-# 	  	it { expect(test_user).to_not be_valid }
-# 	  	test_user = FactoryBot.build(:user, email: '')
-# 	  	it { expect(test_user).to_not be_valid }
-# 	  end
-
-# 	  context 'without email' do 
-# 	  	test_user = FactoryBot.build(:user, email: 'nil')
-# 	  	it { expect(test_user).to_not be_valid }
-# 	  end
-
-# 	  context 'without password' do 
-# 	  	test_user = FactoryBot.build(:user, password: 'nil')
-# 	  	it { expect(test_user).to_not be_valid }
-# 	  end
-
-# 	  context 'without password_confirmation' do 
-# 	  	test_user = FactoryBot.build(:user, password_confirmation: 'nil')
-# 	  	it { expect(test_user).to_not be_valid }
-# 	  end
-
-# 	  context 'with different password and password_confirmation' do 
-# 	  	test_password = Faker::Internet.password(10, 20, true)
-# 	  	test_user = FactoryBot.build(:user, password: test_password, password_confirmation: test_password + 'o')
-# 	  	it { expect(test_user).to_not be_valid }
-# 	  end
-
-# 	  context 'with invalid password' do 
-# 	  	test_user = FactoryBot.build(:user, password_confirmation: 'toto')
-# 	  	it { expect(test_user).to_not be_valid }
-# 	  end
-
-# 	  context 'with empty profile' do
-# 	  	test_user = FactoryBot.create(:user, empty_profile: true)
-# 	  	subject(:user) { test_user }
-
-# 	  	it { is_expected.to be_valid }
-# 	  	it { is_expected.to be_a(User) }
-# 	  	it { expect(test_user.first_name).to eq(nil) }
-# 	  	it { expect(test_user.last_name).to eq(nil) }
-# 	  	it { expect(test_user.age).to eq(nil) }
-# 	  	it { expect(test_user.email).to match /\A\w+@\w+\.\w+/i }
-# 	  	it { expect(test_user.description).to eq(nil) }
-# 	  	it { expect(test_user.password).to eq(test_user.password_confirmation) }
-# 	  end
-# 	end
-
-# 	describe 'associations' do
-# 	  	test_user = FactoryBot.create(:user)
-# 		it { expect(test_user).to have_many(:gardens) }
-# 		it { expect(test_user).to have_many(:favorites) }
-# 		it { expect(test_user).to have_many(:statuses) }
-# 	end
-# end
