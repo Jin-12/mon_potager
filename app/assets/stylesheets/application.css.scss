@@ -63,6 +63,10 @@ p {
     text-decoration: none;
   }
 
+  a:hover {
+    text-decoration: none;
+  }
+
   .container_ui{
     margin: 50px 40px 100px;
   }
@@ -160,6 +164,10 @@ a:hover {
   color: #44C8B5;
 }
 
+.fa-search {
+  color: #7B7B7B;
+}
+
 .connexion-info {
   color: #44c8b5;
   display:flex;
@@ -206,7 +214,7 @@ a:hover {
 .form-row {
   margin: auto;
   margin-top: 10px;
-  width: 90%;
+  
   display: flex;
   justify-content: space-around;
   padding-top:4px;
@@ -236,6 +244,26 @@ a:hover {
   width:50%;
   margin: auto;
   margin-top:20px;
+}
+
+.button-1 {
+  padding: 8px 20px;
+  font-size: 20px;
+  color: white;
+  background: #44c8b5;
+  border:none;
+  font-weight: 700;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  transition: 1s cubic-bezier(0.2, 0.8,0.2,1);
+}
+
+.button-1:hover{
+  background: white;
+  box-shadow: 0 10px 20px rgba(0,0,0, 0.25);
+  color: #44c8b5;
+  transform: translateY(-3px);
 }
 
 /* FORMULAIRES */
