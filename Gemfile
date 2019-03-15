@@ -22,7 +22,9 @@ gem "aws-sdk-s3", require: false
 gem 'jquery-rails'
 gem 'font-awesome-rails'
 gem 'bootstrap'
-
+gem 'rspec-rails', '~> 3.8'
+gem 'factory_bot_rails'
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'underscore-rails'
 gem 'geocoder'
 gem 'gmaps4rails'
@@ -31,10 +33,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-
-  gem 'rspec-rails', '~> 3.8'
-  gem 'factory_bot_rails'
-  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
   gem 'awesome_print'
   gem 'pry'
   gem 'pry-rails'
@@ -46,7 +44,6 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-
   gem 'letter_opener'
 end
 
