@@ -1,0 +1,10 @@
+<%= form_for @search, :method => 'post' do |s| %> 
+    <div class="field">
+    <%= s.label :keywords %><br />
+    <%= s.text_field :keywords, params[:keywords] %>
+    </div>
+
+    <div>
+    <%= s.submit "search", class: "btn-primary", redirect_to search_path(params[:keywords]) %>
+    </div>
+<% end %>
