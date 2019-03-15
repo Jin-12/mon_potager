@@ -23,11 +23,9 @@
 
 
 $(document).ready(function() {
-
   const $gardens = $(".list-group").children();
   $gardens.each(function() {
-    var $links = $(this).find('a').attr('href');
-  
+    var $links = $(this).attr('href');
     console.log($links);
   });
 }

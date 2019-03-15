@@ -1,4 +1,4 @@
-(function() {
+$(document).ready((function() {
   /* __markers will hold a reference to all markers currently shown
      on the map, as GMaps4Rails won't do it for you.
      This won't pollute the global window object because we're nested

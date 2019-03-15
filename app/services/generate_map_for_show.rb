@@ -3,9 +3,6 @@ class GenerateMapForShow < ApplicationController
   def initialize(garden, nearby)
     @garden = garden
     @nearby = nearby
-    puts @garden
-    puts @nearby
-
   end
 
   def perform
@@ -18,7 +15,7 @@ class GenerateMapForShow < ApplicationController
     @hash_nearby = Gmaps4rails.build_markers(@nearby) do |garden, marker|
       marker.lat garden.latitude
       marker.lng garden.longitude
-      marker.json({title: garden.name})
+      marker.json({id: garden.id})
       marker.title garden.name
       marker.picture({
           "url": helpers.image_url('carrot.png'),
@@ -30,7 +27,7 @@ class GenerateMapForShow < ApplicationController
     @hash_garden = Gmaps4rails.build_markers([@garden]) do |garden, marker|
       marker.lat garden.latitude
       marker.lng garden.longitude
-      marker.json({title: garden.name})
+      marker.json({ id: garden.id })
       marker.title garden.name
       marker.picture({
           "url": helpers.image_url('carrot_lg.png'),
