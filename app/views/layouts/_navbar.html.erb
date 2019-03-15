@@ -1,7 +1,7 @@
 <nav>
   <div class="navbar">
     <div>
-      <%= link_to(image_tag('logo', width:200)) %>
+      <%= link_to (image_tag('logo', width:200)), root_path%>
     </div>
     <div class="connexion-info">
       <% if user_signed_in?  %>
