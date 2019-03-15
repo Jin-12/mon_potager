@@ -1,3 +1,7 @@
+require 'faker'
+
+Faker::Config.locale = 'fr'
+
 User.create(email: "kiko@kiko.com",
 	birthdate: Date.new(1958, 3, 13),
 	description: "un humble serviteur",
@@ -48,21 +52,46 @@ Garden.create(name: "Kikotager",
               latitude: 48.882132,
               longitude: 2.3696279)
 Garden.create(name: "Porte des lilas",
-	adress: "Porte de Lilas, Paris",
-	user_id: 2, latitude: 48.8765823, longitude: 2.4047709)
+	adress: "10 rue de la verrerie",
+	city: "Paris",
+	user_id: 2)
 Garden.create(name: "Nation Potager",
-	adress: "Place de la Nation, Paris",
-	user_id: 3, latitude: 48.8483995, longitude: 2.3937312)
+	adress: "10 avenue philippe Auguste",
+	city: "Paris",
+	zipcode: "75011",
+	country: "France",
+	user_id: 3)
 Garden.create(name: "94ger",
-	adress: "Opéra Bastille, Paris",
-	user_id: 4, latitude: 48.8517628, longitude: 2.3684249)
+	adress: "10 rue poissoniere",
+	city: "Paris",
+	country: "France",
+	user_id: 4)
 Garden.create(name: "Opotager",
-	adress: "Rue des 3 Frères, Paris",
-	user_id: 5, latitude: 48.88434, longitude: 2.3395218)
+	adress: "Rue des 3 Frères",
+	city: "Paris",
+	country: "France",
+	user_id: 5)
 Garden.create(name: "Potamille",
-	adress: "17 rue pierre Fosses Paris",
-	user_id: 6, latitude: 48.8617628, longitude: 2.3884249)
-
+	adress: "17 rue pierre Semard",
+	city: "Paris",
+	country: "France",
+	user_id: 6)
+	Garden.create(name: "Potacent",
+		adress: "via fornacci",
+		city: "Sernaglia",
+		zipcode: "31020",
+		country: "Italy",
+		user_id: 6)
+	
+50.times do |t|
+	puts Faker::Cannabis.buzzword.upcase
+	g = Garden.create(name: Faker::Cannabis.buzzword.upcase,
+		adress: "#{Faker::Address.street_address}", 
+		city: "#{Faker::Address.city}",
+		user_id: rand(1...6),
+		latitude: rand(43.000000..49.000000),
+		longitude: rand(-2.000000..7.000000))
+end
 
 Product.create(name: "Tomates", garden: Garden.all.sample)
 Product.create(name: "Patates", garden: Garden.all.sample)
@@ -73,3 +102,7 @@ Product.create(name: "Persil", garden: Garden.all.sample)
 Product.create(name: "Potiron", garden: Garden.all.sample)
 Product.create(name: "Navet", garden: Garden.all.sample)
 Product.create(name: "Carotte", garden: Garden.all.sample)
+
+100.times do 
+	Comment.create(content Faker::Cannabis.health_benefit, user_id User.all.sample, garden_id: Garden.all.sample)
+end 
