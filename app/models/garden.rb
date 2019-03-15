@@ -16,6 +16,9 @@ class Garden < ApplicationRecord
             result = []
             result << where(["adress LIKE ?","%#{search}%"])
             result << where(["name LIKE ?","%#{search}%"])
+            result << where(["city LIKE ?","%#{search}%"])
+            result << where(["country LIKE ?","%#{search}%"])
+            result << where(["zipcode LIKE ?","%#{search}%"])
 
             Product.where(["name LIKE ?","%#{search}%"]).each do |product|
                 result << Garden.where(id: product.garden_id)
