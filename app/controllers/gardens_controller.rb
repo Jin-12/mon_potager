@@ -28,6 +28,8 @@ class GardensController < ApplicationController
         Product.create(name: params[:productname1], garden_id: (Garden.last.id))
         Product.create(name: params[:productname2], garden_id: (Garden.last.id))
         Product.create(name: params[:productname3], garden_id: (Garden.last.id))
+        Product.create(name: params[:productname4], garden_id: (Garden.last.id))
+        Product.create(name: params[:productname5], garden_id: (Garden.last.id))
         redirect_to root_path
     end
 
@@ -40,7 +42,11 @@ class GardensController < ApplicationController
       @garden = Garden.find_by(user_id: current_user.id)
       @products = @garden.products
       @garden.update(name: params[:gardenname], adress: params[:adress])
-      @products.update(name: params[:productname])
+      @products[0].update(name: params[:productname1])
+      @products[1].update(name: params[:productname2])
+      @products[2].update(name: params[:productname3])
+      @products[3].update(name: params[:productname4])
+      @products[4].update(name: params[:productname5])
       redirect_to (garden_path(@garden))
     end
 

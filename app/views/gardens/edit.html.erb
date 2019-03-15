@@ -14,9 +14,11 @@
     <br/>
 
     <%= label_tag 'Tes Récoltes' %>
-    <% @products.each do |product| %>
-    <%= text_field_tag 'productname', product.name, class:'form-control' %>
-    <% end %>
+    <%= text_field_tag 'productname1', @products[0].name , class:'form-control' %>
+    <%= text_field_tag 'productname2', @products[1].name, class:'form-control' %>
+    <%= text_field_tag 'productname3', @products[2].name, class:'form-control' %>
+    <%= text_field_tag 'productname4', @products[3].name, class:'form-control' %>
+    <%= text_field_tag 'productname5', @products[4].name, class:'form-control' %>
     <br/>
 
     <%= submit_tag "Edite ton Potager!", class:"btn btn-light" %>
