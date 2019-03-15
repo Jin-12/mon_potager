@@ -14,6 +14,9 @@ class GardensController < ApplicationController
         @user = User.find(@garden.user_id)
         @nearby = helpers.locate_nearby_gardens(@garden)
         @hash = GenerateMapForShow.new(@garden, @nearby).perform
+        puts "$" * 60
+        @test = helpers.locate_closest_gardens(@garden)
+        p @test
 
         @products = @garden.products
         @status = Status.find_by(user_id:@garden.user_id)

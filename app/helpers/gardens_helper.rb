@@ -8,17 +8,26 @@ module GardensHelper
   end
 
   def locate_closest_gardens(location)
-    @distance = [2, 5, 10, 20, 50, 100]
+    @distance_array = [2, 5, 10, 20, 50, 100]
+    # TODO Check if parm is geocoded, else do it
     @location = location
     @closest = []
     i = 0
-    until @closest.length >= 3
-      @closest = @location.nearbys(@distance[i])
+    until @closest.length >= 10
+      @distance = @distance_array[i]
+      puts "*" * 40
+      @closest = @location.nearbys(@distance)
+      puts "#{@closest.length} within #{@distance} km"
       i = i + 1
+      return if i == @distance_array.length
     end
-    puts @distance
-    puts @closest
-    return {@distance[i-1]: @closest} 
+    puts "-" * 40
+    puts "#{@closest.length} within #{@distance_array[i-1]} km"
+    return [@distance, @closest]
   end
-end
 
+  def locate_by_departement(zipcode)
+
+  end
+
+end
