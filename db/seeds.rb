@@ -111,3 +111,7 @@ Product.create(name: "Persil", garden: Garden.all.sample)
 Product.create(name: "Potiron", garden: Garden.all.sample)
 Product.create(name: "Navet", garden: Garden.all.sample)
 Product.create(name: "Carotte", garden: Garden.all.sample)
+
+100.times do 
+	Comment.create(content Faker::Cannabis.health_benefit, user_id User.all.sample, garden_id: Garden.all.sample)
+end 

@@ -1,16 +1,13 @@
+# frozen_string_literal: true
+
 class ProductsController < ApplicationController
-    def index
-    end
+  def index; end
 
-    def show
-    end
-    
-    def create
-    end
+  def show; end
 
-    def edit
-    end
+  def create; end
 
-    def destroy
-    end
+  def edit; end
+
+  def destroy; end
 end

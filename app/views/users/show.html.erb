@@ -54,7 +54,12 @@
 		<%= link_to "Editer infos de connexion", edit_user_registration_path, class:"btn btn-primary" %>
 		<%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class:"btn btn-primary" %>
 	</div>
-
+	<div> 
+	<h2>Favoris</h2>
+	<% Favorite.where(user_id: @user.id).each do |fav| %>
+	<p><%= link_to Garden.find(fav.id).name, garden_path(fav.id)  %></p>
+	<% end %>
+	</div>
 	<br><br>
 </div>
 <center>
