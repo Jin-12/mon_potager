@@ -1,9 +1,11 @@
-<div class="container col-md-8 order-md-1">
-  <div class="form-group"><br><br>
-    <h3>
+<div class="container-form">
+  <div class="container-card row justify-content-md-center align-items-center">
+    <div class="col col-md-5 col-sm3">
+      <div class="card border shadow-lg p-4">
+    <h2>
       Edite ton potager !
-    </h3>
-    <br/>
+    </h2>
+    <div class="form-inputs">
     <%=form_tag url_for(action: 'update'), method: "patch" do %>
     <%= label_tag 'Nom de ton potager' %>
     <%= text_field_tag 'gardenname', @garden.name, class:'form-control' %>
@@ -19,6 +21,9 @@
     <% end %>
     <br/>
 
-    <%= submit_tag "Edite ton Potager!", class:"btn btn-light" %>
+    <%= submit_tag "Edite ton Potager!", class:"btn submit-btn" %>
   <% end %>
+</div>
+</div>
+</div>
 </div>
