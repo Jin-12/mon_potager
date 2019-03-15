@@ -9,8 +9,8 @@ class Garden < ApplicationRecord
     has_many_attached :images
 
     geocoded_by :adress
-    after_validation :geocode
-
+    after_validation :geocode, if: lambda{ |obj| obj.adress.present? &&obj.adress_changed? }
+  
     def self.search(search)
         if search
             result = []
@@ -29,4 +29,5 @@ class Garden < ApplicationRecord
             all
         end
     end
+
 end

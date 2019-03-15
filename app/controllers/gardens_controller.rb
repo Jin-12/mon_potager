@@ -3,7 +3,7 @@ class GardensController < ApplicationController
         @gardens = Garden.all
         @hash = GenerateMapForIndex.new(@gardens).perform
         @search = Garden.search(params[:search])     
-        end 
+        @status = Status.all.sort_by{ |status| status.created_at }.reverse
     end
 
     def new
@@ -12,13 +12,14 @@ class GardensController < ApplicationController
     def show
         @garden = Garden.find_by(id: params[:id])
         @user = User.find(@garden.user_id)
-        @hash = GenerateMapForIndex.new([@garden]).perform
+        @nearby = helpers.locate_nearby_gardens(@garden)
+        @hash = GenerateMapForShow.new(@garden, @nearby).perform
 
         @products = @garden.products
         @status = Status.find_by(user_id:@garden.user_id)
 
         if @status != nil
-          @how_many_days = (Time.now.to_i - @status.updated_at.to_i) / 86400
+          @how_many_days = (Time.now - @status.updated_at) / 86400 * 10
         end
     end
 
@@ -27,7 +28,6 @@ class GardensController < ApplicationController
         Product.create(name: params[:productname], garden_id: (Garden.last.id))
         redirect_to root_path
     end
-
 
     def edit
         @garden = Garden.find_by(user_id: current_user.id)
