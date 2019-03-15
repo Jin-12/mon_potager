@@ -1,34 +1,46 @@
 <nav>
   <div class="navbar">
-    <div>
-      <%= link_to (image_tag('logo', width:200)), root_path %>
+    <div class="col-12 col-md-4 col-lg-4" >
+      <%= link_to (image_tag('logo', width:'100%')), root_path %>
     </div>
     <div class="connexion-info">
-      <ul>
+      
 				<% if user_signed_in?  %>
 					<% if !current_user.gardens.empty? %>
-						<li>  <%= link_to 'Voir mon potager', garden_path(current_user.gardens.last.id), class: "nav-create noHover" %> </li>
+					<div class="col-sm-12 col-md-6 col-lg-auto">
+						 <%= link_to 'Voir mon potager', garden_path(current_user.gardens.last.id), class: "noHover" %> 
+					</div>
 					<% else %>
-						<li> <%= link_to 'Créer mon potager', new_garden_path, class: "nav-create noHover button-1 " %> </li>
+					<div class="col-sm-12 col-md-6 col-lg-auto">
+						 <%= link_to 'Créer mon potager', new_garden_path, class: "noHover button-1 " %> 
+					</div>
 					<% end %>
-						<li> <%= link_to "Mon profil", user_path(current_user), class: "nav-create noHover" %> </li>
-						<li>  <%= link_to "Deconnexion",destroy_user_session_path, method: :delete, class: "nav-create noHover nav-item" %></li>
+					<div class="col-sm-12 col-md-6 col-lg-auto">
+						 <%= link_to "Mon profil", user_path(current_user), class: " noHover" %>
+					</div>
+					<div class="col-sm-12 col-md-6 col-lg-auto">
+						 <%= link_to "Deconnexion",destroy_user_session_path, method: :delete, class: "noHover nav-item" %>
+					</div>
 				<% else %>
-						<li>  <%= link_to "Me connecter", new_user_session_path, class: "nav-create noHover nav-item " %> </li>
-						<li>  <%= link_to "Créer mon potager", new_user_registration_path, class: "nav-create noHover nav-item button-1" %> </li>
+						<div class="col-sm-12 col-md-6 col-lg-auto">
+						  <%= link_to "Me connecter", new_user_session_path, class: " noHover" %> 
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-auto">
+							  <%= link_to "Créer mon potager", new_user_registration_path, class: "noHover button-1" %> 
+						</div>
 				<% end %>
-				</ul>
+				
     </div>
   </div>
 
   <form>
-    <div class="col-4 col-md-5 nav-research">
+    <div class="col-4 col-md-5 col-lg-4 nav-research">
       <div class="form-row">
         <div>
           <i class="fa fa-search" aria-hidden="true"></i>
           <%= form_tag gardens_path, :method => 'get' do %>
             <%= text_field_tag :search, params[:search] %>
-            <%= submit_tag "rechercher" %>
+            <%= submit_tag "Go !" %>
           <% end %>
         </div>
       </div>
