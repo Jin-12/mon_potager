@@ -94,8 +94,16 @@
 			<h2>Sur la carte</h2>
 			<%= render 'map_for_show' %>
 		</div> <!-- fin de div map-garden -->
+		<% puts "_________________________________________" %> 
+			<% puts @garden.favorites.where(user_id: current_user.id) %>
+		<% puts "_________________________________________" %> 
 
-			<button class="btn-yeah2">Ajouter aux favoris</button>
+	<% if @garden.favorites.where(user_id: current_user.id).empty? %>
+	    	<%=form_tag url_for(controller: 'favorites', action: 'create'), method: "post" do %>
+				<%= hidden_field_tag(:gardenid, @garden.id) %>
+				<%= submit_tag "Ajouter aux Favoris", class:"btn btn-yeah2"%>
+  			<% end %>
+	<% end %> 
 			<hr />
 			<div class="near">
 				<h2>Potagers proches</h2>
@@ -109,7 +117,6 @@
 
 		<!-- fin de div gardenshow-1 -->
 
-		<button class="btn-yeah2">Ajouter aux favoris</button>
 
 	</div>
 	<!-- fin de div gardenshow-1 -->
@@ -137,6 +144,35 @@
 		<button class="btn-yeah2">Envoyer un message</button>
 		<div></div>
 	</div>
-	<!-- fin de div gardenshow-2 -->
+	<!-- element comments -->
+	<div class="card col-sm-8">
+  		<ul class="list-group list-group-flush">
+		    <% @comments.each do |com| %> 
+				<li class="list-group-item">
+        			<%= (com.user.first_name + " " + com.user.last_name)%>
+        			<%= com.content %>
+				</li>
+				<% if current_user == com.user %> 
+					<%= link_to "Supprimer" , {:controller => 'comments', :action => 'destroy', :id => com.id}, class:"btn btn-danger" %>
+				<% end %> 
+    		<% end %>
+  		</ul>
+	</div>
+	<div class="card-header col-sm-8">
+    	<h3>
+      		Ajouter un commentaire
+    	</h3>
+    	<br/>
+    	<%=form_tag url_for(controller: 'comments', action: 'create'), method: "post" do %>
+    		<%= label_tag 'Content' %>
+    		<%= text_area_tag 'content', @content, class:'form-control' %>
+			<%= hidden_field_tag(:id, @garden.id) %>
+    		<br/>
+			<%= submit_tag "Commenter", class:"btn btn-yeah2"%>
+  		<% end %>
+  	</div>
 
-</div>
+	<!-- fav comments -->
+
+
+

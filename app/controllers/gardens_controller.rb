@@ -11,6 +11,8 @@ class GardensController < ApplicationController
 
     def show
         @garden = Garden.find_by(id: params[:id])
+        @comments = Comment.where(garden_id: @garden.id)
+        @comments.all.sort_by { |garden| garden.created_at }
         @user = User.find(@garden.user_id)
         @nearby = helpers.locate_nearby_gardens(@garden)
         @hash = GenerateMapForShow.new(@garden, @nearby).perform
@@ -24,7 +26,8 @@ class GardensController < ApplicationController
     end
 
     def create
-        Garden.create(user_id: current_user.id, name: params[:gardenname], adress: params[:adress])
+        Garden.create(user_id: current_user.id, name: params[:gardenname], adress: params[:adress], city: params[:city], zipcode: params[:zipcode], country: params[:country])
+
         Product.create(name: params[:productname1], garden_id: (Garden.last.id))
         Product.create(name: params[:productname2], garden_id: (Garden.last.id))
         Product.create(name: params[:productname3], garden_id: (Garden.last.id))
@@ -41,15 +44,19 @@ class GardensController < ApplicationController
     def update
       @garden = Garden.find_by(user_id: current_user.id)
       @products = @garden.products
-      @garden.update(name: params[:gardenname], adress: params[:adress])
+
+      @garden.update(name: params[:gardenname], adress: params[:adress], city: params[:city], zipcode: params[:zipcode], country: params[:country])
+
       @products[0].update(name: params[:productname1])
       @products[1].update(name: params[:productname2])
       @products[2].update(name: params[:productname3])
       @products[3].update(name: params[:productname4])
       @products[4].update(name: params[:productname5])
+
       redirect_to (garden_path(@garden))
     end
 
     def destroy
     end
+
 end
