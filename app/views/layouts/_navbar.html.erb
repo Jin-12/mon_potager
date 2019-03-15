@@ -6,7 +6,7 @@
     <div class="connexion-info">
       <% if user_signed_in?  %>
         <% if !current_user.gardens.empty? %>
-            <%= link_to 'Voir mon potager', garden_path(current_user), class: "nav-create noHover" %>
+            <%= link_to 'Voir mon potager', garden_path(current_user.gardens.last.id), class: "nav-create noHover" %>
         <% else %>
             <%= link_to 'Créer mon potager', new_garden_path, class: "nav-create noHover" %>
         <% end %>
