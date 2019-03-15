@@ -1,9 +1,9 @@
 <div class="container">
 
-  <div class="row" style='width:100%'>
+  <div class="row">
 
 
-    <div class="col">
+    <div class="col gardens-list">
       <ul class="list-group">
         <% @search.each do |garden| %>
         <li class="list-item">
@@ -13,7 +13,7 @@
 
       </ul>
 
-      <div class="card p-2 search">
+      <div class="col card p-2 search">
         <%= simple_form_for :search,
           url: root_path,
           method: "GET",
