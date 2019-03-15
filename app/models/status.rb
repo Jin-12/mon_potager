@@ -1,5 +1,7 @@
-class Status < ApplicationRecord
-    belongs_to :user
+# frozen_string_literal: true
 
-    validates :content, length: { in: 6..1000 }
+class Status < ApplicationRecord
+  belongs_to :user
+
+  validates :content, length: { in: 6..1000 }
 end
