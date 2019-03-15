@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
   resources :products
   resources :favorites
-
+  resources :status
+  resources :searches
   root :to => "gardens#index"
 end

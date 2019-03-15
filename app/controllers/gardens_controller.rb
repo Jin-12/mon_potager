@@ -1,11 +1,9 @@
 class GardensController < ApplicationController
     def index
-        puts '#' * 60
-        @gardens = Garden.where(["name LIKE ?","%#{params[:search]}%"])
-        puts @gardens
+        @gardens = Garden.all
         @hash = GenerateMapForIndex.new(@gardens).perform
+        @search = Garden.search(params[:search])     
         @status = Status.all.sort_by{ |status| status.created_at }.reverse
-        
     end
 
     def new
