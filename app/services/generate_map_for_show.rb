@@ -38,9 +38,6 @@ class GenerateMapForShow < ApplicationController
         "height": 64
       )
     end
-    puts '=' * 50
     @hash = @hash_nearby + @hash_garden
-    p @hash
-    @hash
   end
 end

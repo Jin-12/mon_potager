@@ -31,16 +31,8 @@ module GardensHelper
     return [@distance, @closest]
   end
 
-  def validate_zipcode(location)
-    @search = Geocoder.search(location).first
-    puts "~" * 20
-    puts "LOCATE BY ZIPCODE RETURNS:"
-    locate_closest_gardens(@search)
-    # binding.pry
-  end
-
   def locate_by_zipcode(location)
-    @search = Geocoder.search(location).first
+    @search = Geocoder.search(location).select{ |location| location.country == "France"}.first
     puts "~" * 20
     if @search.nil?
       flash[:warning] = "Code postal non reconnu"
