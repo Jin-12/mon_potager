@@ -14,7 +14,6 @@ class GenerateMapForIndex < ApplicationController
   def build_hash
     puts 'x' * 50 
     p @gardens
-
     @hash = Gmaps4rails.build_markers(@gardens) do |garden, marker|
       marker.lat garden.latitude
       marker.lng garden.longitude

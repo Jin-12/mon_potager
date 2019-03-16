@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   root to: 'gardens#index'
 
-  get "/static", to: "static#landing"
   get "/static/landing", to: "static#landing"
+  get "/static/landing_map", to: "static#landing_map"
+  get "/static", to: "static#landing"
 end

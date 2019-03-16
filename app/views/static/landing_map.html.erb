@@ -1,0 +1,9 @@
+<h1>Here again</h1>
+
+<%= @search_by_zipcode[1].length %> potagers dans un rayon de <%= @search_by_zipcode[0] %> km:
+
+<% @search_by_zipcode[1].each do |garden| %>
+  <%= garden.name %><br />
+<% end %>
+
+<%= render 'map_for_landing' %>
