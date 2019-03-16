@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   resources :comments
 
   root to: 'gardens#index'
+
+  get "/static", to: "static#landing"
+  get "/static/landing", to: "static#landing"
 end
