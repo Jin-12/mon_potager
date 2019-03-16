@@ -1,5 +1,5 @@
 
-console.log("fuck it!");
+console.log("gardens.js here");
 
 $(document).ready(function() {
 
