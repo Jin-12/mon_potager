@@ -1,27 +1,31 @@
-<div class="container col-md-8 order-md-1">
-  <div class="form-group"><br><br>
-    <h3>
-      Edite ton profil !
-    </h3>
-    <br/>
-    <%=form_tag url_for(action: 'update'), method: "patch" do %>
-    <%= label_tag 'Prénom' %>
-    <%= text_field_tag 'first_name', @user.first_name, class:'form-control' %>
-    <br/>
+<div class="container">
+  <div class="container-form">
+    <div class="container-card row justify-content-md-center align-items-center">
+      <div class="col col-md-8 col-sm5 col-lg-7 col-xl-7">
+        <div class="card border shadow-lg p-4">
+          <div class="form-group">
+              <h2>
+                Edite ton profil !
+              </h2>
+              
+              <%=form_tag url_for(action: 'update'), method: "patch" do %>
+              <%= label_tag 'Prénom' %>
+              <%= text_field_tag 'first_name', @user.first_name, placeholder: 'Prénom*', class:'form-control' %>
 
-    <%= label_tag 'Nom' %>
-    <%= text_field_tag 'last_name', @user.last_name, class:'form-control' %>
-    <br/>
+              <%= label_tag 'Nom' %>
+              <%= text_field_tag 'last_name', @user.last_name, class:'form-control', placeholder: 'Nom*' %>
+  
+              <%= label_tag 'Date de naissance' %>
+              <%= text_field_tag 'birthdate', @user.birthdate, placeholder: 'Date de naissance*', class:'form-control' %>
+            
+              <%= label_tag 'Description' %>
+              <%= text_area_tag 'description', @user.description, placeholder: 'Description', class:'form-control' %>
 
-    <%= label_tag 'Date de naissance' %>
-    <%= text_field_tag 'birthdate', @user.birthdate, class:'form-control' %>
-    <br/>
-
-    <%= label_tag 'Description' %>
-    <%= text_area_tag 'description', @user.description, class:'form-control' %>
-    <br/>
-
-    <%= submit_tag "Edite ton profil!", class:"btn btn-light" %>
-  <% end %>
-</div>
+              <%= submit_tag "Edite ton profil !", class:"btn submit-btn" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

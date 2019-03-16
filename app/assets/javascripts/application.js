@@ -38,3 +38,7 @@ let b = document.querySelector('#btn-adder');
 console.log(b)
 
 /*change color of navbar*/
+
+var homepage = "<%= link_to garden_index_path %>";
+
+homepage.querySelector("nav").className("homepage")
