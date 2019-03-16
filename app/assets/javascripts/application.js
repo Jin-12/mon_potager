@@ -36,3 +36,8 @@ $(document).ready(function() {
 
 let b = document.querySelector('#btn-adder');
 console.log(b)
+
+window.onscroll = () => {
+  const nav = document.querySelector('nav');
+  if(this.scrollY <=  900) nav.className = 'homepage'; else nav.className = 'scroll';
+};

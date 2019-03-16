@@ -85,8 +85,6 @@ p {
     align-content: space-between;
   }
 
-
-
   .footer {
     min-height: 100px;
     background-color: #44c8b5;
@@ -103,7 +101,7 @@ p {
       align-content: space-between;
   }
 
-.container {
+  .container {
   flex: 1 0 auto;
 }
 
@@ -165,17 +163,31 @@ a:hover {
   color: #7B7B7B;
 }
 
+nav{
+  position: absolute;
+  width:100%;
+  z-index: 999;
+}
 
-.connexion-info ul {
+.carousel-caption h2 {
+  font-size: 3em;
+  color: white;
+  display: block;
+  }
+
+.connexion-info {
   display:flex;
+  flex-direction: row;
   justify-items: center;
+  flex-wrap:wrap;
+  
 }
 
 .connexion-info li {
   display:flex;
-  font-size:0.6em;
+    font-size:0.6em;
   padding-left:20px;
-  display: inline-block;
+  display: row;
   vertical-align: middle; 
 }
 
@@ -230,6 +242,7 @@ a:hover {
 }
 .nav-research {
   display: flex;
+  flex-direction:row;
   align-content: center;
   background: #FFFFFF;
   box-shadow: 0 5px 10px 3px rgba(194,194,194,0.50);
@@ -237,6 +250,10 @@ a:hover {
   width:50%;
   margin: auto;
   margin-top:20px;
+}
+
+.nav-research input[type=text] {
+  width:70%;
 }
 
 .button-1 {
@@ -257,6 +274,13 @@ a:hover {
   box-shadow: 0 10px 20px rgba(0,0,0, 0.25);
   color: #44c8b5;
   transform: translateY(-3px);
+}
+
+/* CAROUSSEL */
+
+.carousel-inner {
+
+  
 }
 
 /* FORMULAIRES */
