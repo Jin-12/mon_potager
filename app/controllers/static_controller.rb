@@ -6,10 +6,13 @@ class StaticController < ApplicationController
     puts params
     @search_by_zipcode = ""
     unless params[:search_near].nil?
-      @search_by_zipcode = helpers.locate_by_zipcode(params[:search_near])
-      @hash = GenerateMapForIndex.new(@search_by_zipcode[1]).perform
-      puts @search_by_zipcode
-      render 'landing_map'
+      zipcode = params[:search_near]
+      @search_by_zipcode = helpers.locate_by_zipcode(zipcode)
+      unless @search_by_zipcode.nil?
+        p @search_by_zipcode[1]
+        @hash = GenerateMapForIndex.new(@search_by_zipcode[1]).perform
+        render 'landing_map'
+      end
     end
   end
 

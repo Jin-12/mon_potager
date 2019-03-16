@@ -1,4 +1,5 @@
 require 'faker'
+require 'geocoder'
 
 Faker::Config.locale = 'fr'
 I18n.reload!
@@ -91,15 +92,17 @@ Garden.create(name: "Potacent",
 	user_id: 6)
 
 50.times do |t|
-puts Faker::Cannabis.buzzword.upcase
-g = Garden.create(name: Faker::Cannabis.buzzword.upcase,
-adress: Faker::Address.street_address,
-city: Faker::Address.city,
-zipcode: "75001", # Faker::Address.zipcode,
-country: "France",
-user_id: rand(1...6),
-latitude: rand(43.000000..49.000000),
-longitude: rand(-2.000000..7.000000))
+	geocity = Faker::Address.city
+	coordinates = Geocoder.search(geocity).first.coordinates
+	geocode = Geocoder.search(geocity).first.postal_code
+	g = Garden.create(name: Faker::Cannabis.buzzword,
+	adress: Faker::Address.street_address,
+	city: Faker::Address.city,
+	zipcode: geocode,
+	country: "France",
+	user_id: rand(1...6),
+	latitude: coordinates[0],
+	longitude: coordinates[1])
 end
 
 Product.create(name: "Tomates", garden: Garden.all.sample)

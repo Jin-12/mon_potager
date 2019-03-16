@@ -18,14 +18,22 @@ class GenerateMapForIndex < ApplicationController
     @hash = Gmaps4rails.build_markers(@gardens) do |garden, marker|
       marker.lat garden.latitude
       marker.lng garden.longitude
-      marker.json(title: garden.name)
-      marker.title garden.name
+      marker.json(title: garden.name) unless garden.name.nil?
+      marker.title garden.name unless garden.name.nil?
       marker.picture(
         "url": helpers.image_url('carrot.png'),
         "width": 32,
         "height": 32
       )
       marker.infowindow render_to_string(partial: 'gardens/map_info', locals: { garden: garden })
-    end
+      rescue
+        marker.lat garden.latitude
+        marker.lng garden.longitude
+        marker.picture(
+          "url": helpers.image_url('carrot.png'),
+          "width": 32,
+          "height": 32
+        )
+        end
   end
 end
