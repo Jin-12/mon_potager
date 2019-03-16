@@ -92,9 +92,9 @@ Garden.create(name: "Potacent",
 	user_id: 6)
 
 50.times do |t|
-	geocity = Faker::Address.city
-	coordinates = Geocoder.search(geocity).first.coordinates
-	geocode = Geocoder.search(geocity).first.postal_code
+	geocity = Geocoder.search(Faker::Address.city).select{ |location| location.country == "France"}.first
+	coordinates = geocity.coordinates
+	geocode = geocity.postal_code
 	g = Garden.create(name: Faker::Cannabis.buzzword,
 	adress: Faker::Address.street_address,
 	city: Faker::Address.city,
