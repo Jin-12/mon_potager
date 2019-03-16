@@ -1,0 +1,67 @@
+<div class="container-fluid" style="height: 100vh;">
+  <div class="container-fluid" style="background-image: url(<%= asset_path('kelly-neil-558227-unsplash.jpg') %>);  background-repeat: no-repeat; background-size: 100%">
+    <div class="row justify-content-md-center align-items-center" style="background: rgba(68, 200, 181, .6); height: 150px;">
+      <div class="col text-center">
+        <h6 class="text-uppercase" style="color: white">monpotager.fr</h6>
+        <h3 style="color: white">Partagez, échangez, vendez les légumes de votre potager</h3>
+      </div>
+    </div>
+    <div class="row justify-content-md-center align-items-center" style="height:60vh;">
+      <div class="col-md-6">
+        <div class="card shadow p-3 mb-5 bg-white rounded">
+          <h2>Découvrez vos collègues</h2>
+          <form>
+            <div class="form-row shadow-sm p-1 mb-5 bg-grey rounded">
+              <%= form_tag gardens_path, :method => 'get' do %>
+                <%= text_field_tag :search_near, params[:search_near], class: "col-8 btn bg-light text-left" %>
+                <%= button_tag type: 'submit', class: 'col-1 btn btn-yeah2' do %>
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                <% end %>
+              <% end %>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
+          <title>Placeholder</title>
+          <rect fill="#777" width="100%" height="100%"></rect><text fill="#777" dy=".3em" x="50%" y="50%">140x140</text>
+        </svg>
+        <h2>Heading</h2>
+        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies
+          vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus
+          magna.</p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
+          <title>Placeholder</title>
+          <rect fill="#777" width="100%" height="100%"></rect><text fill="#777" dy=".3em" x="50%" y="50%">140x140</text>
+        </svg>
+        <h2>Heading</h2>
+        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis
+          consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
+          nibh.</p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
+          <title>Placeholder</title>
+          <rect fill="#777" width="100%" height="100%"></rect><text fill="#777" dy=".3em" x="50%" y="50%">140x140</text>
+        </svg>
+        <h2>Heading</h2>
+        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta
+          felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
+          massa justo sit amet risus.</p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+      </div><!-- /.col-lg-4 -->
+    </div>
+  </div>
+</div>
