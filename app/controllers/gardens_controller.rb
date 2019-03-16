@@ -2,6 +2,9 @@
 
 class GardensController < ApplicationController
   def index
+    unless user_signed_in?
+      redirect_to static_landing_path
+    end
     @gardens = Garden.all
     @hash = GenerateMapForIndex.new(@gardens).perform
     @search = Garden.search(params[:search])
