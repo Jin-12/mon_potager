@@ -2,6 +2,7 @@
  @import 'gardens.css.scss';
  @import 'users.css.scss';
 
+
 body {
   display:flex;
   flex-direction: column;
@@ -103,6 +104,7 @@ p {
 
   .container {
   flex: 1 0 auto;
+  margin-top:250px;
 }
 
 html, body {
@@ -163,7 +165,7 @@ a:hover {
   color: #7B7B7B;
 }
 
-nav .homepage{
+.homepage{
   position: absolute;
   width:100%;
   z-index: 999;
@@ -199,12 +201,6 @@ nav .homepage{
 .nav-create {
   font-size: 1.5em;
  }
-
- .nav-bar-homepage {
-  display: flex;
-  flex-direction: column;
-  padding-bottom:50px;
-}
 
 .nav-item {
   list-style: none;
