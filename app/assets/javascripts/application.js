@@ -39,6 +39,6 @@ console.log(b)
 
 /*change color of navbar*/
 
-var homepage = "<%= link_to garden_index_path %>";
 
-homepage.querySelector("nav").className("homepage")
+var homepage = document.getElementsByClassName('navbar');
+homepage.style.property = homepage;
