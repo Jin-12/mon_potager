@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class GenerateMapForIndex < ApplicationController
+class GenerateMapForLanding < ApplicationController
 
   
   def initialize(gardens)
@@ -23,7 +23,7 @@ class GenerateMapForIndex < ApplicationController
         "width": 32,
         "height": 32
       )
-      marker.infowindow render_to_string(partial: 'gardens/map_info', locals: { garden: garden}, object: garden)
+      marker.infowindow render_to_string(partial: 'gardens/map_info_landing', locals: { garden: garden}, object: garden)
       rescue
         marker.lat garden.latitude
         marker.lng garden.longitude
