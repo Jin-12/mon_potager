@@ -7,7 +7,7 @@ class Garden < ApplicationRecord
   has_many :favorites, as: :favoritable
 
   validates :name, length: { in: 5..150 }
-
+  validates :zipcode, presence: true, format: { with: /(([0-8][0-9])|(9[0-5]))[0-9]{3}\z/ }
   has_many_attached :images
 
   geocoded_by :adress
@@ -33,5 +33,9 @@ class Garden < ApplicationRecord
     else
       all
     end
+  end
+
+  def departement
+    zipcode[0..1]
   end
 end
