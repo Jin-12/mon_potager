@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 module GardensHelper
+  include Rails.application.routes.url_helpers
+
+  def garden_cover(garden)
+    rails_blob_path(garden.images[0]) if garden.images.attachment
+  end
+  
   def locate_nearby_gardens(location)
     puts params
     puts '#' * 20
@@ -13,13 +19,16 @@ module GardensHelper
     @location = location
     @closest = []
     i = 0
-    until @closest.length >= 5
+    until @closest.length >= 3
       @distance = @distance_array[i]
       @closest = Garden.near(@location.coordinates, @distance)
       i = i + 1
       # returning current array if loop not finished at longest distance in array
       puts "LOCATE CLOSEST ON BREAK RETURNS:"
-      puts @closest.empty?
+      puts "v" * 30
+      puts "#{@closest.length} within #{@distance_array[i-1]} km"
+      puts @closest.length
+      puts "^" * 30
       if i == @distance_array.length
         return [@distance, [@location]]
       end

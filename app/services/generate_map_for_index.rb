@@ -9,8 +9,6 @@ class GenerateMapForIndex < ApplicationController
     build_hash
   end
 
-  private
-
   def build_hash
 
     @hash = Gmaps4rails.build_markers(@gardens) do |garden, marker|
@@ -23,7 +21,7 @@ class GenerateMapForIndex < ApplicationController
         "width": 32,
         "height": 32
       )
-      marker.infowindow render_to_string(partial: 'gardens/map_info', locals: { garden: garden })
+      marker.infowindow render_to_string(partial: 'gardens/map_info', locals: { garden: garden}, object: garden)
       rescue
         marker.lat garden.latitude
         marker.lng garden.longitude
