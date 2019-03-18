@@ -23,7 +23,7 @@ class GenerateMapForIndex < ApplicationController
         "width": 32,
         "height": 32
       )
-      marker.infowindow render_to_string(partial: 'gardens/map_info', locals: { garden: garden}, object: garden)
+      marker.infowindow render_to_string(partial: 'gardens/map_info', locals: { garden: garden}, object: @garden)
       rescue
         marker.lat garden.latitude
         marker.lng garden.longitude
@@ -32,6 +32,7 @@ class GenerateMapForIndex < ApplicationController
           "width": 32,
           "height": 32
         )
-        end
+        marker.infowindow render_to_string(partial: 'gardens/map_info', locals: { garden: garden })
+      end
   end
 end
