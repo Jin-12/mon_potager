@@ -1,19 +1,30 @@
 <nav class="homepage" >
   <div class="navbar">
     <div class="col-12 col-md-4 col-lg-4" >
-      <%= link_to (image_tag('logo', width:'100%')), root_path %>
+      <%= link_to (image_tag('logo', width:'70%')), root_path %>
     </div>
+          <form>
+            <div class="nav-research">
+              <div class="">
+                <div class="">
+                  <%= form_tag gardens_path, :method => 'get' do %>
+                    <%= text_field_tag :search, params[:search], placeholder: 'Carottes, Paris' %>
+                    <% end %>
+                </div>
+              </div>
+            </div>
+          </form>
 
     <div class="connexion-info">
-      
+
 				<% if user_signed_in?  %>
 					<% if !current_user.gardens.empty? %>
 					<div class="col-sm-12 col-md-6 col-lg-auto">
-						 <%= link_to 'Voir mon potager', garden_path(current_user.gardens.last.id), class: "noHover" %> 
+						 <%= link_to 'Voir mon potager', garden_path(current_user.gardens.last.id), class: "noHover" %>
 					</div>
 					<% else %>
 					<div class="col-sm-12 col-md-6 col-lg-auto">
-						 <%= link_to 'Créer mon potager', new_garden_path, class: "noHover button-1 " %> 
+						 <%= link_to 'Créer mon potager', new_garden_path, class: "noHover button-1 " %>
 					</div>
 					<% end %>
 					<div class="col-sm-12 col-md-6 col-lg-auto">
@@ -24,28 +35,13 @@
 					</div>
 				<% else %>
 						<div class="col-sm-12 col-md-6 col-lg-auto">
-						  <%= link_to "Me connecter", new_user_session_path, class: " noHover" %> 
+						  <%= link_to "Me connecter", new_user_session_path, class: " noHover" %>
 						</div>
 						<div class="col-sm-12 col-md-6 col-lg-auto">
-							  <%= link_to "Créer mon potager", new_user_registration_path, class: "noHover button-1" %> 
+							  <%= link_to "Créer mon potager", new_user_registration_path, class: "noHover button-1" %>
 						</div>
 				<% end %>
-				
+
     </div>
   </div>
-
-  <form>
-    <div class="col-4 col-md-5 col-lg-4 nav-research">
-      <div class="form-row">
-        <div>
-          <i class="fa fa-search" aria-hidden="true"></i>
-          <%= form_tag gardens_path, :method => 'get' do %>
-            <%= text_field_tag :search, params[:search] %>
-            <%= submit_tag "Go !" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </form>
-  
 </nav>

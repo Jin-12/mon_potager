@@ -11,8 +11,6 @@ class GardensController < ApplicationController
     @status = Status.all.sort_by(&:created_at).reverse
   end
 
-  def new; end
-
   def show
     @garden = Garden.find_by(id: params[:id])
     @comments = Comment.where(garden_id: @garden.id)
@@ -28,8 +26,12 @@ class GardensController < ApplicationController
       @how_many_days = (Time.now - @status.updated_at) / 86_400 * 10
     end
   end
-
+  def new
+  @user = current_user
+  end
   def create
+    User.find(current_user.id).update(first_name: params[:userfirstname], last_name: params[:userlastname])
+
     Garden.create(user_id: current_user.id, name: params[:gardenname], adress: params[:adress], city: params[:city], zipcode: params[:zipcode], country: params[:country])
 
     Product.create(name: params[:productname1], garden_id: Garden.last.id)
@@ -37,6 +39,8 @@ class GardensController < ApplicationController
     Product.create(name: params[:productname3], garden_id: Garden.last.id)
     Product.create(name: params[:productname4], garden_id: Garden.last.id)
     Product.create(name: params[:productname5], garden_id: Garden.last.id)
+
+
     redirect_to root_path
   end
 
