@@ -122,10 +122,12 @@ button:focus {outline:0;}
 	transition: 0.5s cubic-bezier(0.2,0.8,0.2,1);
 }
 
-
-
 .flex-title {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.Slider {
+	margin: 0 0 100px 0;
 }
