@@ -3,20 +3,17 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
 	<div class="content-garden">
-		<div class="row col-gardenshow-1">
-			<div class="col col-md-8 col-lg-8">
+		<div class="row">
+			<div class="col col-md-7 col-lg-7">
 				<div class="div-status">
 					<div class="">
 						<h1><%= @garden.name %></h1>
 					</div>
-					<div class="gardens-update-btn col-lg-8">
+					<div class="gardens-update-btn col-lg-7">
 						<% if current_user == @user %>
-							<div><%=link_to "Editer le potager", edit_garden_path(@garden), class:"btn submit-btn-ligth"%>	</div>
+							<%=link_to "Editer le potager", edit_garden_path(@garden), class:"btn submit-btn-ligth"%>
 						<% end %>
-						
-								<%= link_to 'Ajouter un status', new_user_status_path(@user), class:"btn submit-btn-ligth" %>
-						
-					
+							<%= link_to 'Ajouter un status', new_user_status_path(@user), class:"btn submit-btn-ligth" %>
 					</div>
 
 					<div>
@@ -26,15 +23,15 @@
 
 						<% if current_user == @user %>
 							<%= form_tag garden_images_path(@garden), multipart: true do %>
-							<span class="btn btn-large btn-warning btn-file">
+							<div >
 								<%if @garden.images.attached?%>
 									Rajoute une photo
 								<% else %>
 									Mets ta première photo
 								<% end %>
 								<%= file_field_tag :images %>
-							</span>
-							<%= submit_tag "Ajouter", class:"btn btn-primary" %>
+							</div>
+							<%= submit_tag "Ajouter", class:"submit-btn-ligth" %>
 						<% end %>
 
 						<%if @garden.images.attached?%>
@@ -54,7 +51,7 @@
 								<div id="cercle"></div>
 								<p class="para-strong status-content"><%= @status.content %>
 									<% if current_user == @user %>
-									<%= link_to 'Nouveau statut', new_user_status_path(@user), class:"btn btn-primary" %>
+									<%= link_to 'Nouveau statut', new_user_status_path(@user), class:"submit-btn-ligth" %>
 									<% end %>
 									<%= link_to 'Tous les statuts', user_statuses_path(@user), class:"btn btn-light" %>
 							</div>
@@ -74,41 +71,8 @@
 								<% end %>
 						</div>
 					</div>
-			</div>
-			<div class="col col md-4 col-lg-4">
-				<div class="gardenshow-2">
-				<%if @user.avatar.attached?%>
-					<%= image_tag @user.avatar, alt: 'avatar', class:'img-fluid avatar-user' %>
-				<% else %>
-					<div class="avatar-user"></div>
-				<% end %>
-				<div class="name-usergarden">
-					<% if @user.first_name.nil? %>
-						<p><%= link_to "Utilisateur Anonyme", user_path(@user), class:"titre-dark"%></p>
-					<% else %>
-					<p><%= link_to (@user.first_name + " " + @user.last_name), user_path(@user), class:"titre-dark"%></p>
-					<% end %>
-					<p class="interlign-name"><%= @garden.adress %></p>
-				</div>
-
-				<div class="description-usergarden">
-					<p class="para-strong">Présentation</p>
-					<p><%= @user.description %></p>
-				</div>
-
-				<button class="btn-yeah2">Envoyer un message</button>
-				<div></div>
-			</div>
-			<!-- element comments -->
-			</div>
-	
-				
-
-
-			<div class="products-garden">
-				<h2>
-					<i class="fas fa-carrot"></i>
-					Les Produits</h2>
+							<div class="products-garden">
+				<h2><i class="fas fa-carrot"></i>Les Produits</h2>
 
 				<div class="legumes-garden">
 					<div class="legumes-list">
@@ -120,22 +84,29 @@
 			</div>
 			<!-- fin de div produits-garden -->
 
-			<div class="map-garden">
-				<h2>Sur la carte</h2>
-				<%= render 'map_for_show' %>
-			</div> <!-- fin de div map-garden -->
-			<% puts "_________________________________________" %> 
-				<% puts @garden.favorites.where(user_id: current_user.id) %>
-			<% puts "_________________________________________" %> 
-
-		<% if @garden.favorites.where(user_id: current_user.id).empty? %>
-				<%=form_tag url_for(controller: 'favorites', action: 'create'), method: "post" do %>
-					<%= hidden_field_tag(:gardenid, @garden.id) %>
-					<%= submit_tag "Ajouter aux Favoris", class:"btn btn-yeah2"%>
-				<% end %>
-		<% end %> 
-				<hr />
-				<div class="near">
+			</div>
+			<div class="col col-md-5 col-lg-5">
+				<div class="gardenshow-2">
+					<%if @user.avatar.attached?%>
+						<%= image_tag @user.avatar, alt: 'avatar', class:'img-fluid avatar-user' %>
+					<% else %>
+						<div class="avatar-user"></div>
+					<% end %>
+					<div class="name-usergarden">
+						<% if @user.first_name.nil? %>
+							<p><%= link_to "Utilisateur Anonyme", user_path(@user), class:"titre-dark"%></p>
+						<% else %>
+						<p><%= link_to (@user.first_name + " " + @user.last_name), user_path(@user), class:"titre-dark"%></p>
+						<% end %>
+						<p class="interlign-name"><%= @garden.adress %></p>
+					</div>
+					<div class="description-usergarden">
+						<p class="para-strong">Présentation</p>
+						<p><%= @user.description %></p>
+					</div>
+					<button class="btn-yeah2">Envoyer un message</button>
+			</div>
+			<div class="near">
 					<h2>Potagers proches</h2>
 					<ul class="list-group">
 						<% @nearby.each do |near| %>
@@ -143,16 +114,33 @@
 						<% end %>
 					</ul>
 				</div>
+			<!-- element comments -->
 			</div>
-
-			<!-- fin de div gardenshow-1 -->
-
-
+	
+					
+			<div class="map-garden col-lg-7">
+				<h2>Sur la carte</h2>
+				<%= render 'map_for_show' %>
+			</div> <!-- fin de div map-garden -->
+			<div class="favorite-button">
+			<% puts "_________________________________________" %> 
+				<% puts @garden.favorites.where(user_id: current_user.id) %>
+			<% puts "_________________________________________" %> 
+				<% if @garden.favorites.where(user_id: current_user.id).empty? %>
+						<%=form_tag url_for(controller: 'favorites', action: 'create'), method: "post" do %>
+							<%= hidden_field_tag(:gardenid, @garden.id) %>
+							<%= submit_tag "Ajouter aux Favoris", class:"btn btn-yeah2"%>
+						<% end %>
+				<% end %> 
+			</div>
+				<hr />	
+				
+			</div>
 		</div>
 		<!-- fin de div gardenshow-1 -->
 
 		
-		<div class="card col-sm-8">
+		<div class="card col-lg-7">
 			<ul class="list-group list-group-flush">
 				<% @comments.each do |com| %> 
 					<li class="list-group-item">
@@ -165,7 +153,7 @@
 				<% end %>
 			</ul>
 		</div>
-		<div class="card-header col-sm-8">
+		<div class="card-header col col-lg-7">
 			<h3>
 				Ajouter un commentaire
 			</h3>

@@ -62,12 +62,18 @@ p {
  
 .container {
   min-height:100%;
+  width:100%;
 }
 
 .gardens-update-btn {
   display:flex;
   flex-direction:row;
 }
+
+.products-garden {
+  display:block;
+}
+
 
 /* FOOTER */
 
@@ -337,6 +343,8 @@ label {
   font-size: 1.1em;
   border: solid 1px #44C8B5;
   border-radius:14px;
+  display:flex;
+  flex-wrap: nowrap;
 }
 
 .card input {
