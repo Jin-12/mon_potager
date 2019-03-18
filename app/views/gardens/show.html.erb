@@ -12,11 +12,13 @@
 					<div class="gardens-update-btn col-lg-7">
 						<% if current_user == @user %>
 							<%=link_to "Editer le potager", edit_garden_path(@garden), class:"btn submit-btn-ligth"%>
+							<%= link_to 'Nouveau statut', new_user_status_path(@user), class:"btn submit-btn-ligth" %>
 						<% end %>
 					</div>
 						<% if @status.nil? %>
 						<div class="status-user">
-							<%= "Pas de status pour ce jardin." %>				
+							<div id="cerclejaune"></div>
+							<%= "Pas de status pour ce jardin" %>				
 					<% else %>
 
 							<div class="status-user">
@@ -24,9 +26,9 @@
 								<div id="cercle"></div>
 								<p class="para-strong status-content"><%= @status.content %>
 									<% if current_user == @user %>
-									<%= link_to 'Nouveau statut', new_user_status_path(@user), class:"submit-btn-ligth" %>
+									<%= link_to 'Nouveau statut', new_user_status_path(@user), class:"btn submit-btn-ligth" %>
 									<% end %>
-									<%= link_to 'Tous les statuts', user_statuses_path(@user), class:"btn btn-light" %>
+									<%= link_to 'Tous les statuts', user_statuses_path(@user), class:"btn submit-btn-ligth" %>
 							</div>
 
 							<div class="howmanydays">
@@ -50,7 +52,7 @@
 						<% end %>
 						<% if current_user == @user %>
 							<%= form_tag garden_images_path(@garden), multipart: true do %>
-							<div >
+							<div class="btn submit-btn-light btn-file">
 								<%if @garden.images.attached?%>
 									Rajoute une photo
 								<% else %>
@@ -58,45 +60,39 @@
 								<% end %>
 								<%= file_field_tag :images %>
 							</div>
-							<%= submit_tag "Ajouter", class:"submit-btn-ligth" %>
+							<%= submit_tag "Ajouter", class:"btn submit-btn-ligth" %>
 						<% end %>
 						<%if @garden.images.attached?%>
 							<%= form_tag garden_image_path(@garden), method: "delete", style: "display: inline" do %>
-							<%= submit_tag "Supprimer les images", class:"btn btn-light" %>
+							<%= submit_tag "Supprimer les images", class:"btn submit-btn-ligth" %>
 						<%else%>
 						
 						<% end %>
 					<% end %>
 				<% end %>
 			</div>
-			<div class="favorite-button col-lg-1">
+			<div class="favorite-button ">
 			<% puts "_________________________________________" %> 
 				<% puts @garden.favorites.where(user_id: current_user.id) %>
 			<% puts "_________________________________________" %> 
 				<% if @garden.favorites.where(user_id: current_user.id).empty? %>
 						<%=form_tag url_for(controller: 'favorites', action: 'create'), method: "post" do %>
 							<%= hidden_field_tag(:gardenid, @garden.id) %>
-							<%= submit_tag "Ajouter aux Favoris", class:"btn submit-btn"%>
+							<%= submit_tag "Ajouter aux Favoris", class:"btn submit-btn col col-sm-12 col-md-12 col-lg-12 col-xl-12"%>
 						<% end %>
 				<% end %> 
 			</div>
-				
-							<div class="products-garden">
+			<div class="products-garden">
 				<h2><i class="fas fa-carrot"></i>Les Produits</h2>
-
 				<div class="legumes-garden">
 					<div class="legumes-list">
 						<% @products.each do |h| %>
 							<p><%= h.name %></p>
 						<% end %>
 					</div>
-				</div>
-					
-			
+				</div>	
 			</div>
-		<!-- fin de div produits-garden -->
-
-			</div>
+		</div>
 			<div class="col col-sm-12 col-md-12 col-lg-5">
 				<div class="gardenshow-2">
 					<%if @user.avatar.attached?%>
@@ -119,7 +115,6 @@
 				<div class="send-message">
 					<button class="btn submit-btn">Envoyer un message</button>
 				</div>
-					
 			</div>
 			
 			<%# <div class="near">
@@ -132,22 +127,17 @@
 			<%# </div> %>
 			<!-- element comments -->
 			</div>
-	
-					
-		
-				<hr />	
-				
 			</div>
 				
 		</div>
 		<div class=" col-lg-12">
 						<h2>Sur la carte</h2>
-						<%= render 'map_for_show' %>
+						<%= render 'map_for_show', class:"col-md-12" %>
 				</div> <!-- fin de div map-garden -->
 		<!-- fin de div gardenshow-1 -->
 
 		
-		<div class="card col-lg-7">
+		<div class="card col-lg-12 comment-content">
 			<ul class="list-group list-group-flush">
 				<% @comments.each do |com| %> 
 					<li class="list-group-item">
@@ -155,27 +145,27 @@
 						<%= com.content %>
 					</li>
 					<% if current_user == com.user %> 
-						<%= link_to "Supprimer" , {:controller => 'comments', :action => 'destroy', :id => com.id}, class:"btn btn-danger" %>
+						<%= link_to "Supprimer" , {:controller => 'comments', :action => 'destroy', :id => com.id}, class:"btn btn-danger col-md-2" %>
 					<% end %> 
 				<% end %>
 			</ul>
 		</div>
-		<div class="card-header col col-lg-7">
-			<h3>
-				Ajouter un commentaire
-			</h3>
-			<br/>
-			<%=form_tag url_for(controller: 'comments', action: 'create'), method: "post" do %>
-				<%= label_tag 'Content' %>
-				<%= text_area_tag 'content', @content, class:'form-control' %>
-				<%= hidden_field_tag(:id, @garden.id) %>
-				<br/>
-				<%= submit_tag "Commenter", class:"btn btn-yeah2"%>
-			<% end %>
+		<div class=" card-header col col-lg-12">
+			<div class="">
+				<h3>
+					Ajouter un commentaire
+				</h3>
+				<%=form_tag url_for(controller: 'comments', action: 'create'), method: "post" do %>
+					<%= label_tag 'Content' %>
+					<%= text_area_tag 'content', @content, class:'form-control' %>
+					<%= hidden_field_tag(:id, @garden.id) %>
+					<br/>
+					<%= submit_tag "Commenter", class:"btn submit-btn-ligth"%>
+				<% end %>
+			</div>
 		</div>
-
 	</div>
 
 
-	<!-- fav comments -->
+	
 

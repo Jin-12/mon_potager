@@ -97,8 +97,6 @@ button:focus {outline:0;}
 .description-usergarden {
 	background: white;
 	margin-top: 30px;
-	padding-left: 50px;
-	padding-left: 50px;
 	text-align: left;
 }
 
@@ -127,3 +125,17 @@ button:focus {outline:0;}
 	margin-bottom:30px;
 	width:100%;
 }
+
+.favorite-button .btn {
+	float:none;
+}
+
+#GardenMap {
+	width: 1200px;
+	height: 600px;
+	display:block;
+	}
+
+	.comment-content {
+		margin-top:50px;
+	}
