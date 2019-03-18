@@ -335,17 +335,29 @@ label {
   color:white;
   font-size: 1.1em;
   float:right;
+  border-radius:14px;
 }
+
+.send-message {
+  display:flex;
+  justify-content: center;
+ }
+
+
+.send-message button {
+  float: none;
+  margin-top:20px;
+ }
 
 
 .submit-btn-ligth {
   background-color:white;
   color:#44C8B5;
-  font-size: 1.1em;
+  font-size: 0.9em;
   border: solid 1px #44C8B5;
   border-radius:14px;
-  display:flex;
-  flex-wrap: nowrap;
+display:inline-block;
+
 }
 
 .card input {
@@ -422,3 +434,4 @@ button:focus {
   height: 400px;
   overflow: scroll;
 }
+
