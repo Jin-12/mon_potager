@@ -5,7 +5,7 @@ class GardensController < ApplicationController
     unless user_signed_in?
       redirect_to static_landing_path
     end
-    @gardens = Garden.all
+    @gardens = Garden.order('created_at DESC').page(params[:page]).per(6)
     @search = Garden.search(params[:search])
     @hash = GenerateMapForIndex.new(@search).perform
     @status = Status.all.sort_by(&:created_at).reverse
