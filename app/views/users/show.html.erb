@@ -6,7 +6,7 @@
 	<div class="card-container border shadow-lg p-4 col-md-10 col-sm-10 col-lg-10">
 		 <div >
 				<%if @user.avatar.attached?%>
-					<%= image_tag @user.avatar, alt: 'avatar', class:'img-fluid avatar-user' %>
+					<%= image_tag @user.avatar, alt: 'avatar', class:'img-fluid circle-avatar-user' %>
 				<% else %>
 					<div class="container-avatar ">
 						<div class="circle-avatar-user"></div>
@@ -59,14 +59,13 @@
 			<%= link_to "Editer infos de connexion", edit_user_registration_path, class:"btn submit-btn" %>
 			<%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class:"btn submit-btn" %>
 		</div>
-		<div> 
+		<div>
 		<h2>Favoris</h2>
 		<% Favorite.where(user_id: @user.id).each do |fav| %>
 		<p><%= link_to Garden.find(fav.id).name, garden_path(fav.id)  %></p>
 		<% end %>
 		</div>
 		</div>
-		
+
 	</div>
 </div>
-

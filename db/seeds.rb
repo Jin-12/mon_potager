@@ -62,8 +62,8 @@ u = User.create(email: "oliv@oliv.com",
 
 20.times do |i|
   user =  User.create(email: "user#{i}@yopmail.com",
-          first_name: Faker::Name.first_name, 
-          last_name: Faker::Name.last_name, 
+          first_name: Faker::Name.first_name,
+          last_name: Faker::Name.last_name,
           birthdate: Faker::Date.between(65.year.ago, 18.year.ago),
           description: Faker::HitchhikersGuideToTheGalaxy.quote,
           password: "password")
@@ -181,6 +181,6 @@ Product.create(name: "Potiron", garden: Garden.all.sample)
 Product.create(name: "Navet", garden: Garden.all.sample)
 Product.create(name: "Carotte", garden: Garden.all.sample)
 
-100.times do 
+100.times do
   Comment.create(content: Faker::Cannabis.health_benefit, user_id: User.all.sample, garden_id: Garden.all.sample)
-end 
+end

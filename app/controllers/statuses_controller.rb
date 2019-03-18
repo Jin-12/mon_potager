@@ -15,7 +15,7 @@ class StatusesController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     Status.create(content: params[:content], user_id: current_user.id)
-    redirect_to garden_path(current_user)
+    redirect_to garden_path(current_user.gardens.last.id)
   end
 
   def edit; end
