@@ -11,7 +11,7 @@ class Garden < ApplicationRecord
   has_many_attached :images
 
   geocoded_by :full_address
-  after_validation :geocode, if: ->(obj){ obj.adress.present? && obj.adress_changed? }
+  after_validation :geocode, if: ->(obj){ obj.adress.present? && (obj.adress_changed? || obj.zipcode.changed? || obj.city.changed?) }
 
   def self.search(search)
     if search
