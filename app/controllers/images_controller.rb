@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ImagesController < ApplicationController
   def create
     @garden = Garden.find(params[:garden_id])
@@ -9,7 +11,7 @@ class ImagesController < ApplicationController
     @garden = Garden.find(params[:garden_id])
     @images = @garden.images
     @images.each do |image|
-    image.purge
+      image.purge
       redirect_to(garden_path(@garden))
     end
   end

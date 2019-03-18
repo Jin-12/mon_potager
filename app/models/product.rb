@@ -1,5 +1,7 @@
-class Product < ApplicationRecord
-    belongs_to :garden
+# frozen_string_literal: true
 
-    validates :name, length: { in: 3..50 }
+class Product < ApplicationRecord
+  belongs_to :garden
+
+  validates :name, length: { in: 3..50 }
 end

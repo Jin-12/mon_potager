@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AvatarsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
@@ -9,6 +11,6 @@ class AvatarsController < ApplicationController
     @user = User.find(params[:user_id])
     @avatar = @user.avatar
     @avatar.purge
-      redirect_to (user_path(@user))
+    redirect_to user_path(@user)
   end
 end

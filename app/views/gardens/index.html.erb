@@ -1,9 +1,39 @@
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag('slide1', width:'100%', class:'d-block w-100') %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag('slide2', width:'100%', class:'d-block w-100') %>
+    </div>
+      <div class="carousel-item">
+      <%= image_tag('slide3', width:'100%', class:'d-block w-100') %>
+    </div>
+    <div class="carousel-caption d-none d-md-block">
+    <h2>Mon Potager</h2>
+    <p>Vendez ou troquez le surplus de votre potager !</p>
+  </div>
+  </div>
+
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
 <div class="container">
 
-  <div class="row" style='width:100%'>
 
 
-    <div class="col">
+  <div class="row">
+
+
+    <div class="col gardens-list">
       <ul class="list-group">
         <% @search.each do |garden| %>
         <li class="list-item">
@@ -13,7 +43,7 @@
 
       </ul>
 
-      <div class="card p-2 search">
+      <div class="col card p-2 search">
         <%= simple_form_for :search,
           url: root_path,
           method: "GET",

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddGeoFieldsToGarden < ActiveRecord::Migration[5.2]
   def change
     add_column :gardens, :latitude, :float
