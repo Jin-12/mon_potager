@@ -80,7 +80,7 @@ button:focus {outline:0;}
 	background: white;
 	box-shadow: 0 4px 10px 1px rgba(203,203,203,0.50);
 	border-radius: 6px 6px 0 6px 6px;
-	height: 500px;
+	margin-bottom: 30px;
 }
 
 .name-usergarden {
@@ -105,17 +105,6 @@ button:focus {outline:0;}
 	margin: -30px;
 }
 
-.btn-yeah2 {
-	margin: 20px 0 0 10%;
-	height: 50px;
-	width: 300px;
-	background: #44C8B5;
-	border-radius: 14px;
-	font-size: 20px;
-	color: white;
-	border: 0;
-	text-align: center;
-}
 
 .btn-yeah2:hover {
 	transform: translateY(-3px);

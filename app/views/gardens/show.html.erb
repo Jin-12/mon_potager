@@ -15,12 +15,10 @@
 						<% end %>
 							<%= link_to 'Ajouter un status', new_user_status_path(@user), class:"btn submit-btn-ligth" %>
 					</div>
-
 					<div>
 						<% @garden.images.each do |image| %>
 							<%= image_tag(image, alt: 'garden_image', class:'img-fluid slider-photos') %>
 						<% end %>
-
 						<% if current_user == @user %>
 							<%= form_tag garden_images_path(@garden), multipart: true do %>
 							<div >
@@ -33,7 +31,6 @@
 							</div>
 							<%= submit_tag "Ajouter", class:"submit-btn-ligth" %>
 						<% end %>
-
 						<%if @garden.images.attached?%>
 							<%= form_tag garden_image_path(@garden), method: "delete", style: "display: inline" do %>
 							<%= submit_tag "Supprimer les images", class:"btn btn-light" %>
@@ -103,8 +100,11 @@
 					<div class="description-usergarden">
 						<p class="para-strong">Présentation</p>
 						<p><%= @user.description %></p>
-					</div>
-					<button class="btn-yeah2">Envoyer un message</button>
+				</div>
+				<div class="send-message">
+					<button class="btn submit-btn">Envoyer un message</button>
+				</div>
+					
 			</div>
 			<div class="near">
 					<h2>Potagers proches</h2>
@@ -122,7 +122,7 @@
 				<h2>Sur la carte</h2>
 				<%= render 'map_for_show' %>
 			</div> <!-- fin de div map-garden -->
-			<div class="favorite-button">
+			<div class="favorite-button col-lg-1">
 			<% puts "_________________________________________" %> 
 				<% puts @garden.favorites.where(user_id: current_user.id) %>
 			<% puts "_________________________________________" %> 
