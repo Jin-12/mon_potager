@@ -143,7 +143,7 @@ ul.horizontalist li{
 
   .icons {
   display:flex;
-  flex-direction: row;  
+  flex-direction: row;
   }
 
 .links {
@@ -195,7 +195,7 @@ a:hover {
   flex-direction: row;
   justify-items: center;
   flex-wrap:wrap;
-  
+
 }
 
 .connexion-info li {
@@ -203,7 +203,7 @@ a:hover {
     font-size:0.6em;
   padding-left:20px;
   display: row;
-  vertical-align: middle; 
+  vertical-align: middle;
 }
 
 .navbar-header {
@@ -251,14 +251,13 @@ a:hover {
 }
 .nav-research {
   display: flex;
+  padding: 5px 5px 5px 20px;
   flex-direction:row;
   align-content: center;
   background: #FFFFFF;
   box-shadow: 0 5px 10px 3px rgba(194,194,194,0.50);
-  border-radius: 16px;
-  width:50%;
+  border-radius: 10px 10px 10px 10px;
   margin: auto;
-  margin-top:20px;
 }
 
 .nav-research input[type=text] {
@@ -289,7 +288,7 @@ a:hover {
 
 .carousel-inner {
 
-  
+
 }
 
 /* FORMULAIRES */
@@ -395,3 +394,9 @@ label {
   border: 1px solid #ced4da !important;
 }
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}

@@ -3,18 +3,10 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
       <%= image_tag('slide1', width:'100%', class:'d-block w-100') %>
-       <div class="carousel-caption d-none d-md-block">
-    <h2>Mon Potager</h2>
-    <p>Vendez ou troquez le surplus de votre potager !</p>
-  </div>
     </div>
     <div class="carousel-item">
       <%= image_tag('slide2', width:'100%', class:'d-block w-100') %>
     </div>
-    <div class="carousel-caption d-none d-md-block">
-    <h2>Mon Potager</h2>
-    <p>Vendez ou troquez le surplus de votre potager !</p>
-  </div>
       <div class="carousel-item">
       <%= image_tag('slide3', width:'100%', class:'d-block w-100') %>
     </div>
@@ -36,8 +28,8 @@
 
 <div class="container">
 
- 
- 
+
+
   <div class="row">
 
 
@@ -51,27 +43,6 @@
 
       </ul>
 
-      <div class="col card p-2 search">
-        <%= simple_form_for :search,
-          url: root_path,
-          method: "GET",
-          html: { class: 'form-inline' },
-          remote: true do |f| %>
-
-        <%= f.input :location, input_html: {value: "", placeholder: "filtrer par endroit"} %>
-        <%= f.submit "Search", class: "btn btn-primary" %>
-
-        <% end %>
-      </div>
-      <div>
-        <ul class="list-group">
-          <% @gardens.each do |garden| %>
-          <li class="list-group-item">
-            <%= link_to garden.name , garden_path(garden.id) %>
-          </li>
-          <% end %>
-        </ul>
-      </div>
 
     </div>
     <div class="col">
