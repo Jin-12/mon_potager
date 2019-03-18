@@ -2,7 +2,7 @@
 
 class GenerateMapForLanding < ApplicationController
 
-  
+
   def initialize(gardens)
     @gardens = gardens
   end
@@ -23,7 +23,7 @@ class GenerateMapForLanding < ApplicationController
         "width": 32,
         "height": 32
       )
-      marker.infowindow render_to_string(partial: 'gardens/map_info_landing', locals: { garden: garden}, object: garden)
+      marker.infowindow render_to_string(partial: 'gardens/map_info_landing', locals: { garden: garden }, object: garden)
       rescue
         marker.lat garden.latitude
         marker.lng garden.longitude
