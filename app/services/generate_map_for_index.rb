@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class GenerateMapForIndex < ApplicationController
+  # Method called by gardens#index
 
-  
   def initialize(gardens)
     @gardens = gardens
   end
