@@ -1,0 +1,13 @@
+<div class="map" id="GardenMap" style="width:100%;height:600px"></div>
+
+<script>
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'GardenMap'}}, function(){
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+  if(handler.getMap().getZoom() > 12) {
+    handler.getMap().setZoom(12);
+  }
+});
+</script>

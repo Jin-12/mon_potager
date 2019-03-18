@@ -23,10 +23,10 @@
 
 
 $(document).ready(function() {
-
   const $gardens = $(".list-group").children();
   $gardens.each(function() {
-    var $links = $(this).find('a').attr('href');
+    var $links = $(this).attr('href');
+    // var $links = $(this).find('a').attr('href');
 
     console.log($links);
   });
@@ -36,3 +36,9 @@ $(document).ready(function() {
 
 let b = document.querySelector('#btn-adder');
 console.log(b)
+
+/*change color of navbar*/
+
+
+var homepage = document.getElementsByClassName('navbar');
+homepage.style.property = homepage;

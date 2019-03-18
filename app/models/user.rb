@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -7,7 +9,7 @@ class User < ApplicationRecord
   has_many :favorites, as: :favoritable
   has_many :statuses
 
-  validates :description, length: { in: 6..1000 }, allow_nil: true 
+  validates :description, length: { in: 6..1000 }, allow_nil: true
   # validate :is_date, :is_past
 
   # private

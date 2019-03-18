@@ -1,0 +1,68 @@
+<div class="container-fluid" style="min-height: 100vh;">
+  <div class="container-fluid" style="background-image: url(<%= asset_path('kelly-neil-558227-unsplash.jpg') %>);  background-repeat: no-repeat; background-size: 100%">
+    <div class="row justify-content-md-center align-items-center" style="background: rgba(68, 200, 181, .6); height: 150px;">
+      <div class="col text-center">
+        <h6 class="text-uppercase" style="color: white">monpotager.fr</h6>
+        <h3 style="color: white">Partagez, échangez, vendez les légumes de votre potager</h3>
+      </div>
+    </div>
+    <div class="row justify-content-md-center align-items-center" style="height:60vh;">
+      <div class="col-md-6">
+        <div class="card shadow p-3 mb-5 bg-white rounded">
+          <h2>Découvrez les potagers à proximité</h2>
+
+          <form>
+            <div class="form-row shadow-sm p-1 mb-5 bg-grey rounded">
+              <%= form_tag gardens_path, :method => 'get' do %>
+              <%= text_field_tag :search_near, nil, placeholder: 'Entrez votre code postal...', class: "col-8 btn bg-light text-left m-2 p-2" %>
+              <%= button_tag type: 'submit', class: 'col-1 btn btn-yeah2 my-2 p-2' do %>
+              <i class="fa fa-search" aria-hidden="true"></i>
+              <% end %>
+              <% end %>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="container-fluid mt-4">
+    <div class="row justify-content-center" style="width: 100%">
+      <div class="col-lg-2">
+        <div class="card">
+          <%= image_tag('screenshot', style:'width:100%;', class:'card-img-top') %>
+          <div class="card-body">
+            <h5 class="card-title">Votre plateforme pour partager vos légumes</h5>
+            <p class="card-text"></p>
+            <a href="#" class="">Découvrir monpotager.fr</a>
+          </div>
+        </div>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-2">
+        <div class="card">
+          <%= image_tag('screenshot', style:'width:100%;', class:'card-img-top') %>
+          <div class="card-body">
+            <h5 class="card-title">Qui nous sommes</h5>
+            <p class="card-text"></p>
+            <a href="#" class="">À propos</a>
+          </div>
+        </div>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-2">
+        <div class="card">
+          <%= image_tag 'screenshot.png', style:'width:100%;', class:'card-img-top' %>
+          <div class="card-body">
+            <h5 class="card-title">Retrouvez nous sur GitHub !</h5>
+            <p class="card-text"><i class="fab fa-github-alt fa-sm"></i></p>
+            <a href="#" class="">Ouvrir github</a>
+          </div>
+        </div>
+      </div><!-- /.col-lg-4 -->
+    </div>
+    <div class="row justify-content-center  align-items-center" style="width:100%; height:150px">
+      <div class="col-lg-4 text-center">
+          <%= link_to "Créer mon potager", new_user_registration_path, class: "noHover button-1" %> 
+      </div>
+    </div>
+  </div>
+</div>
