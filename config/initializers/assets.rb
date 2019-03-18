@@ -18,5 +18,6 @@ Rails.application.config.assets.paths << Rails.root.join('vendor', 'gems', 'neo-
 Rails.application.config.assets.precompile += %w[style.css]
 Rails.application.config.assets.precompile += %w[application.css.scss]
 Rails.application.config.assets.precompile += %w[gardens.css]
+Rails.application.config.assets.precompile += %w[statuses.css]
 Rails.application.config.assets.precompile += %w[tomato.jpg]
 Rails.application.config.assets.precompile += %w[users.css]
