@@ -1,14 +1,18 @@
- <div class="container">
-  <div class="col">
-    <h1>
-      Les statuts de
-      <%= @user.first_name %></h1>
+<div class="main-status">
+  <div class="container-status">
+    <div class="status-i">
+      <h1>
+        Les statuts de
+        <%= @user.first_name %>
+      </h1>
 
-    <% @user.statuses.each do |status| %>
-      <p><%= status.content %></p>
-      <p>Posté le
-        <%= status.created_at.to_date %></p>
-          <br><br><br><br>
-    <% end %>
+      <% @user.statuses.each do |status| %>
+      <div class="one-status">
+        <p class="para-strong"><%= status.content %></p>
+        <p>Posté le
+          <%= status.created_at.to_date %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
