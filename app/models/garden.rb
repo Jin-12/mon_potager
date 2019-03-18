@@ -10,8 +10,8 @@ class Garden < ApplicationRecord
   validates :zipcode, presence: true, format: { with: /(([0-8][0-9])|(9[0-5]))[0-9]{3}\z/ }
   has_many_attached :images
 
-  geocoded_by :adress
-  after_validation :geocode, if: ->(obj) { obj.adress.present? && obj.adress_changed? }
+  geocoded_by :full_address
+  after_validation :geocode, if: ->(obj){ obj.adress.present? && obj.adress_changed? }
 
   def self.search(search)
     if search
@@ -35,7 +35,8 @@ class Garden < ApplicationRecord
     end
   end
 
-  def departement
-    zipcode[0..1]
+  def full_address
+    [adress, zipcode, city, country].compact.join(', ')
   end
+
 end
