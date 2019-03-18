@@ -96,7 +96,7 @@
 			<div class="col col-sm-12 col-md-12 col-lg-5">
 				<div class="gardenshow-2">
 					<%if @user.avatar.attached?%>
-						<%= image_tag @user.avatar, alt: 'avatar', class:'img-fluid avatar-user' %>
+						<%= image_tag @user.avatar, alt: 'avatar', class:'img-fluid circle-avatar-user' %>
 					<% else %>
 						<div class="avatar-user"></div>
 					<% end %>
@@ -139,7 +139,7 @@
 		
 		<div class="card col-lg-12 comment-content">
 			<ul class="list-group list-group-flush">
-				<% @comments.each do |com| %> 
+				<% @comments.each do |com| %>
 					<li class="list-group-item">
 						<%= (com.user.first_name + " " + com.user.last_name)%>
 						<%= com.content %>
@@ -167,5 +167,9 @@
 	</div>
 
 
+<<<<<<< HEAD
 	
 
+=======
+	<!-- fav comments -->
+>>>>>>> 8313080121e31d4bee8ea4b66ef40380b53a0a82
