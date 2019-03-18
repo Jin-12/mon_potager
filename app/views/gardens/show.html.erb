@@ -100,7 +100,7 @@
 
 	<% if @garden.favorites.where(user_id: current_user.id).empty? %>
 	    	<%=form_tag url_for(controller: 'favorites', action: 'create'), method: "post" do %>
-				<%= hidden_field_tag(:gardenid, @garden.id) %>
+				<%= hidden_field_tag(:garden, @garden) %>
 				<%= submit_tag "Ajouter aux Favoris", class:"btn btn-yeah2"%>
   			<% end %>
 	<% end %>
@@ -166,7 +166,7 @@
     	<%=form_tag url_for(controller: 'comments', action: 'create'), method: "post" do %>
     		<%= label_tag 'Content' %>
     		<%= text_area_tag 'content', @content, class:'form-control' %>
-			<%= hidden_field_tag(:id, @garden.id) %>
+			<%= hidden_field_tag(:garden, @garden) %>
     		<br/>
 			<%= submit_tag "Commenter", class:"btn btn-yeah2"%>
   		<% end %>
