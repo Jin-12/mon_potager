@@ -60,7 +60,10 @@ p {
 	color: #7B7B7B;
 	letter-spacing: 0.9px;
 }
-
+ 
+.container {
+  min-height:100%;
+}
 
 /* FOOTER */
 
@@ -293,6 +296,10 @@ a:hover {
 .container-card {
   padding-top: 60px;
   padding-bottom: 50px;
+}
+
+.container-fluid {
+  padding:0px;
 }
 
 label {
