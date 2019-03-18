@@ -27,3 +27,4 @@
 /config/master.key
 /congig/database.yml
 .env
+.DS_Store
