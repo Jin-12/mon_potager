@@ -81,6 +81,7 @@ button:focus {outline:0;}
 	box-shadow: 0 4px 10px 1px rgba(203,203,203,0.50);
 	border-radius: 6px 6px 0 6px 6px;
 	margin-bottom: 30px;
+	padding-bottom:50px;
 }
 
 .name-usergarden {
@@ -119,4 +120,10 @@ button:focus {outline:0;}
 
 .space-gardens {
 	margin: 10%;
+}
+
+.avatar-garden {
+	margin-top:15px;
+	margin-bottom:30px;
+	width:100%;
 }
