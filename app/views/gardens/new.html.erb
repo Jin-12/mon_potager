@@ -7,43 +7,48 @@
     </h2>
     <div class="form-inputs">
     <%=form_tag url_for(action: 'create'), method: "post" do %>
+
+    <%= label_tag 'Ton Prénom' %>
+    <%= text_field_tag 'userfirstname', @userfirstname, placeholder: 'prenom', class:'form-control' %>
+    <%= label_tag 'Nom de Nom' %>
+    <%= text_field_tag 'userlastname', @userlastname, placeholder: 'nom', class:'form-control' %>
+
+
     <%= label_tag 'Nom de ton potager' %>
     <%= text_field_tag 'gardenname', @gardenname, placeholder: 'Nom de ton potager', class:'form-control' %>
 
     <%= label_tag 'Adresse de ton potager' %>
     <%= text_field_tag 'adress', @adress, placeholder: 'Adresse de ton potager', class:'form-control' %>
 
-    <%= label_tag 'Tes Récoltes' %>
-    <%= text_field_tag 'productname', @productname, placeholder: 'Tes récoltes', class:'form-control' %>
 
     <%= label_tag 'Adresse de ton potager' %>
-    <%= text_field_tag 'zipcode', @zipcode, class:'form-control' %>
+    <%= text_field_tag 'zipcode', @zipcode, class:'form-control', placeholder: 'Code postal' %>
     <br/>
 
     <%= label_tag 'Adresse de ton potager' %>
-    <%= text_field_tag 'city', @city, class:'form-control' %>
+    <%= text_field_tag 'city', @city, class:'form-control', placeholder: 'Ville'%>
     <br/>
 
     <%= label_tag 'Adresse de ton potager' %>
-    <%= text_field_tag 'country', @country, class:'form-control' %>
+    <%= text_field_tag 'country', @country, class:'form-control' , placeholder: 'Pays'%>
     <br/>
 
-    <%= label_tag 'Tes Récoltes' %>
+    <p>Tes recoltes</p>
+    <p>Nom du produit:</p>
     <%= text_field_tag 'productname1', "   ", class:'form-control' %>
     <br/>
-
+    <p>Nom du produit:</p>
     <%= text_field_tag 'productname2', "   ", class:'form-control' %>
     <br/>
-
+    <p>Nom du produit:</p>
     <%= text_field_tag 'productname3', "   ", class:'form-control' %>
     <br/>
-
+    <p>Nom du produit:</p>
     <%= text_field_tag 'productname4', "   ", class:'form-control' %>
     <br/>
-
+    <p>Nom du produit:</p>
     <%= text_field_tag 'productname5', "   ", class:'form-control' %>
     <br/>
-
     <%= submit_tag "Créer ton potager", class:"btn submit-btn" %>
 
   <% end %>
