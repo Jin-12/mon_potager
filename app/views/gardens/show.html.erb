@@ -43,7 +43,7 @@
 			</div>
 					<% if @status.nil? %>
 						<div class="status-user">
-							<%= "Pas de status pour ce jardin." %>				
+							<%= "Pas de status pour ce jardin." %>
 					<% else %>
 
 							<div class="status-user">
@@ -88,7 +88,7 @@
 			<div class="col col-md-5 col-lg-5">
 				<div class="gardenshow-2">
 					<%if @user.avatar.attached?%>
-						<%= image_tag @user.avatar, alt: 'avatar', class:'img-fluid avatar-user' %>
+						<%= image_tag @user.avatar, alt: 'avatar', class:'img-fluid circle-avatar-user' %>
 					<% else %>
 						<div class="avatar-user"></div>
 					<% end %>
@@ -116,42 +116,42 @@
 				</div>
 			<!-- element comments -->
 			</div>
-	
-					
+
+
 			<div class="map-garden col-lg-7">
 				<h2>Sur la carte</h2>
 				<%= render 'map_for_show' %>
 			</div> <!-- fin de div map-garden -->
 			<div class="favorite-button">
-			<% puts "_________________________________________" %> 
+			<% puts "_________________________________________" %>
 				<% puts @garden.favorites.where(user_id: current_user.id) %>
-			<% puts "_________________________________________" %> 
+			<% puts "_________________________________________" %>
 				<% if @garden.favorites.where(user_id: current_user.id).empty? %>
 						<%=form_tag url_for(controller: 'favorites', action: 'create'), method: "post" do %>
 							<%= hidden_field_tag(:gardenid, @garden.id) %>
 							<%= submit_tag "Ajouter aux Favoris", class:"btn btn-yeah2"%>
 						<% end %>
-				<% end %> 
+				<% end %>
 
 			</div>
-				<hr />	
-				
+				<hr />
+
 			</div>
 
 		</div>
 		<!-- fin de div gardenshow-1 -->
 
-		
+
 		<div class="card col-lg-7">
 			<ul class="list-group list-group-flush">
-				<% @comments.each do |com| %> 
+				<% @comments.each do |com| %>
 					<li class="list-group-item">
 						<%= (com.user.first_name + " " + com.user.last_name)%>
 						<%= com.content %>
 					</li>
-					<% if current_user == com.user %> 
+					<% if current_user == com.user %>
 						<%= link_to "Supprimer" , {:controller => 'comments', :action => 'destroy', :id => com.id}, class:"btn btn-danger" %>
-					<% end %> 
+					<% end %>
 				<% end %>
 			</ul>
 		</div>
@@ -173,4 +173,3 @@
 
 
 	<!-- fav comments -->
-
