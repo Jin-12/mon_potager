@@ -64,6 +64,11 @@ p {
   min-height:100%;
 }
 
+.gardens-update-btn {
+  display:flex;
+  flex-direction:row;
+}
+
 /* FOOTER */
 
   a {
@@ -323,6 +328,15 @@ label {
   color:white;
   font-size: 1.1em;
   float:right;
+}
+
+
+.submit-btn-ligth {
+  background-color:white;
+  color:#44C8B5;
+  font-size: 1.1em;
+  border: solid 1px #44C8B5;
+  border-radius:14px;
 }
 
 .card input {
