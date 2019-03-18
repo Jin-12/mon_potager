@@ -1,6 +1,7 @@
  @import 'bootstrap';
  @import 'gardens.css.scss';
  @import 'users.css.scss';
+ @import 'statuses.css.scss';
 
 
 body {
@@ -59,7 +60,7 @@ p {
 	color: #7B7B7B;
 	letter-spacing: 0.9px;
 }
- 
+
 .container {
   min-height:100%;
 }
@@ -377,4 +378,24 @@ select:focus,
 textarea:focus,
 button:focus {
     outline: none;
+}
+
+.main-status{
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.one-status{
+  margin-top: 0px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #CECECE;
+  text-align: center;
+}
+
+.container-status {
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: center;
+  height: 400px;
+  overflow: scroll;
 }
