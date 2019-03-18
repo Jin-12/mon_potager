@@ -1,12 +1,16 @@
 <div class="container-fluid" style="height: 100vh;">
     <div class="row justify-content-md-center align-items-center">
       <div class="col-md-6">
-        <h2 class="text-center m-4">Déjà <%= @search_by_zipcode[1].length %> potagers à proximité !</h2>
+        <h2 class="text-center m-4"></h2>
       </div>
     </div>
     <div class="row justify-content-md-center align-items-center">
       <%= render 'map_for_landing' %>
+<<<<<<< Updated upstream
         <%= link_to "Rejoins-les !", new_user_registration_path, class: "noHover button-1 p-4", style: "position: relative; top: -150px; z-index: 200" %> 
+=======
+        <%= link_to @landing_map_message, new_user_registration_path, class: "noHover button-1 p-4", style: "position: absolute; top: 700px; z-index: 200" %> 
+>>>>>>> Stashed changes
   </div>
   <div class="row justify-content-md-center align-items-center">
     <div class="col-md-6 m-4">

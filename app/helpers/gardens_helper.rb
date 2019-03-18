@@ -56,4 +56,11 @@ module GardensHelper
     # binding.pry
   end
 
+  def set_landing_map_message(integer)
+    case integer - 1
+    when 0 then "Vous n'avez pas encore de potager à proximité, soyez le premier !"
+    when 1 then "Vous avez 1 potager à proximité, rejoignez-le !"
+    when 2 then "Vous avez #{integer - 1} potagers à proximité, rejoignez-les !"
+    end
+  end
 end
