@@ -120,7 +120,7 @@
 
 	</div>
 	<!-- fin de div gardenshow-1 -->
-
+w
 	<div class="col-lg-5 gardenshow-2">
 		<%if @user.avatar.attached?%>
 			<%= image_tag @user.avatar, alt: 'avatar', class:'img-fluid circle-avatar-user' %>
@@ -153,7 +153,7 @@
         			<%= com.content %>
 				</li>
 				<% if current_user == com.user %>
-					<%= link_to "Supprimer" , {:controller => 'comments', :action => 'destroy', :id => com.id}, class:"btn btn-danger" %>
+					<%= link_to "Supprimer" , garden_comment_path(@garden, com.id), method: 'delete', class:"btn btn-danger" %>
 				<% end %>
     		<% end %>
   		</ul>
@@ -163,10 +163,9 @@
       		Ajouter un commentaire
     	</h3>
     	<br/>
-    	<%=form_tag url_for(controller: 'comments', action: 'create'), method: "post" do %>
+    	<%=form_tag garden_comments_path(@garden), method: "post" do %>
     		<%= label_tag 'Content' %>
     		<%= text_area_tag 'content', @content, class:'form-control' %>
-			<%= hidden_field_tag(:garden, @garden) %>
     		<br/>
 			<%= submit_tag "Commenter", class:"btn btn-yeah2"%>
   		<% end %>
