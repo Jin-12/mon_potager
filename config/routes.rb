@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :favorites
   resources :comments
 
+  resources "contacts", only: [:new, :create]
+  
   root to: 'gardens#index'
 
   get "/static/landing", to: "static#landing"
