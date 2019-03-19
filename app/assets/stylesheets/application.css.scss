@@ -117,7 +117,8 @@ p {
 
   .container {
   flex: 1 0 auto;
-  margin-top:250px;
+  margin-top:100px;
+  margin-bottom: 0px;
 }
 
 html, body {
@@ -311,6 +312,7 @@ a:hover {
 
 .container-fluid {
   padding:0px;
+  margin: 0px;
 }
 
 label {
@@ -433,4 +435,3 @@ button:focus {
   height: 400px;
   overflow: scroll;
 }
-

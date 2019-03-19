@@ -18,7 +18,7 @@
 						<% if @status.nil? %>
 						<div class="status-user">
 							<div id="cerclejaune"></div>
-							<%= "Pas de status pour ce jardin" %>				
+							<%= "Pas de status pour ce jardin" %>
 					<% else %>
 
 							<div class="status-user">
@@ -52,35 +52,34 @@
 						<% end %>
 						<% if current_user == @user %>
 							<%= form_tag garden_images_path(@garden), multipart: true do %>
-							<div class="btn submit-btn-light btn-file">
-								<%if @garden.images.attached?%>
+							<span class="btn btn-large submit-btn-ligth btn-file">
+								<% if @garden.images.attached? %>
 									Rajoute une photo
 								<% else %>
 									Mets ta première photo
 								<% end %>
 								<%= file_field_tag :images %>
-							</div>
+							</span>
 							<%= submit_tag "Ajouter", class:"btn submit-btn-ligth" %>
 						<% end %>
 						<%if @garden.images.attached?%>
 							<%= form_tag garden_image_path(@garden), method: "delete", style: "display: inline" do %>
 							<%= submit_tag "Supprimer les images", class:"btn submit-btn-ligth" %>
-						<%else%>
-						
+						<% else %>
 						<% end %>
 					<% end %>
 				<% end %>
 			</div>
 			<div class="favorite-button ">
-			<% puts "_________________________________________" %> 
+			<% puts "_________________________________________" %>
 				<% puts @garden.favorites.where(user_id: current_user.id) %>
-			<% puts "_________________________________________" %> 
+			<% puts "_________________________________________" %>
 				<% if @garden.favorites.where(user_id: current_user.id).empty? %>
 						<%=form_tag url_for(controller: 'favorites', action: 'create'), method: "post" do %>
 							<%= hidden_field_tag(:gardenid, @garden.id) %>
 							<%= submit_tag "Ajouter aux Favoris", class:"btn submit-btn col col-sm-12 col-md-12 col-lg-12 col-xl-12"%>
 						<% end %>
-				<% end %> 
+				<% end %>
 			</div>
 			<div class="products-garden">
 				<h2><i class="fas fa-carrot"></i>Les Produits</h2>
@@ -90,7 +89,7 @@
 							<p><%= h.name %></p>
 						<% end %>
 					</div>
-				</div>	
+				</div>
 			</div>
 		</div>
 			<div class="col col-sm-12 col-md-12 col-lg-5">
@@ -116,19 +115,19 @@
 					<button class="btn submit-btn">Envoyer un message</button>
 				</div>
 			</div>
-			
+
 			<%# <div class="near">
 					<h2>Potagers proches</h2>
 					<ul class="list-group">
 						<% @nearby.each do |near| %>
-						<%# <%= link_to near.name, near, class: "list-group-item" %> 
-						<%# <% end %> 
+						<%# <%= link_to near.name, near, class: "list-group-item" %>
+						<%# <% end %>
 					<%# </ul> %>
 			<%# </div> %>
 			<!-- element comments -->
 			</div>
 			</div>
-				
+
 		</div>
 		<div class=" col-lg-12">
 						<h2>Sur la carte</h2>
@@ -136,7 +135,7 @@
 				</div> <!-- fin de div map-garden -->
 		<!-- fin de div gardenshow-1 -->
 
-	
+
 		<div class="card col-lg-12 comment-content">
 			<ul class="list-group list-group-flush">
 				<% @comments.each do |com| %>
@@ -144,9 +143,9 @@
 						<%= (com.user.first_name + " " + com.user.last_name)%>
 						<%= com.content %>
 					</li>
-					<% if current_user == com.user %> 
+					<% if current_user == com.user %>
 						<%= link_to "Supprimer" , {:controller => 'comments', :action => 'destroy', :id => com.id}, class:"btn btn-danger col-md-2" %>
-					<% end %> 
+					<% end %>
 				<% end %>
 			</ul>
 		</div>
@@ -165,7 +164,6 @@
 			</div>
 		</div>
 	</div>
-<<<<<<< HEAD
 	<div class="card-header col-sm-8">
     	<h3>
       		Ajouter un commentaire
@@ -181,5 +179,3 @@
   	</div>
 
 	<!-- fav comments -->
-=======
->>>>>>> delivery

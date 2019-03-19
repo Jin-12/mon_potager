@@ -26,7 +26,7 @@
   </a>
 </div>
 
-<%= render 'gardens/index_gardens_cards' %>
+<%= render 'gardens/status_index' %>
 
 <!--
 <div class="container">
@@ -50,28 +50,4 @@
   </div>
 </div>
 -->
-<div class="main-status">
-  <div class="container-status">
-    <div class="status-i">
-      <h1>
-        Fil d'actualité
-      </h1>
-
-    <% @status.each do |status| %>
-      <div class="one-status">
-        <p class="para-strong"><%= link_to status.content, garden_path(status.user.gardens.last) %></p>
-        <p>Par <%= status.user.first_name %></p>
-          <% @date = ((Time.now - status.updated_at) / 86400 * 10).to_i %>
-          <% if @date == 0 %>
-          <p>Posté aujoud'hui</p>
-          <% elsif @date == 1 %>
-          <p>Posté hier</p>
-          <% else %>
-          <p>Il y a <%= @date %> jours</p>
-          <% end %>
-          </div>
-        <% end %>
-    </div>
-  </div>
-</div>
-</div>
+<%= render 'gardens/index_gardens_cards' %>

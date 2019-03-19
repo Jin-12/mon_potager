@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users
+  devise_for :users, controllers: {registrations: "registrations"}
   resources :users do
     resources :avatars, only: %i[create destroy]
     resources :statuses
