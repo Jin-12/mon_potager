@@ -26,6 +26,7 @@ class GardensController < ApplicationController
       @how_many_days = (Time.now - @status.updated_at) / 86_400 * 10
     end
   end
+  
   def new
   @user = current_user
   end

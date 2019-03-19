@@ -14,4 +14,7 @@ class StaticController < ApplicationController
     end
   end
 
+  def landing_map
+    
+  end
 end
