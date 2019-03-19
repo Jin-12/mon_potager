@@ -33,7 +33,10 @@ class User < ApplicationRecord
     UserMailer.welcome_email(self).deliver_now
   end
 
+  # For the time being, every user is admin...
+  # TODO: seed an admin
   def is_admin?
     true
   end
+
 end
