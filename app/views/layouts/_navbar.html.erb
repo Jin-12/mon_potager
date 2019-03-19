@@ -39,9 +39,9 @@
       <div class="form-row">
         <div>
           <i class="fa fa-search" aria-hidden="true"></i>
-          <%= form_tag gardens_path, :method => 'get' do %>
+          <%= form_tag(gardens_path, :method => 'get') do %>
             <%= text_field_tag :search, params[:search] %>
-            <%= submit_tag "Go !" %>
+            <%= submit_tag "Go !", :name => nil %>
           <% end %>
         </div>
       </div>

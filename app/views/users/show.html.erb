@@ -62,7 +62,7 @@
 		<div> 
 		<h2>Favoris</h2>
 		<% Favorite.where(user_id: @user.id).each do |fav| %>
-		<p><%= link_to Garden.find(fav.id).name, garden_path(fav.id)  %></p>
+		<p><%= link_to Garden.find(fav.favoritable_id).name, garden_path(fav.favoritable_id) %></p>
 		<% end %>
 		</div>
 		</div>
