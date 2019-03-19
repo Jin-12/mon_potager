@@ -1,20 +1,18 @@
 <div class="container-fluid" style="min-height: 100vh;">
- <!-- --------------------------------------------------------------------------------- -->
  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <%= image_tag('slide1', width:'100%', class:'d-block w-100') %>
-
+      <%= image_tag('slide1', class:'d-block w-100') %>
     </div>
     <div class="carousel-item">
-      <%= image_tag('slide2', width:'100%', class:'d-block w-100') %>
+      <%= image_tag('slide2', class:'d-block w-100') %>
     </div>
     <div class="carousel-item">
-      <%= image_tag('slide3', width:'100%', class:'d-block w-100') %>
+      <%= image_tag('slide3', class:'d-block w-100') %>
     </div>
 
     <div class="col-5 mx-auto text-center carousel-caption">
-      <h2>Découvrez les potagers à proximité</h2>
+      <h2>Les jardins du coin.</h2>
       <form>
         <div class="form-row shadow-sm p-1 mb-5 bg-grey rounded">
           <%= form_tag gardens_path, :method => 'get' do %>
@@ -26,7 +24,6 @@
         </div>
       </form>
     </div>
-
   </div>
 
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -39,63 +36,3 @@
   </a>
 </div>
 <%= render 'static/user_experience_guide' %>
-<div class="container-fluid mt-4">
-  <div class="row justify-content-center" style="width: 100%">
-    <div class="col-lg-2">
-      <div class="card">
-        <%= image_tag('screenshot', style:'width:100%;', class:'card-img-top') %>
-        <div class="card-body">
-          <h5 class="card-title">Votre plateforme pour partager vos légumes</h5>
-          <p class="card-text"></p>
-          <a href="#" class="">Découvrir monpotager.fr</a>
-        </div>
-      </div>
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-2">
-      <div class="card">
-        <%= image_tag('pirate-informatique', style:'width:100%;', class:'card-img-top') %>
-        <div class="card-body">
-          <h5 class="card-title">Qui nous sommes</h5>
-          <p class="card-text"></p>
-          <%= link_to "À propos", "#about", "data-toggle": "modal" %>
-          <a href="#" class="">À propos</a>
-        </div>
-      </div>
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-2">
-      <div class="card col-lg-2">
-        <%= image_tag 'github.jpg', style:'width:100%;', class:'card-img-top' %>
-        <div class="card-body">
-          <h5 class="card-title">Retrouvez nous sur GitHub !</h5>
-          <p class="card-text"></p>
-          <a href="#" class="">Ouvrir github <i class="fas fa-external-link-alt"></i></a>
-        </div>
-      </div>
-    </div><!-- /.col-lg-4 -->
-  </div>
-  <div class="row justify-content-center  align-items-center" style="width:100%; height:150px">
-    <div class="col-lg-4 text-center">
-      <%= link_to "Créer mon potager", new_user_registration_path, class: "noHover button-1" %>
-    </div>
-  </div>
-</div>
-</div>
-
-<div id="about" class="modal hide fade" tabindex="-1" role="dialog" title="À propos">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title"><% image_tag "logo", style:"width=100px;" %> À propos</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
