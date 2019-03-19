@@ -26,7 +26,6 @@
 								<div id="cercle"></div>
 								<p class="para-strong status-content"><%= @status.content %>
 									<% if current_user == @user %>
-										<%= link_to 'Nouveau statut', new_user_status_path(@user), class:"btn submit-btn-ligth" %>
 									<% end %>
 									<%= link_to 'Tous les statuts', user_statuses_path(@user), class:"btn submit-btn-ligth" %>
 								</div>
@@ -52,11 +51,12 @@
 								<% end %>
 								<% if current_user == @user %>
 									<%= form_tag garden_images_path(@garden), multipart: true do %>
-									<span class="btn btn-large submit-btn-ligth btn-file">
 										<% if @garden.images.attached? %>
+										<span class="btn btn-large submit-btn-ligth btn-file">
 											Rajoute une photo
 										<% else %>
-											Mets ta première photo
+										<span class="btn btn-large btn-file">
+										<%= image_tag('img-default.jpg', alt: 'garden_image', class:'avatar-garden') %>
 										<% end %>
 										<%= file_field_tag :images %>
 									</span>
@@ -142,11 +142,11 @@
 								<ul class="list-group list-group-flush">
 									<% @comments.each do |com| %>
 										<li class="list-group-item">
-											<%= (com.user.first_name + " " + com.user.last_name)%>
+											<p class='para-strong'><%= (com.user.first_name + " " + com.user.last_name) %></p>
 											<%= com.content %>
 										</li>
 										<% if current_user == com.user %>
-											<%= link_to "Supprimer" , {:controller => 'comments', :action => 'destroy', :id => com.id}, class:"btn btn-danger col-md-2" %>
+											<%= link_to "Supprimer" , {:controller => 'comments', :action => 'destroy', :id => com.id}, class:"btn btn-light col-md-2" %>
 										<% end %>
 									<% end %>
 								</ul>
