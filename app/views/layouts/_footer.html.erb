@@ -8,7 +8,9 @@
                   <ul>
                   <li>A propos</li>
                   <li>CGV</li>
-                  <li>Plan du site</li>
+                  <% if user_signed_in? && current_user.is_admin? %>
+                  <li><%= link_to "Administration", rails_admin_path, style: "color: white;" %></li>
+                  <% end %>
                   </ul>
             </div>
             <div class="social-media col col-12 col-sm-12 col-md-4 col-lg-4" >

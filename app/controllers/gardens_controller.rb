@@ -5,9 +5,9 @@ class GardensController < ApplicationController
     unless user_signed_in?
       redirect_to static_landing_path
     end
-    @gardens = Garden.all
-    @hash = GenerateMapForIndex.new(@gardens).perform
+    @gardens = Garden.order('created_at DESC').page(params[:page]).per(6)
     @search = Garden.search(params[:search])
+    @hash = GenerateMapForIndex.new(@search).perform
     @status = Status.all.sort_by(&:created_at).reverse
   end
 
@@ -26,7 +26,7 @@ class GardensController < ApplicationController
       @how_many_days = (Time.now - @status.updated_at) / 86_400 * 10
     end
   end
-
+  
   def new
   @user = current_user
   end
@@ -34,7 +34,13 @@ class GardensController < ApplicationController
   def create
     User.find(current_user.id).update(first_name: params[:userfirstname], last_name: params[:userlastname])
 
-    Garden.create(user_id: current_user.id, name: params[:gardenname], adress: params[:adress], city: params[:city], zipcode: params[:zipcode], country: params[:country])
+    @garden = Garden.new(user_id: current_user.id, name: params[:gardenname], adress: params[:adress], city: params[:city], zipcode: params[:zipcode], country: params[:country])
+    puts "@" * 20
+    if @garden.save
+      flash.now[:success] = "Potager bien enregistré ! Bravo, top !"
+    else
+      flash.now[:warning] = "Ooops, comme un blème.."
+    end
 
     Product.create(name: params[:productname1], garden_id: Garden.last.id)
     Product.create(name: params[:productname2], garden_id: Garden.last.id)
@@ -42,8 +48,7 @@ class GardensController < ApplicationController
     Product.create(name: params[:productname4], garden_id: Garden.last.id)
     Product.create(name: params[:productname5], garden_id: Garden.last.id)
 
-
-    redirect_to root_path
+    redirect_to garden_path @garden
   end
 
   def edit

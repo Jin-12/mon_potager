@@ -3,18 +3,17 @@
 module GardensHelper
   include Rails.application.routes.url_helpers
 
-  def garden_cover(garden)
-    rails_blob_path(garden.images[0]) if garden.images.attachment
-  end
-  
   def locate_nearby_gardens(location)
+    # locates the neighbours of a garden
     puts params
     puts '#' * 20
     @garden = location
-    @garden.nearbys(30)
+    @garden.nearbys(20)
   end
 
   def locate_closest_gardens(location)
+    # location is a geolocated place
+
     @distance_array = [5, 10, 20, 50, 100]
     @location = location
     @closest = []
@@ -57,4 +56,16 @@ module GardensHelper
     # binding.pry
   end
 
+  def set_landing_map_message(integer)
+    integer = integer - 1
+    if integer == 0
+      "Vous n'avez pas encore de potager à proximité, soyez le premier !"
+    elsif integer == 1
+      "Vous avez 1 potager à proximité, rejoignez-le !"
+    elsif integer >= 2
+      "Vous avez #{integer - 1} potagers à proximité, rejoignez-les !"
+    else
+      "You should not see this..."
+    end
+  end
 end

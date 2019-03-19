@@ -1,7 +1,7 @@
  @import 'bootstrap';
  @import 'gardens.css.scss';
  @import 'users.css.scss';
-
+ @import 'statuses.css.scss';
 
 body {
   display:flex;
@@ -13,7 +13,6 @@ body {
   font-size: 20px;
   -webkit-font-smoothing: antialiased;
   line-height: 1.3
-  
 }
 
 
@@ -59,6 +58,20 @@ p {
 	font-size: 15px;
 	color: #7B7B7B;
 	letter-spacing: 0.9px;
+}
+
+.container {
+  min-height:100%;
+  width:100%;
+}
+
+.gardens-update-btn {
+  display:flex;
+  flex-direction:row;
+}
+
+.products-garden {
+  display:block;
 }
 
 
@@ -130,7 +143,7 @@ ul.horizontalist li{
 
   .icons {
   display:flex;
-  flex-direction: row;  
+  flex-direction: row;
   }
 
 .links {
@@ -169,6 +182,7 @@ a:hover {
   position: absolute;
   width:100%;
   z-index: 999;
+  background: white;
 }
 
 .carousel-caption h2 {
@@ -182,7 +196,7 @@ a:hover {
   flex-direction: row;
   justify-items: center;
   flex-wrap:wrap;
-  
+
 }
 
 .connexion-info li {
@@ -190,7 +204,7 @@ a:hover {
     font-size:0.6em;
   padding-left:20px;
   display: row;
-  vertical-align: middle; 
+  vertical-align: middle;
 }
 
 .navbar-header {
@@ -238,14 +252,13 @@ a:hover {
 }
 .nav-research {
   display: flex;
+  padding: 5px 5px 5px 20px;
   flex-direction:row;
   align-content: center;
   background: #FFFFFF;
-  box-shadow: 0 5px 10px 3px rgba(194,194,194,0.50);
-  border-radius: 16px;
-  width:50%;
+  box-shadow: 0 1px 10px 2px rgba(194,194,194,0.30);
+  border-radius: 10px 10px 10px 10px;
   margin: auto;
-  margin-top:20px;
 }
 
 .nav-research input[type=text] {
@@ -276,7 +289,7 @@ a:hover {
 
 .carousel-inner {
 
-  
+
 }
 
 /* FORMULAIRES */
@@ -294,6 +307,10 @@ a:hover {
 .container-card {
   padding-top: 60px;
   padding-bottom: 50px;
+}
+
+.container-fluid {
+  padding:0px;
 }
 
 label {
@@ -317,6 +334,29 @@ label {
   color:white;
   font-size: 1.1em;
   float:right;
+  border-radius:14px;
+}
+
+.send-message {
+  display:flex;
+  justify-content: center;
+ }
+
+
+.send-message button {
+  float: none;
+  margin-top:20px;
+ }
+
+
+.submit-btn-ligth {
+  background-color:white;
+  color:#44C8B5;
+  font-size: 0.9em;
+  border: solid 1px #44C8B5;
+  border-radius:14px;
+display:inline-block;
+
 }
 
 .card input {
@@ -365,5 +405,32 @@ label {
 
 .form-control {
   border: 1px solid #ced4da !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.main-status{
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.one-status{
+  margin-top: 0px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #CECECE;
+  text-align: center;
+}
+
+.container-status {
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: center;
+  height: 400px;
+  overflow: scroll;
 }
 

@@ -80,7 +80,8 @@ button:focus {outline:0;}
 	background: white;
 	box-shadow: 0 4px 10px 1px rgba(203,203,203,0.50);
 	border-radius: 6px 6px 0 6px 6px;
-	height: 500px;
+	margin-bottom: 30px;
+	padding-bottom:50px;
 }
 
 .name-usergarden {
@@ -96,8 +97,6 @@ button:focus {outline:0;}
 .description-usergarden {
 	background: white;
 	margin-top: 30px;
-	padding-left: 50px;
-	padding-left: 50px;
 	text-align: left;
 }
 
@@ -105,27 +104,38 @@ button:focus {outline:0;}
 	margin: -30px;
 }
 
-.btn-yeah2 {
-	margin: 20px 0 0 10%;
-	height: 50px;
-	width: 300px;
-	background: #44C8B5;
-	border-radius: 14px;
-	font-size: 20px;
-	color: white;
-	border: 0;
-	text-align: center;
-}
 
 .btn-yeah2:hover {
 	transform: translateY(-3px);
 	transition: 0.5s cubic-bezier(0.2,0.8,0.2,1);
 }
 
-
-
 .flex-title {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
+.space-gardens {
+	margin: 10%;
+}
+
+.avatar-garden {
+	margin-top:15px;
+	margin-bottom:30px;
+	width:100%;
+}
+
+.favorite-button .btn {
+	float:none;
+}
+
+#GardenMap {
+	width: 1200px;
+	height: 600px;
+	display:block;
+	}
+
+	.comment-content {
+		margin-top:50px;
+	}

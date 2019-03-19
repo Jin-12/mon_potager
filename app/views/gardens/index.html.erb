@@ -3,18 +3,10 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
       <%= image_tag('slide1', width:'100%', class:'d-block w-100') %>
-       <div class="carousel-caption d-none d-md-block">
-    <h2>Mon Potager</h2>
-    <p>Vendez ou troquez le surplus de votre potager !</p>
-  </div>
     </div>
     <div class="carousel-item">
       <%= image_tag('slide2', width:'100%', class:'d-block w-100') %>
     </div>
-    <div class="carousel-caption d-none d-md-block">
-    <h2>Mon Potager</h2>
-    <p>Vendez ou troquez le surplus de votre potager !</p>
-  </div>
       <div class="carousel-item">
       <%= image_tag('slide3', width:'100%', class:'d-block w-100') %>
     </div>
@@ -34,12 +26,11 @@
   </a>
 </div>
 
+<%= render 'gardens/index_gardens_cards' %>
+
+<!--
 <div class="container">
-
- 
- 
   <div class="row">
-
 
     <div class="col gardens-list">
       <ul class="list-group">
@@ -51,27 +42,6 @@
 
       </ul>
 
-      <div class="col card p-2 search">
-        <%= simple_form_for :search,
-          url: root_path,
-          method: "GET",
-          html: { class: 'form-inline' },
-          remote: true do |f| %>
-
-        <%= f.input :location, input_html: {value: "", placeholder: "filtrer par endroit"} %>
-        <%= f.submit "Search", class: "btn btn-primary" %>
-
-        <% end %>
-      </div>
-      <div>
-        <ul class="list-group">
-          <% @gardens.each do |garden| %>
-          <li class="list-group-item">
-            <%= link_to garden.name , garden_path(garden.id) %>
-          </li>
-          <% end %>
-        </ul>
-      </div>
 
     </div>
     <div class="col">
@@ -79,20 +49,29 @@
     </div>
   </div>
 </div>
-<div class='status-group'>
-  <ul class="list-group">
+-->
+<div class="main-status">
+  <div class="container-status">
+    <div class="status-i">
+      <h1>
+        Fil d'actualité
+      </h1>
+
     <% @status.each do |status| %>
-      <li><%= link_to status.content, garden_path(status.user) %></li>
-      <li>Par <%= status.user.first_name %></li>
-      <% @date = ((Time.now - status.updated_at) / 86400 * 10).to_i %>
-      <% if @date == 0 %>
-      <li>Posté aujoud'hui</li>
-      <% elsif @date == 1 %>
-      <li>Posté hier</li>
-      <% else %>
-      <li>Il y a <%= @date %> jours</li>
-      <% end %>
-      <br>
-    <% end %>
+      <div class="one-status">
+        <p class="para-strong"><%= link_to status.content, garden_path(status.user.gardens.last) %></p>
+        <p>Par <%= status.user.first_name %></p>
+          <% @date = ((Time.now - status.updated_at) / 86400 * 10).to_i %>
+          <% if @date == 0 %>
+          <p>Posté aujoud'hui</p>
+          <% elsif @date == 1 %>
+          <p>Posté hier</p>
+          <% else %>
+          <p>Il y a <%= @date %> jours</p>
+          <% end %>
+          </div>
+        <% end %>
+    </div>
   </div>
+</div>
 </div>
