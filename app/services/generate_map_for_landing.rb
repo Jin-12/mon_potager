@@ -27,11 +27,6 @@ class GenerateMapForLanding < ApplicationController
       rescue
         marker.lat garden.latitude
         marker.lng garden.longitude
-        marker.picture(
-          "url": helpers.image_url('carrot.png'),
-          "width": 32,
-          "height": 32
-        )
         end
   end
 end
