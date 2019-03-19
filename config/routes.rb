@@ -11,9 +11,6 @@ Rails.application.routes.draw do
   resources :gardens do
     resources :images, only: %i[create destroy]
     resources :comments
-    collection do 
-      get :search
-    end 
   end
   resources :products
   resources :favorites
