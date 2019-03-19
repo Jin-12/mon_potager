@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :products
   resources :favorites
   resources :comments
-
+  
   resources "contacts", only: [:new, :create]
   
   root to: 'gardens#index'
