@@ -3,10 +3,10 @@
 
 	<%= stylesheet_link_tag "users" %>
 
-	<div class="card-container border shadow-lg p-4 col-md-10 col-sm-10 col-lg-10">
-		 <div >
+	<div class="card-container border shadow-lg p-4 col-md-8 col-sm-12 col-lg-8">
+		 <div class="card-container-user">
 				<%if @user.avatar.attached?%>
-					<%= image_tag @user.avatar, alt: 'avatar', class:'img-fluid circle-avatar-user' %>
+					<%= image_tag @user.avatar, alt: 'avatar', class:'circle-avatar-user' %>
 				<% else %>
 					<div class="container-avatar ">
 						<div class="circle-avatar-user"></div>
@@ -14,8 +14,9 @@
 				<% end %>
 
 				<% if current_user == @user %>
+				<div class='d-flex align-items-center'>
 					<%= form_tag user_avatars_path(@user), multipart: true do %>
-					<span class="btn btn-large btn-warning btn-file">
+					<span class="btn btn-large btn-light btn-file">
 						<%if @user.avatar.attached?%>
 							Modifie ta photo
 						<% else %>
@@ -23,21 +24,16 @@
 						<% end %>
 						<%= file_field_tag :avatar %>
 					</span>
-					<%= submit_tag "Mettre à jour", class:"btn btn-primary" %>
+					<%= submit_tag "Mettre à jour", class:"btn btn-light" %>
 				<% end %>
-
-				<%if @user.avatar.attached?%>
-					<%= form_tag user_avatar_path(@user), method: "delete", style: "display: inline" do %>
-					<%= submit_tag "Supprimer la photo", class:"btn submit-btn" %>
-				<% end %>
-			<% end %>
+				</div>
 		<div class="show_user_head border-15">
 			<% provide(:title, "Profil utilisateur") %><% end %>
 
-			<p class="titre-dark">
+			<p class="titre-dark text-center" style="margin:0px;">
 				<%= @user.first_name %>
 				<%= @user.last_name %></p>
-			<p>
+			<p class="text-center" style="margin-bottom:30px;">
 				<%= @user.birthdate %></p>
 		</div>
 		<div class="id-card row">
@@ -54,10 +50,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="infos-connexion">
+		<div class="infos-connexion d-flex wrap">
 			<%= link_to "Editer mon profil", edit_user_path(@user), class:"btn submit-btn" %>
 			<%= link_to "Editer infos de connexion", edit_user_registration_path, class:"btn submit-btn" %>
-			<%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class:"btn submit-btn" %>
 		</div>
 		<div>
 		<h2>Favoris</h2>
