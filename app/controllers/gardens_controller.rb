@@ -5,7 +5,7 @@ class GardensController < ApplicationController
     unless user_signed_in?
       redirect_to static_landing_path
     end
-    @gardens = Garden.all
+    @gardens = Garden.order('created_at DESC').page(params[:page]).per(6)
     @search = Garden.search(params[:search])
     @hash = GenerateMapForIndex.new(@search).perform
     @status = Status.all.sort_by(&:created_at).reverse
@@ -26,6 +26,7 @@ class GardensController < ApplicationController
       @how_many_days = (Time.now - @status.updated_at) / 86_400 * 10
     end
   end
+  
   def new
   @user = current_user
   end

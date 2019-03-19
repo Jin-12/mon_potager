@@ -32,4 +32,8 @@ class User < ApplicationRecord
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end
+
+  def is_admin?
+    true
+  end
 end

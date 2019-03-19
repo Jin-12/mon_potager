@@ -31,6 +31,10 @@ gem 'rubocop'
 gem 'simple_form'
 gem 'stripe'
 gem 'underscore-rails'
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
+gem 'rails_admin', '~> 1.3'
+gem 'rails_admin_material'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
