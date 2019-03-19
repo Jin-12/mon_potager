@@ -117,8 +117,12 @@ p {
 
   .container {
   flex: 1 0 auto;
-  margin-top:100px;
-  margin-bottom: 0px;
+  margin-top:250px;
+}
+
+.container-edit {
+flex: 1 0 auto;
+margin-top:100px;
 }
 
 html, body {
@@ -434,4 +438,8 @@ button:focus {
   text-align: center;
   height: 400px;
   overflow: scroll;
+}
+
+.container-new-garden {
+  margin: 80px 0 0 0;
 }
