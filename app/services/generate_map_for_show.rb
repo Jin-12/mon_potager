@@ -16,7 +16,6 @@ class GenerateMapForShow < ApplicationController
 
   def build_hash
     @hash_nearby = Gmaps4rails.build_markers(@nearby) do |garden, marker|
-      @garden_img = Rails.application.routes.url_helpers.rails_blob_path(garden.images[0], :host)
       marker.lat garden.latitude
       marker.lng garden.longitude
       marker.json(id: garden.id)
@@ -27,7 +26,7 @@ class GenerateMapForShow < ApplicationController
         "width": 32,
         "height": 32
       )
-      marker.infowindow render_to_string(partial: 'gardens/map_info_show', locals: { garden: garden, garden_img: @garden_img })
+      marker.infowindow render_to_string(partial: 'gardens/map_info_show', locals: { garden: garden })
     end
     @hash_garden = Gmaps4rails.build_markers([@garden]) do |garden, marker|
       marker.lat garden.latitude
