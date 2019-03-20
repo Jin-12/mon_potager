@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
 
   def create
     Comment.create(garden_id: params[:id], content: params[:content], user_id: current_user.id)
-    redirect_to gardens_path(params[:id])
+    redirect_to garden_path(Comment.last.garden.id)
   end
 
   def show

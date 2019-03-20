@@ -26,14 +26,12 @@
 
 						<div class="status-user">
 
-							<div id="cercle"></div>
-							<p class="para-strong status-content">
-								<%= @status.content %>
-								<% if current_user == @user %>
-								<%= link_to 'Nouveau statut', new_user_status_path(@user), class:"btn submit-btn-ligth" %>
-								<% end %>
-								<%= link_to 'Tous les statuts', user_statuses_path(@user), class:"btn submit-btn-ligth" %>
-						</div>
+								<div id="cercle"></div>
+								<p class="para-strong status-content"><%= @status.content %>
+									<% if current_user == @user %>
+									<% end %>
+									<%= link_to 'Tous les statuts', user_statuses_path(@user), class:"btn submit-btn-ligth" %>
+								</div>
 
 						<div class="howmanydays">
 							<% if @how_many_days.to_i == 1 %>
@@ -42,11 +40,36 @@
 							<% elsif @how_many_days.to_i == 0 %>
 							<p class="para-small">Posté aujourd'hui</p>
 
-							<% else %>
-							<p class="para-small">Il y a
-								<%= @how_many_days.to_i %>
-								jours</p>
-							<% end %>
+										<% else %>
+											<p class="para-small">Il y a
+												<%= @how_many_days.to_i %>
+												jours</p>
+										<% end %>
+									<% end %>
+								</div>
+							</div>
+							<div>
+								<% @garden.images.each do |image| %>
+									<%= image_tag(image, alt: 'garden_image', class:'avatar-garden') %>
+								<% end %>
+								<% if current_user == @user %>
+									<%= form_tag garden_images_path(@garden), multipart: true do %>
+										<% if @garden.images.attached? %>
+										<span class="btn btn-large submit-btn-ligth btn-file">
+											Rajoute une photo
+										<% else %>
+										<span class="btn btn-large btn-file">
+										<%= image_tag('img-default.jpg', alt: 'garden_image', class:'avatar-garden') %>
+										<% end %>
+										<%= file_field_tag :images %>
+									</span>
+									<%= submit_tag "Ajouter", class:"btn submit-btn-ligth" %>
+								<% end %>
+								<%if @garden.images.attached?%>
+									<%= form_tag garden_image_path(@garden), method: "delete", style: "display: inline" do %>
+									<%= submit_tag "Supprimer les images", class:"btn submit-btn-ligth" %>
+								<% else %>
+								<% end %>
 							<% end %>
 						</div>
 					</div>
@@ -155,13 +178,13 @@
 			<div class="card col-lg-12 comment-content">
 				<ul class="list-group list-group-flush">
 					<% @comments.each do |com| %>
-					<li class="list-group-item">
-						<%= (com.user.first_name + " " + com.user.last_name)%>
-						<%= com.content %>
-					</li>
-					<% if current_user == com.user %>
-					<%= link_to "Supprimer" , {:controller => 'comments', :action => 'destroy', :id => com.id}, class:"btn btn-danger col-md-2" %>
-					<% end %>
+						<li class="list-group-item">
+							<p class='para-strong'><%= (com.user.first_name + " " + com.user.last_name) %></p>
+							<%= com.content %>
+						</li>
+						<% if current_user == com.user %>
+							<%= link_to "Supprimer" , {:controller => 'comments', :action => 'destroy', :id => com.id}, class:"btn btn-light col-md-2" %>
+						<% end %>
 					<% end %>
 				</ul>
 			</div>

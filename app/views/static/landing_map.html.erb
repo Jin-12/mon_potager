@@ -6,13 +6,13 @@
     </div>
     <div class="row justify-content-md-center align-items-center">
       <%= render 'map_for_landing' %>
-        <%= link_to @landing_map_message, new_user_registration_path, class: "noHover button-1 p-4", style: "position: absolute; margin-top: 200px; z-index: 200" %> 
+        <%= link_to @landing_map_message, new_user_registration_path, class: "noHover button-1 p-4", style: "position: absolute; margin-top: 200px; z-index: 200" %>
   </div>
   <div class="row justify-content-md-center align-items-center">
     <div class="col-md-6 m-4">
         <div class="card shadow p-4 mb-5 bg-white rounded">
             <p class="p-2">Ou entre un autre code postal :</p>
-  
+
             <form>
               <div class="form-row p-1 mb-5 bg-grey rounded">
                 <%= form_tag gardens_path, :method => 'get' do %>
