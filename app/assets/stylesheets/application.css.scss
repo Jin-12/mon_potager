@@ -145,6 +145,11 @@ p {
   margin-top:250px;
 }
 
+.container-edit {
+flex: 1 0 auto;
+margin-top:100px;
+}
+
 html, body {
   height: 100%;
   margin:0px;
@@ -324,6 +329,7 @@ a:hover {
 
 .container-fluid {
   padding:0px;
+  margin: 0px;
 }
 
 label {
@@ -447,3 +453,6 @@ button:focus {
   overflow: scroll;
 }
 
+.container-new-garden {
+  margin: 80px 0 0 0;
+}
