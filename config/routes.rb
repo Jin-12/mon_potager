@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   concern :commentable do
     resources :comments
   end
 
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   concern :image_attachable do
     resources :images, only: %i[create destroy]
@@ -22,7 +23,8 @@ Rails.application.routes.draw do
 
   resources :gardens, concerns: [:commentable, :image_attachable]
   resources :favorites, only: [:create]
-
+  resources :comments
+  
   match "contactmail", to: "gardens#contactmail", via: :post
   
   get "/static/landing", to: "static#landing"
