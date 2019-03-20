@@ -130,7 +130,7 @@
 								</p>
 							</div>
 							<div class="send-message">
-									<%= link_to "Envoyer un message", "#message_modal", "data-toggle": "modal" %>
+								<%= link_to "Envoyer un message", "#message_modal", "data-toggle": "modal" %>
 							</div>
 						</div>
 						<%# <div class="near">
@@ -192,28 +192,31 @@
 						</button>
 					</div>
 					<div class="modal-body">
-							<div align="center">						
-									<%= form_with(url: contactmail_path, class: 'form shadow') do |f| %>
-									<%= f.hidden_field :garden_id, value: @garden.id %>
-									<%= f.hidden_field :current_user_id, value: current_user.id %>
-									<%= f.text_field :subject, :required => true %>
-									<%= f.text_field :message, :required => true %>
-									<div>
-										</br>
-										<%= button_tag type: 'submit', class: 'btn btn-yeah2 my-2 p-2' do %>
-										Envoyer
-										<% end %>
-										<%= button_tag type: 'button', class: 'btn  my-2 p-2' do %>
-										Annuler
-										<% end %>
-									</div>
-									<% end %>
-								</div>
-											</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-						<button type="button" class="btn btn-primary" data-dismiss="modal">Envoyer</button>
-					</div>
+						<div align="center">
+							<%= form_with(url: contactmail_path) do |f| %>
+							<%= f.hidden_field :garden_id, value: @garden.id %>
+							<%= f.hidden_field :current_user_id, value: current_user.id %>
+							<div class="form-group">
+								<label for="subject">Objet</label>
+								<%= f.text_field :subject, id: "subject", class: 'form-control p-2', placeholder: "Objet du message", :required => true %>
+							</div>
+							<div class="form-group">
+								<label for="message">Message</label>
+								<%= f.text_field :message, id: "message", class: 'form-control p-2', placeholder: "Texte du message", :required => true %>
+							</div>
+							</br>
+							<%= button_tag type: 'button', class: 'btn btn-secondary my-2 p-2' do %>
+							Annuler
+							<% end %>
+							<%= button_tag type: 'submit', class: 'btn btn-primary my-2 p-2' do %>
+							Envoyer
+							<% end %>
+						</div>
+						<% end %>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Fermer</button>
 				</div>
 			</div>
 		</div>
+	</div>
