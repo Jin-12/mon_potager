@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class GenerateMapForShow < ApplicationController
+  include Rails.application.routes.url_helpers
+
   def initialize(garden, nearby)
     @garden = garden
     @nearby = nearby
@@ -29,8 +31,7 @@ class GenerateMapForShow < ApplicationController
     @hash_garden = Gmaps4rails.build_markers([@garden]) do |garden, marker|
       marker.lat garden.latitude
       marker.lng garden.longitude
-      marker.json({ id: garden.id })
-      marker.json(title: garden.name)
+      marker.json({ id: garden.id, title: garden.name })
       marker.title garden.name
       marker.picture(
         "url": helpers.image_url('carrot_lg.png'),
