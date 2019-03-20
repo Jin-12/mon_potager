@@ -456,3 +456,68 @@ button:focus {
 .container-new-garden {
   margin: 80px 0 0 0;
 }
+
+.Slider {
+  background: url('./slide4.jpg');
+  height: 550px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.SliderGroup {
+  margin: 0 auto;
+  max-width: 750px;
+  padding: 100px 50px;
+  text-align: center;
+}
+
+.Slider h3 {
+  margin: 0 0 50px 0;
+  color: white;
+  font-size: 60px;
+  font-family: HelveticaNeue-Medium;
+  line-height: 1.2;
+  opacity: 0;
+  animation: HeroAnimation;
+  animation-duration: 3s;
+  animation-delay: 0.1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.2,0.8,0.2,1);
+  text-shadow: #464646 1px 0 10px;
+
+}
+
+.Slider p {
+  margin: -35px 0 20px 0;
+  color: rgb(255,255,255);
+  font-size: 30px;
+  line-height: 1.5;
+  opacity: 0;
+  animation: HeroAnimation;
+  animation-duration: 3s;
+  animation-delay: 0.3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.2,0.8,0.2,1);
+  text-shadow: #000 1px 0 10px;
+}
+
+@keyframes HeroAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.fa-search {
+  color: white;
+}
+
+.search-bar {
+  background: rgba(250,250,250, 0.3);
+}
