@@ -142,7 +142,6 @@ p {
 
   .container {
   flex: 1 0 auto;
-  margin-top:250px;
 }
 
 .container-edit {
@@ -291,6 +290,8 @@ a:hover {
 .button-1 {
   padding: 8px 20px;
   font-size: 20px;
+  display:inline-flex;
+  flex-wrap:nowrap;
   color: white;
   background: #44c8b5;
   border:none;
