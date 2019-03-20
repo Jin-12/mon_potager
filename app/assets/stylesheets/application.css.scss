@@ -356,6 +356,16 @@ label {
   border-radius:14px;
 }
 
+.submit-btn2 {
+  margin-top: 50px;
+  padding: 10px 0 10px 0;
+  background-color:#44C8B5;
+  color:white;
+  font-size: 1.1em;
+  float:right;
+  border-radius:14px;
+}
+
 .send-message {
   display:flex;
   justify-content: center;
@@ -374,8 +384,27 @@ label {
   font-size: 0.9em;
   border: solid 1px #44C8B5;
   border-radius:14px;
-display:inline-block;
+  display:inline-block;
+}
 
+.submit-btn-ligth2 {
+  margin: -30px 0 10px 0;
+  background-color:white;
+  color:#44C8B5;
+  font-size: 0.9em;
+  border: solid 1px #44C8B5;
+  border-radius:14px;
+  display:inline-block;
+}
+
+.submit-btn-ligth3 {
+  margin: -5px 0 0px 0;
+  background-color:white;
+  color:#44C8B5;
+  font-size: 0.9em;
+  border: solid 1px #44C8B5;
+  border-radius:14px;
+  display:inline-block;
 }
 
 .card input {

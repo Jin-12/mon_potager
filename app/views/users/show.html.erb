@@ -3,32 +3,32 @@
 	<%= stylesheet_link_tag "users" %>
 
 	<div class="card-container border shadow-lg p-4 col-md-8 col-sm-12 col-lg-8">
-		<div class="card-container-user">
+		<div class="container-pic d-flex user-pic">
 			<%if @user.avatar.attached?%>
-				<%= image_tag @user.avatar, alt: 'avatar', class:'circle-avatar-user' %>
+				<%= image_tag @user.avatar, alt: 'avatar', class:'avatar-user circle-avatar-user' %>
 			<% else %>
 				<div class="container-avatar ">
 					<div class="circle-avatar-user"></div>
-				</div>
-			<% end %>
+				<% end %>
+			</div>
 
 			<% if current_user == @user %>
 				<%= form_tag user_avatars_path(@user), multipart: true do %>
 				<div class='d-flex align-items-center'>
-				<div class="wtf-container d-flex align-self-center">
-					<div class="btn btn-large btn-primary btn-file">
-						<%if @user.avatar.attached?%>
-							Modifie ta photo
-						<% else %>
-							Rajoute une photo
+					<div class="wtf-container d-flex align-self-center">
+						<div class="btn btn-large btn-primary btn-file">
+							<%if @user.avatar.attached?%>
+								Modifie ta photo
+							<% else %>
+								Rajoute une photo
+							<% end %>
+							<%= file_field_tag :avatar %>
+						</div>
+						<div>
+							<%= submit_tag "Mettre à jour", class:"btn btn-light", style:'margin-left:10px' %>
 						<% end %>
-						<%= file_field_tag :avatar %>
 					</div>
-					<div>
-						<%= submit_tag "Mettre à jour", class:"btn btn-light", style:'margin-left:10px' %>
-					<% end %>
 				</div>
-			</div>
 			</div>
 			<div class="show_user_head border-15">
 				<% provide(:title, "Profil utilisateur") %><% end %>

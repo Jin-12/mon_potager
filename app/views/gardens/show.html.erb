@@ -14,7 +14,7 @@
           </div>
           <div class="gardens-update-btn col-lg-7">
             <% if current_user == @user %>
-            <%=link_to "Editer le potager", edit_garden_path(@garden), class:"btn submit-btn-ligth"%>
+            <span style="margin:0 10px 0 -15px"><%=link_to "Editer le potager", edit_garden_path(@garden), class:"btn submit-btn-ligth"%></span>
             <%= link_to 'Nouveau statut', new_user_status_path(@user), class:"btn submit-btn-ligth" %>
             <% end %>
           </div>
@@ -26,12 +26,12 @@
 
             <div class="status-user">
 
-              <div id="cercle"></div>
-              <p class="para-strong status-content">
+              <div id="cercle" style="margin: 35px 0 0 0"></div>
+              <p class="para-strong status-content" style="margin: 20px 20px 0px 15px">
                 <%= @status.content %>
                 <% if current_user == @user %>
                 <% end %>
-                <%= link_to 'Tous les statuts', user_statuses_path(@user), class:"btn submit-btn-ligth" %>
+                <span style="margin-left:10px"><%= link_to 'Voir tous les statuts', user_statuses_path(@user) %></span>
             </div>
 
             <div class="howmanydays">
@@ -56,7 +56,7 @@
             <% if current_user == @user %>
             <%= form_tag garden_images_path(@garden), multipart: true do %>
             <% if @garden.images.attached? %>
-            <span class="btn btn-large submit-btn-ligth btn-file">
+            <span class="btn btn-large submit-btn-ligth btn-file" style="margin-top:-40px">
               Rajoute une photo
               <% else %>
               <span class="btn btn-large btn-file">
@@ -64,30 +64,19 @@
                 <% end %>
                 <%= file_field_tag :images %>
               </span>
-              <%= submit_tag "Ajouter", class:"btn submit-btn-ligth" %>
+              <%= submit_tag "Ajouter", class:"btn submit-btn-ligth2" %>
               <% end %>
               <%if @garden.images.attached?%>
               <%= form_tag garden_image_path(@garden), method: "delete", style: "display: inline" do %>
-              <%= submit_tag "Supprimer les images", class:"btn submit-btn-ligth" %>
+              <%= submit_tag "Supprimer les images", class:"btn submit-btn-ligth3" %>
               <% else %>
               <% end %>
               <% end %>
               <% end %>
           </div>
-          <div class="favorite-button ">
-            <% puts "_________________________________________" %>
-            <% puts @garden.favorites.where(user_id: current_user.id) %>
-            <% puts "_________________________________________" %>
-            <% if @garden.favorites.where(user_id: current_user.id).empty? %>
-            <%=form_tag url_for(controller: 'favorites', action: 'create'), method: "post" do %>
-            <%= hidden_field_tag(:gardenid, @garden.id) %>
-            <%= submit_tag "Ajouter aux Favoris", class:"btn submit-btn col col-sm-12 col-md-12 col-lg-12 col-xl-12"%>
-            <% end %>
-            <% end %>
-          </div>
+
           <div class="products-garden">
-            <h2>
-              <i class="fas fa-carrot"></i>Les Produits</h2>
+            <h1>Les Produits <a></h1>
             <div class="legumes-garden">
               <div class="legumes-list">
                 <% @products.each do |h| %>
@@ -101,9 +90,9 @@
         </div>
         <div class="col col-sm-12 col-md-12 col-lg-5">
           <div class="gardenshow-2">
-            <div class="container-pic">
-              <%if @user.avatar.attached?%>
-              <%= image_tag @user.avatar, alt: 'avatar', class:'circle-avatar-user' %>
+            <div class="container-pic d-flex">
+              <%if @user.avatar.attached? %>
+              <%= image_tag @user.avatar, alt: 'avatar', class:'avatar-user circle-avatar-user' %>
               <% else %>
               <div class="d-flex">
                 <div class="avatar-user"></div>
@@ -115,7 +104,7 @@
                   <%= link_to "Utilisateur Anonyme", user_path(@user), class:"titre-dark"%>
                 </p>
                 <% else %>
-                <p>
+                <p style='margin:0'>
                   <%= link_to (@user.first_name + " " + @user.last_name), user_path(@user), class:"titre-dark"%>
                 </p>
                 <% end %>
@@ -124,12 +113,12 @@
                 </p>
               </div>
               <div class="description-usergarden">
-                <p class="para-strong text-center">Présentation</p>
-                <p class="text-center">
+                <p class="titre-dark text-center" style="margin: 0">Présentation</p>
+                <p class="text-center" style="padding:0px 30px 0 30px">
                   <%= @user.description %>
                 </p>
               </div>
-              <div class="send-message">
+              <div class="send-message" style="margin:50px 0 0 0">
                 <%= link_to "Envoyer un message", "#modal", class: 'btn submit-btn', "data-toggle": "modal" %>
               </div>
             </div>
@@ -145,9 +134,23 @@
           </div>
         </div>
       </div>
+      <h1 style="margin: 30px 0 20px 0">Sur la carte</h1>
       <div class=" col-lg-12">
-        <h2>Sur la carte</h2>
-        <%= render 'map_for_show', class:"col-md-12" %>
+        <div class="col">
+          <%= render 'static/map_for_landing' %>
+        </div>
+      </div>
+
+      <div class="favorite-button ">
+        <% puts "_________________________________________" %>
+        <% puts @garden.favorites.where(user_id: current_user.id) %>
+        <% puts "_________________________________________" %>
+        <% if @garden.favorites.where(user_id: current_user.id).empty? %>
+        <span><%=form_tag url_for(controller: 'favorites', action: 'create'), method: "post" do %></span>
+        <%= hidden_field_tag(:gardenid, @garden.id) %>
+        <%= submit_tag "Ajouter ce jardin en favoris", class:"btn submit-btn2 col col-sm-12 col-md-12 col-lg-12 col-xl-12"%>
+        <% end %>
+        <% end %>
       </div>
       <!-- fin de div map-garden -->
       <!-- fin de div gardenshow-1 -->
