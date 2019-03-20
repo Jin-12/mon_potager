@@ -1,1 +1,7 @@
-Bonjour, ça roule ?
+Bonjour <%= @garden_owner.first_name %> !
+
+<%= @sender.first_name %> vous a envoyé le message suivant au sujet de votre potager <%= link_to @garden.name, garden_url(@garden, host: "127.0.0.1") %>.
+
+Sujet: <%= @subject %>
+
+Message: <%= @message %>
