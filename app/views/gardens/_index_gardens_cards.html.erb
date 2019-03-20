@@ -1,5 +1,5 @@
 <div class="d-flex align-content-between justify-content-center flex-wrap">
-	<% @gardens.each do |garden| %>
+	<% @search.each do |garden| %>
 		<div class="card space-gardens" style="width: 22rem; margin: 1%;">
 		    <div class="card-image">
           <%if garden.images.attached?%>
@@ -15,5 +15,4 @@
 		    </div>
 		</div>
 	<% end %>
-	<%= paginate(@gardens) %>
 </div>

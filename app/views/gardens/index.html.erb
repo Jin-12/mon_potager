@@ -1,20 +1,13 @@
+    <div class="col">
+      <%= render 'static/map_for_landing' %>
+    </div>
+          <div class="">
+        <%= form_tag gardens_path, method: :get do %>
+          <%= text_field_tag :search, params[:search], placeholder: 'Carottes, Paris' %>
+          <%= submit_tag "chercher" %>
+        <% end %>
+      </div>
 
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <%= image_tag('slide1', width:'100%', class:'d-block w-100') %>
-    </div>
-    <div class="carousel-item">
-      <%= image_tag('slide2', width:'100%', class:'d-block w-100') %>
-    </div>
-      <div class="carousel-item">
-      <%= image_tag('slide3', width:'100%', class:'d-block w-100') %>
-    </div>
-    <div class="carousel-caption d-none d-md-block">
-    <h2>Mon Potager</h2>
-    <p>Vendez ou troquez le surplus de votre potager !</p>
-  </div>
-  </div>
 
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -28,27 +21,6 @@
 
 <%= render 'gardens/index_gardens_cards' %>
 
-
-<div class="container">
-  <div class="row">
-
-    <div class="col gardens-list">
-      <ul class="list-group">
-        <% @search.each do |garden| %>
-        <li class="list-item">
-        <%= link_to garden.name, garden_path(garden) %>
-        </li>
-        <% end %>
-
-      </ul>
-
-
-    </div>
-    <div class="col">
-      <%= render 'map_for_index' %>
-    </div>
-  </div>
-</div>
 
 <div class="main-status">
   <div class="container-status">

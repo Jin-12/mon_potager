@@ -29,12 +29,12 @@ class Garden < ApplicationRecord
       final_result = result.map do |collection|
         collection.map(&:itself)
       end
-      search_result = final_result.flatten.uniq
-      if search_result.empty?
+      @search_result = final_result.flatten.uniq
+      if @search_result.empty?
         # flash[:warning] = "Pas de résultat, essayez une autre recherche"
         all
       else
-        search_result
+        @search_result
       end
     else
       all

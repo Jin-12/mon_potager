@@ -4,19 +4,6 @@
       <%= link_to (image_tag('logo', width:'60%')), root_path %>
     </div>
 
-          <form>
-            <div class="nav-research">
-              <div class="">
-                <div class="">
-                  <%= form_tag search_gardens_path, method: :get do %>
-                    <%= text_field_tag :search, params[:search], placeholder: 'Carottes, Paris' %>
-                    <%= submit_tag "chercher" %>
-                    <% end %>
-                </div>
-              </div>
-            </div>
-          </form>
-
     <div class="connexion-info">
 
 				<% if user_signed_in?  %>
