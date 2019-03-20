@@ -32,7 +32,7 @@ class GenerateMapForIndex < ApplicationController
           "width": 32,
           "height": 32
         )
-        marker.infowindow render_to_string(partial: 'gardens/map_info', locals: { garden: garden })
+        marker.infowindow render_to_string(partial: 'gardens/map_info_index', locals: { garden: garden })
       end
   end
 end
