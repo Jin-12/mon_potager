@@ -34,13 +34,13 @@
 
 
 .circle-avatar-user {
+  margin: 0 auto;
   width: 200px;
   height: 200px;
   border-radius: 200px;
   border: solid 4px #44C8B5;
   background: white;
-  display:flex;
-   margin-top: -20%;
+  margin-top: -10%;
 }
 
 .id-card {
@@ -62,4 +62,23 @@
 .container-avatar {
   display:flex;
   justify-content: center;
+}
+
+.card-container-user {
+  margin: 0 auto;
+  padding: 3%;
+}
+
+.card-container {
+  margin: 0 auto;
+}
+
+.container {
+  margin-top: 150px;
+}
+
+.wtf-container {
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }

@@ -1,95 +1,157 @@
 <div class="container">
-	<%= stylesheet_link_tag "gardens" %>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <%= stylesheet_link_tag "gardens" %>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous">
 
-	<div class="content-garden">
-		<div class="row">
-			<div class="col col-sm-12 col-md-12 col-lg-7">
-				<div class="div-status">
-					<div class="">
-						<h1><%= @garden.name %></h1>
-					</div>
-					<div class="gardens-update-btn col-lg-7">
-						<% if current_user == @user %>
-							<%=link_to "Editer le potager", edit_garden_path(@garden), class:"btn submit-btn-ligth"%>
-							<%= link_to 'Nouveau statut', new_user_status_path(@user), class:"btn submit-btn-ligth" %>
-						<% end %>
-					</div>
-						<% if @status.nil? %>
-						<div class="status-user">
-							<div id="cerclejaune"></div>
-							<%= "Pas de status pour ce jardin" %>				
-					<% else %>
+  <div class="content-garden">
+    <div class="row">
+      <div class="col col-sm-12 col-md-12 col-lg-7">
+        <div class="div-status">
+          <div class="">
+            <h1>
+              <%= @garden.name %>
+            </h1>
+          </div>
+          <div class="gardens-update-btn col-lg-7">
+            <% if current_user == @user %>
+            <%=link_to "Editer le potager", edit_garden_path(@garden), class:"btn submit-btn-ligth"%>
+            <%= link_to 'Nouveau statut', new_user_status_path(@user), class:"btn submit-btn-ligth" %>
+            <% end %>
+          </div>
+          <% if @status.nil? %>
+          <div class="status-user">
+            <div id="cerclejaune"></div>
+            <%= "Pas de status pour ce jardin" %>
+            <% else %>
 
-							<div class="status-user">
+            <div class="status-user">
 
-								<div id="cercle"></div>
-								<p class="para-strong status-content"><%= @status.content %>
-									<% if current_user == @user %>
-									<%= link_to 'Nouveau statut', new_user_status_path(@user), class:"btn submit-btn-ligth" %>
-									<% end %>
-									<%= link_to 'Tous les statuts', user_statuses_path(@user), class:"btn submit-btn-ligth" %>
-							</div>
+              <div id="cercle"></div>
+              <p class="para-strong status-content">
+                <%= @status.content %>
+                <% if current_user == @user %>
+                <% end %>
+                <%= link_to 'Tous les statuts', user_statuses_path(@user), class:"btn submit-btn-ligth" %>
+            </div>
 
-							<div class="howmanydays">
-								<% if @how_many_days.to_i == 1 %>
-									<p class="para-small">Posté hier</p>
+            <div class="howmanydays">
+              <% if @how_many_days.to_i == 1 %>
+              <p class="para-small">Posté hier</p>
 
-									<% elsif @how_many_days.to_i == 0 %>
-										<p class="para-small">Posté aujourd'hui</p>
+              <% elsif @how_many_days.to_i == 0 %>
+              <p class="para-small">Posté aujourd'hui</p>
 
-									<% else %>
-										<p class="para-small">Il y a
-											<%= @how_many_days.to_i %>
-											jours</p>
-									<% end %>
-								<% end %>
-							</div>
-					</div>
-					<div>
-						<% @garden.images.each do |image| %>
-							<%= image_tag(image, alt: 'garden_image', class:'avatar-garden') %>
-						<% end %>
-						<% if current_user == @user %>
-							<%= form_tag garden_images_path(@garden), multipart: true do %>
-							<div class="btn submit-btn-light btn-file">
-								<%if @garden.images.attached?%>
-									Rajoute une photo
-								<% else %>
-									Mets ta première photo
-								<% end %>
-								<%= file_field_tag :images %>
-							</div>
-							<%= submit_tag "Ajouter", class:"btn submit-btn-ligth" %>
-						<% end %>
-						<%if @garden.images.attached?%>
-							<%= form_tag garden_image_path(@garden), method: "delete", style: "display: inline" do %>
-							<%= submit_tag "Supprimer les images", class:"btn submit-btn-ligth" %>
-						<%else%>
-						
-						<% end %>
-					<% end %>
-				<% end %>
-			</div>
-			<div class="favorite-button ">
-			<% puts "_________________________________________" %> 
-				<% puts @garden.favorites.where(user_id: current_user.id) %>
-			<% puts "_________________________________________" %> 
-				<% if @garden.favorites.where(user_id: current_user.id).empty? %>
-						<%=form_tag url_for(controller: 'favorites', action: 'create'), method: "post" do %>
-							<%= hidden_field_tag(:gardenid, @garden.id) %>
-							<%= submit_tag "Ajouter aux Favoris", class:"btn submit-btn col col-sm-12 col-md-12 col-lg-12 col-xl-12"%>
-						<% end %>
-				<% end %> 
-			</div>
-			<div class="products-garden">
-				<h2><i class="fas fa-carrot"></i>Les Produits</h2>
-				<div class="legumes-garden">
-					<div class="legumes-list">
-						<% @products.each do |h| %>
-							<p><%= h.name %></p>
-						<% end %>
-					</div>
+              <% else %>
+              <p class="para-small">Il y a
+                <%= @how_many_days.to_i %>
+                jours</p>
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div>
+            <% @garden.images.each do |image| %>
+            <%= image_tag(image, alt: 'garden_image', class:'avatar-garden') %>
+            <% end %>
+            <% if current_user == @user %>
+            <%= form_tag garden_images_path(@garden), multipart: true do %>
+            <% if @garden.images.attached? %>
+            <span class="btn btn-large submit-btn-ligth btn-file">
+              Rajoute une photo
+              <% else %>
+              <span class="btn btn-large btn-file">
+                <%= image_tag('img-default.jpg', alt: 'garden_image', class:'avatar-garden') %>
+                <% end %>
+                <%= file_field_tag :images %>
+              </span>
+              <%= submit_tag "Ajouter", class:"btn submit-btn-ligth" %>
+              <% end %>
+              <%if @garden.images.attached?%>
+              <%= form_tag garden_image_path(@garden), method: "delete", style: "display: inline" do %>
+              <%= submit_tag "Supprimer les images", class:"btn submit-btn-ligth" %>
+              <% else %>
+              <% end %>
+              <% end %>
+              <% end %>
+          </div>
+          <div class="favorite-button ">
+            <% puts "_________________________________________" %>
+            <% puts @garden.favorites.where(user_id: current_user.id) %>
+            <% puts "_________________________________________" %>
+            <% if @garden.favorites.where(user_id: current_user.id).empty? %>
+            <%=form_tag url_for(controller: 'favorites', action: 'create'), method: "post" do %>
+            <%= hidden_field_tag(:gardenid, @garden.id) %>
+            <%= submit_tag "Ajouter aux Favoris", class:"btn submit-btn col col-sm-12 col-md-12 col-lg-12 col-xl-12"%>
+            <% end %>
+            <% end %>
+          </div>
+          <div class="products-garden">
+            <h2>
+              <i class="fas fa-carrot"></i>Les Produits</h2>
+            <div class="legumes-garden">
+              <div class="legumes-list">
+                <% @products.each do |h| %>
+                <p>
+                  <%= h.name %>
+                </p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col col-sm-12 col-md-12 col-lg-5">
+          <div class="gardenshow-2">
+            <div class="container-pic">
+              <%if @user.avatar.attached?%>
+              <%= image_tag @user.avatar, alt: 'avatar', class:'circle-avatar-user' %>
+              <% else %>
+              <div class="d-flex">
+                <div class="avatar-user"></div>
+                <% end %>
+              </div>
+              <div class="name-usergarden">
+                <% if @user.first_name.nil? %>
+                <p>
+                  <%= link_to "Utilisateur Anonyme", user_path(@user), class:"titre-dark"%>
+                </p>
+                <% else %>
+                <p>
+                  <%= link_to (@user.first_name + " " + @user.last_name), user_path(@user), class:"titre-dark"%>
+                </p>
+                <% end %>
+                <p class="interlign-name">
+                  <%= @garden.adress %>
+                </p>
+              </div>
+              <div class="description-usergarden">
+                <p class="para-strong text-center">Présentation</p>
+                <p class="text-center">
+                  <%= @user.description %>
+                </p>
+              </div>
+              <div class="send-message">
+                <%= link_to "Envoyer un message", "#modal", class: 'btn submit-btn', "data-toggle": "modal" %>
+              </div>
+            </div>
+            <%# <div class="near">
+					<h2>Potagers proches</h2>
+					<ul class="list-group">
+						<% @nearby.each do |near| %>
+            <%# <%= link_to near.name, near, class: "list-group-item" %>
+            <%# <% end %>
+            <%# </ul> %>
+            <%# </div> %>
+            <!-- element comments -->
+          </div>
+        </div>
+      </div>
+      <div class=" col-lg-12">
+        <h2>Sur la carte</h2>
+        <%= render 'map_for_show', class:"col-md-12" %>
+      </div>
+      <!-- fin de div map-garden -->
+      <!-- fin de div gardenshow-1 -->
+
 				</div>	
 			</div>
 		</div>
@@ -136,11 +198,7 @@
 				</div> <!-- fin de div map-garden -->
 		<!-- fin de div gardenshow-1 -->
 
-<<<<<<< HEAD
 		
-=======
-	
->>>>>>> 2652ba3e9d1af5b959c469c99b9584f3bcb51bc9
 		<div class="card col-lg-12 comment-content">
 			<ul class="list-group list-group-flush">
 				<% @comments.each do |com| %>
@@ -169,3 +227,41 @@
 			</div>
 		</div>
 	</div>
+
+    <!-- DIV POUR MODAL ENVOI MESSAGE -->
+    <div id="modal" class="modal hide fade" tabindex="-1" role="dialog" title="Envoyer un message">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">
+              <% image_tag "logo", style:"width=100px;" %> Envoyer un message</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= form_with(url: contactmail_path) do |f| %>
+            <%= f.hidden_field :garden_id, value: @garden.id %>
+            <%= f.hidden_field :current_user_id, value: current_user.id %>
+            <div class="form-group">
+              <label for="subject">Objet</label>
+              <%= f.text_field :subject, id: "subject", class: 'form-control p-2', placeholder: "Objet du message", :required => true %>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <%= f.text_field :message, id: "message", class: 'form-control p-2', placeholder: "Texte du message", :required => true %>
+            </div>
+            </br>
+              <%= button_tag type: 'button', class: 'btn submit-btn-ligth my-2 p-2', "data-dismiss": "modal" do %>
+                Annuler
+              <% end %>
+              <%= button_tag type: 'submit', class: 'btn submit-btn my-2 p-2' do %>
+                Envoyer
+              <% end %>
+            <% end %>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+
