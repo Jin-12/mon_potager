@@ -13,6 +13,7 @@ class Garden < ApplicationRecord
   geocoded_by :full_address
   after_validation :geocode, if: ->(obj) { obj.adress.present? && (obj.adress_changed? || obj.zipcode.changed? || obj.city.changed?) }
 
+  
   def self.search(search)
     if search
       result = []
@@ -39,7 +40,10 @@ class Garden < ApplicationRecord
     else
       all
     end
+
   end
+  
+
 
   private
 
