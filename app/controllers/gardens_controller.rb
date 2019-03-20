@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-
 class GardensController < ApplicationController
+  before_action :user_has_name?
+
   def index
     unless user_signed_in?
       redirect_to static_landing_path
@@ -31,7 +32,7 @@ class GardensController < ApplicationController
       @how_many_days = (Time.now - @status.updated_at) / 86_400 * 10
     end
   end
-  
+
   def new
   @user = current_user
   end
@@ -76,6 +77,21 @@ class GardensController < ApplicationController
     redirect_to garden_path(@garden)
   end
 
+<<<<<<< HEAD
   def destroy 
+=======
+  def destroy; end
+
+  private
+
+  def user_has_name?
+    if user_signed_in?
+      if current_user.first_name.nil?
+        redirect_to edit_user_path(current_user)
+      elsif current_user.last_name.nil?
+        redirect_to edit_user_path(current_user)
+      end
+    end
+>>>>>>> delivery
   end
 end

@@ -32,11 +32,36 @@ h2 {
   letter-spacing: 0.5px;
 }
 
+h3 {
+  font-family: HelveticaNeue, sans-serif;
+  font-size: 1.4em;
+  line-height: 1.6;
+  color: #44C8B5;
+  letter-spacing: 0.5px;
+}
+
 p {
   font-family: HelveticaNeue-Light, sans-serif;
-  font-size: 18px;
+  font-size: 1.2em;
+  line-height: 1.7;
+  font-weight: 400;
   color: #515151;
   letter-spacing: 0.5px;
+}
+
+.guidance-step-image {
+  width: 100%;
+  max-width: 450px;
+  min-width: 350px;
+  height: auto;
+}
+
+.mt-6 {
+  margin-top: ($spacer * 6) !important;
+}
+
+.mt-7 {
+  margin-top: ($spacer * 10) !important;
 }
 
 .titre-dark {
@@ -120,6 +145,11 @@ p {
   margin-top:250px;
 }
 
+.container-edit {
+flex: 1 0 auto;
+margin-top:100px;
+}
+
 html, body {
   height: 100%;
   margin:0px;
@@ -176,13 +206,6 @@ a:hover {
 
 .fa-search {
   color: #7B7B7B;
-}
-
-.homepage{
-  position: absolute;
-  width:100%;
-  z-index: 999;
-  background: white;
 }
 
 .carousel-caption h2 {
@@ -287,11 +310,6 @@ a:hover {
 
 /* CAROUSSEL */
 
-.carousel-inner {
-
-
-}
-
 /* FORMULAIRES */
 
 
@@ -311,6 +329,7 @@ a:hover {
 
 .container-fluid {
   padding:0px;
+  margin: 0px;
 }
 
 label {
@@ -434,3 +453,6 @@ button:focus {
   overflow: scroll;
 }
 
+.container-new-garden {
+  margin: 80px 0 0 0;
+}
