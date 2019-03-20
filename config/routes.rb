@@ -5,12 +5,14 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   concern :image_attachable do
     resources :images, only: %i[create destroy]
   end
 
   root to: 'gardens#index'
-  devise_for :users
+  devise_for :users, controllers: {registrations: "registrations"}
   resources :users do
     resources :avatars, only: %i[create destroy]
     resources :statuses

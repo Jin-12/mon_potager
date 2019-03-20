@@ -3,7 +3,6 @@
  @import 'users.css.scss';
  @import 'statuses.css.scss';
 
-
 body {
   display:flex;
   flex-direction: column;
@@ -33,11 +32,36 @@ h2 {
   letter-spacing: 0.5px;
 }
 
+h3 {
+  font-family: HelveticaNeue, sans-serif;
+  font-size: 1.4em;
+  line-height: 1.6;
+  color: #44C8B5;
+  letter-spacing: 0.5px;
+}
+
 p {
   font-family: HelveticaNeue-Light, sans-serif;
-  font-size: 18px;
+  font-size: 1.2em;
+  line-height: 1.7;
+  font-weight: 400;
   color: #515151;
   letter-spacing: 0.5px;
+}
+
+.guidance-step-image {
+  width: 100%;
+  max-width: 450px;
+  min-width: 350px;
+  height: auto;
+}
+
+.mt-6 {
+  margin-top: ($spacer * 6) !important;
+}
+
+.mt-7 {
+  margin-top: ($spacer * 10) !important;
 }
 
 .titre-dark {
@@ -121,6 +145,11 @@ p {
   margin-top:250px;
 }
 
+.container-edit {
+flex: 1 0 auto;
+margin-top:100px;
+}
+
 html, body {
   height: 100%;
   margin:0px;
@@ -177,12 +206,6 @@ a:hover {
 
 .fa-search {
   color: #7B7B7B;
-}
-
-.homepage{
-  position: absolute;
-  width:100%;
-  z-index: 999;
 }
 
 .carousel-caption h2 {
@@ -256,7 +279,7 @@ a:hover {
   flex-direction:row;
   align-content: center;
   background: #FFFFFF;
-  box-shadow: 0 5px 10px 3px rgba(194,194,194,0.50);
+  box-shadow: 0 1px 10px 2px rgba(194,194,194,0.30);
   border-radius: 10px 10px 10px 10px;
   margin: auto;
 }
@@ -287,11 +310,6 @@ a:hover {
 
 /* CAROUSSEL */
 
-.carousel-inner {
-
-
-}
-
 /* FORMULAIRES */
 
 
@@ -311,6 +329,7 @@ a:hover {
 
 .container-fluid {
   padding:0px;
+  margin: 0px;
 }
 
 label {
@@ -334,17 +353,29 @@ label {
   color:white;
   font-size: 1.1em;
   float:right;
+  border-radius:14px;
 }
+
+.send-message {
+  display:flex;
+  justify-content: center;
+ }
+
+
+.send-message button {
+  float: none;
+  margin-top:20px;
+ }
 
 
 .submit-btn-ligth {
   background-color:white;
   color:#44C8B5;
-  font-size: 1.1em;
+  font-size: 0.9em;
   border: solid 1px #44C8B5;
   border-radius:14px;
-  display:flex;
-  flex-wrap: nowrap;
+display:inline-block;
+
 }
 
 .card input {
@@ -420,4 +451,8 @@ button:focus {
   text-align: center;
   height: 400px;
   overflow: scroll;
+}
+
+.container-new-garden {
+  margin: 80px 0 0 0;
 }

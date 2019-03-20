@@ -1,11 +1,12 @@
 # frozen_string_literal: true
-
 class GardensController < ApplicationController
+  before_action :user_has_name?
+
   def index
     unless user_signed_in?
       redirect_to static_landing_path
     end
-    @gardens = Garden.all
+    @gardens = Garden.order('created_at DESC').page(params[:page]).per(6)
     @search = Garden.search(params[:search])
     @hash = GenerateMapForIndex.new(@search).perform
     @status = Status.all.sort_by(&:created_at).reverse
@@ -26,6 +27,7 @@ class GardensController < ApplicationController
       @how_many_days = (Time.now - @status.updated_at) / 86_400 * 10
     end
   end
+
   def new
   @user = current_user
   end
@@ -70,4 +72,16 @@ class GardensController < ApplicationController
   end
 
   def destroy; end
+
+  private
+
+  def user_has_name?
+    if user_signed_in?
+      if current_user.first_name.nil?
+        redirect_to edit_user_path(current_user)
+      elsif current_user.last_name.nil?
+        redirect_to edit_user_path(current_user)
+      end
+    end
+  end
 end
