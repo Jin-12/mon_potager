@@ -146,7 +146,7 @@
 											<%= com.content %>
 										</li>
 										<% if current_user == com.user %>
-											<%= link_to "Supprimer" , {:controller => 'comments', :action => 'destroy', :id => com.id}, class:"btn btn-light col-md-2" %>
+											<%= link_to "Supprimer" , garden_comment_path(@garden, com.id), method: 'delete', class:"btn btn-light col-md-2" %>
 										<% end %>
 									<% end %>
 								</ul>
@@ -156,7 +156,7 @@
 									<h3>
 										Ajouter un commentaire
 									</h3>
-									<%=form_tag url_for(controller: 'comments', action: 'create'), method: "post" do %>
+									<%=form_tag garden_comments_path(@garden), method: "post" do %>
 									<%= label_tag 'Content' %>
 									<%= text_area_tag 'content', @content, class:'form-control' %>
 									<%= hidden_field_tag(:id, @garden.id) %>
@@ -166,3 +166,4 @@
 							</div>
 						</div>
 					</div>
+					
