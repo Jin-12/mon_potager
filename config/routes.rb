@@ -1,24 +1,27 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  concern :commentable do
+    resources :comments
+  end
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  concern :image_attachable do
+    resources :images, only: %i[create destroy]
+  end
+
+  root to: 'gardens#index'
   devise_for :users, controllers: {registrations: "registrations"}
   resources :users do
     resources :avatars, only: %i[create destroy]
     resources :statuses
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :gardens do
-    resources :images, only: %i[create destroy]
-    resources :comments
-  end
-  resources :products
-  resources :favorites
-  resources :comments
-  
-  resources "contacts", only: [:new, :create] 
-  
-  root to: 'gardens#index'
+
+  resources "contacts", only: [:new, :create]
+
+  resources :gardens, concerns: [:commentable, :image_attachable]
+  resources :favorites, only: [:create]
 
   match "contactmail", to: "gardens#contactmail", via: :post
   

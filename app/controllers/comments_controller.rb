@@ -13,9 +13,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    puts 'Ooo_________________ca ne fonctionne passsss ___________________________________-ooO'
     Comment.find(params[:id]).destroy
-    puts '____________________________________________________________'
     redirect_to gardens_path
   end
 end
