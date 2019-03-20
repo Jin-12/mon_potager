@@ -77,9 +77,6 @@ class GardensController < ApplicationController
     redirect_to garden_path(@garden)
   end
 
-<<<<<<< HEAD
-  def destroy 
-=======
   def destroy; end
 
   private
@@ -92,6 +89,5 @@ class GardensController < ApplicationController
         redirect_to edit_user_path(current_user)
       end
     end
->>>>>>> delivery
   end
 end

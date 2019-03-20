@@ -3,33 +3,45 @@
     <div class="col-12 col-md-4 col-lg-4" >
       <%= link_to (image_tag('logo', width:'60%')), root_path %>
     </div>
-
     <div class="connexion-info">
-
+		<div class="dropdown ">
+<h2 class="dropdown-toggle " id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+Ma Plantation
+<span class="caret"></span>
+</h2>
+<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 				<% if user_signed_in?  %>
 					<% if !current_user.gardens.empty? %>
-					<div class="col-sm-12 col-md-6 col-lg-auto">
-						 <%= link_to 'Voir mon potager', garden_path(current_user.gardens.last.id), class: "noHover" %>
-					</div>
+					<li>
+						 <p style='font-size:25px'><%= link_to 'Voir mon potager', garden_path(current_user.gardens.last.id), class: "" %></p>
+					</li>
+					
 					<% else %>
-					<div class="col-sm-12 col-md-6 col-lg-auto">
-						 <%= link_to 'Créer mon potager', new_garden_path, class: "noHover button-1 " %>
-					</div>
+					<li>
+						 <p style='font-size:25px'><%= link_to 'Créer mon potager', new_garden_path, class: "" %></p>
+					</li>
+					
 					<% end %>
-					<div class="col-sm-12 col-md-6 col-lg-auto">
-						 <%= link_to "Mon profil", user_path(current_user), class: " noHover" %>
-					</div>
-					<div class="col-sm-12 col-md-6 col-lg-auto">
-						 <%= link_to "Deconnexion",destroy_user_session_path, method: :delete, class: "noHover nav-item" %>
-					</div>
+					<li>
+						 <p style='font-size:25px'><%= link_to "Mon profil", user_path(current_user), class: "" %></p>
+					</li>
+					
+					<li>
+						 <p style='font-size:25px'><%= link_to "Deconnexion",destroy_user_session_path, method: :delete, class: "" %></p>
+					</li>
+					
 				<% else %>
-						<div class="col-sm-12 col-md-6 col-lg-auto">
-						  <%= link_to "Me connecter", new_user_session_path, class: " noHover" %>
-						</div>
-						<div class="col-sm-12 col-md-6 col-lg-auto">
-							  <%= link_to "Créer mon potager", new_user_registration_path, class: "noHover button-1" %>
-						</div>
+						<li>
+						  <p style='font-size:25px'><%= link_to "Me connecter", new_user_session_path, class: "" %></p>
+						</li>
+						
+						<li>
+							  <p style='font-size:25px'><%= link_to "Créer mon potager", new_user_registration_path, class: "" %></>
+						</li>
 				<% end %>
+</ul>
+</div>
+
     </div>
   </div>
 </nav>
