@@ -73,7 +73,7 @@ class GardensController < ApplicationController
 
   def destroy; end
 
-  
+
   def contactmail
     puts params
     puts "SENDING SOMETHING ################################################"
