@@ -167,6 +167,9 @@ g = Garden.create(name: "Potacent",
   user_id: rand(1...6),
   latitude: coordinates[0],
   longitude: coordinates[1])
+  5.times do |t|
+    Product.create(name: "   ", garden: g)
+  end
   dl_image = open(Faker::LoremFlickr.image("640x480", ['garden', 'vegetable']))
   g.images.attach(io: dl_image, filename: "image.jpg", content_type: "image/jpeg")
 end
