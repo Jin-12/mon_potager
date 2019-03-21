@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-    <div class="col">
-      <%= render 'static/map_for_landing' %>
-    </div>
-          <div class="">
-        <%= form_tag gardens_path, method: :get do %>
-          <%= text_field_tag :search, params[:search], placeholder: 'Carottes, Paris' %>
-          <%= submit_tag "chercher" %>
-        <% end %>
-      </div>
-
-=======
 <div class="col">
   <%= render 'static/map_for_landing' %>
 </div>
@@ -20,38 +8,12 @@
   <i class="fa fa-search" aria-hidden="true"></i>
 <% end %>
 <% end %>
->>>>>>> delivery
 </div>
 
 <div>
-<%= render 'gardens/status_index' %>
 <!-- <div class="container"> <div class="row"> <div class="col gardens-list"> <ul class="list-group"> <% @search.each do |garden| %> <li class="list-item"> <%= link_to garden.name, garden_path(garden) %> </li> <% end %> </ul> </div> <div class="col">
 <%= render 'map_for_index' %> </div> </div> </div> -->
 <%= render 'gardens/index_gardens_cards' %>
-
-
-<div class="main-status">
-  <div class="container-status">
-    <div class="status-i">
-      <h1>
-        Fil d'actualité
-      </h1>
-
-    <% @status.each do |status| %>
-      <div class="one-status">
-        <p class="para-strong"><%= link_to status.content, garden_path(status.user.gardens.last) %></p>
-        <p>Par <%= status.user.first_name %></p>
-          <% @date = ((Time.now - status.updated_at) / 86400 * 10).to_i %>
-          <% if @date == 0 %>
-          <p>Posté aujoud'hui</p>
-          <% elsif @date == 1 %>
-          <p>Posté hier</p>
-          <% else %>
-          <p>Il y a <%= @date %> jours</p>
-          <% end %>
-          </div>
-        <% end %>
-    </div>
-  </div>
+<%= render 'gardens/status_index' %>
 </div>
 </div>
