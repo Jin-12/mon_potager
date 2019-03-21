@@ -31,7 +31,7 @@ class Garden < ApplicationRecord
       end
       @search_result = final_result.flatten.uniq
       if @search_result.empty?
-        # flash[:warning] = "Pas de résultat, essayez une autre recherche"
+        flash[:warning] = "Pas de résultat, essayez une autre recherche"
         all
       else
         @search_result

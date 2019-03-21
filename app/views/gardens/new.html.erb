@@ -1,52 +1,52 @@
 <div class="container-new-garden">
-  <div class="container-card row justify-content-md-center align-items-center">
-    <div class="col col-md-8 col-sm5 col-lg-5 col-xl-4">
-      <div class="card border shadow-lg p-4">
-    <h2>
-      Créé ton potager !
-    </h2>
-    <div class="form-inputs">
-    <%=form_tag url_for(action: 'create'), method: "post" do %>
+	<div class="container-card row justify-content-md-center align-items-center">
+		<div class="col col-md-8 col-sm5 col-lg-5 col-xl-4">
+			<div class="card border shadow-lg p-4">
+				<h2>
+					Créé ton potager !
+				</h2>
+				<div class="form-inputs">
+					<%=form_tag url_for(action: 'create'), method: "post" do %>
 
-    <%= label_tag 'Nom de ton potager' %>
-    <%= text_field_tag 'gardenname', @gardenname, placeholder: 'Nom de ton potager', class:'form-control' %>
+					<%= label_tag 'Nom de ton potager' %>
+					<%= text_field_tag 'gardenname', @gardenname, placeholder: 'Nom de ton potager', class:'form-control' %>
 
-    <%= label_tag 'Adresse de ton potager' %>
-    <%= text_field_tag 'adress', @adress, placeholder: 'Adresse de ton potager', class:'form-control' %>
+					<%= label_tag 'Adresse de ton potager' %>
+					<%= text_field_tag 'adress', @adress, placeholder: 'Adresse de ton potager', class:'form-control' %>
 
 
-    <%= label_tag 'Code Postale' %>
-    <%= text_field_tag 'zipcode', @zipcode, class:'form-control', placeholder: 'Code postal' %>
+					<%= label_tag 'Code Postale' %>
+					<%= text_field_tag 'zipcode', @zipcode, class:'form-control', placeholder: 'Code postal' %>
 
-    <%= label_tag 'Adresse de ton potager' %>
-    <%= text_field_tag 'city', @city, class:'form-control', placeholder: 'Ville'%>
+					<%= label_tag 'Adresse de ton potager' %>
+					<%= text_field_tag 'city', @city, class:'form-control', placeholder: 'Ville'%>
 
-    <%= label_tag 'Adresse de ton potager' %>
-    <%= text_field_tag 'country', @country, class:'form-control' , placeholder: 'Pays'%>
-    <br/><br/>
+					<%= label_tag 'Adresse de ton potager' %>
+					<%= text_field_tag 'country', @country, class:'form-control' , placeholder: 'Pays'%>
+					<br/><br/>
 
-    <h2>Tu peux ajouter jusqu'a 5 types de produits:</h2>
-    <p style='font-size:18px'>Nom du produit 1:</p>
-    <%= text_field_tag 'productname1', "   ", class:'form-control', style:'margin-top:0' %>
-    <br/>
-    <p style='font-size:18px'>Nom du produit 2:</p>
-    <%= text_field_tag 'productname2', "   ", class:'form-control', style:'margin-top:0' %>
-    <br/>
-    <p style='font-size:18px'>Nom du produit 3:</p>
-    <%= text_field_tag 'productname3', "   ", class:'form-control', style:'margin-top:0' %>
-    <br/>
-    <p style='font-size:18px'>Nom du produit 4:</p>
-    <%= text_field_tag 'productname4', "   ", class:'form-control', style:'margin-top:0' %>
-    <br/>
-    <p style='font-size:18px'>Nom du produit 5:</p>
-    <%= text_field_tag 'productname5', "   ", class:'form-control', style:'margin-top:0' %>
-    <br/>
-    <%= submit_tag "Créer ton potager", class:"btn submit-btn" %>
+					<h2>Tu peux ajouter jusqu'a 5 types de produits:</h2>
+					<p style='font-size:18px'>Nom du produit 1:</p>
+					<%= text_field_tag 'productname1', "   ", class:'form-control', style:'margin-top:0' %>
+					<br/>
+					<p style='font-size:18px'>Nom du produit 2:</p>
+					<%= text_field_tag 'productname2', "   ", class:'form-control', style:'margin-top:0' %>
+					<br/>
+					<p style='font-size:18px'>Nom du produit 3:</p>
+					<%= text_field_tag 'productname3', "   ", class:'form-control', style:'margin-top:0' %>
+					<br/>
+					<p style='font-size:18px'>Nom du produit 4:</p>
+					<%= text_field_tag 'productname4', "   ", class:'form-control', style:'margin-top:0' %>
+					<br/>
+					<p style='font-size:18px'>Nom du produit 5:</p>
+					<%= text_field_tag 'productname5', "   ", class:'form-control', style:'margin-top:0' %>
+					<br/>
+					<%= submit_tag "Créer ton potager", class:"btn submit-btn" %>
 
-  <% end %>
+					<% end %>
+				</div>
+			</div>
+
+		</div>
+	</div>
 </div>
-        </div>
-
-      </div>
-    </div>
-  </div>

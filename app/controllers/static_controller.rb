@@ -9,12 +9,11 @@ class StaticController < ApplicationController
       unless @search_by_zipcode.nil?
         @hash = GenerateMapForLanding.new(@search_by_zipcode[1]).perform
         @landing_map_message = helpers.set_landing_map_message(@search_by_zipcode[1].length)
-        render "landing_map" # static_landing_map_path 
+        render "landing_map"
       end
     end
   end
 
   def landing_map
-    
   end
 end

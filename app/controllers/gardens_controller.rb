@@ -7,9 +7,6 @@ class GardensController < ApplicationController
       redirect_to static_landing_path
     end
     @search = Garden.search(params[:search])
-    puts "_______________________"
-    puts @search
-    puts "_______________________"
 
     @gardens = Garden.order('created_at DESC').page(params[:page]).per(6)
 
