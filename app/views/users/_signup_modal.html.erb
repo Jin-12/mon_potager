@@ -1,0 +1,46 @@
+<div class="modal fade" id="enroute">
+  <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">La suite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+            <div class="row align-content-center justify-content-center" style="width: 100%">
+              <div class="col text-center p-4">
+                <h2>La suite du programme :)</h2>
+              </div>
+            </div>
+          <div class="row justify-content-center" style="width: 100%">
+            <div class="col">
+              <div class="card">
+                <%= image_tag('girl_in_garden', style:'width:100%;', class:'card-img-top') %>
+                <div class="card-body">
+                  <h5 class="card-title">Crée ton jardin</h5>
+                  <p class="card-text">Crée ton jardin et parle de tes produits</p>
+                  <%= link_to "Explore les potagers", users_path, class: "btn btn-secondary" %>
+                </div>
+              </div>
+            </div><!-- /.col-lg-4 -->
+            <div class="col">
+              <div class="card">
+                <%= image_tag('girl_in_garden', style:'width:100%;', class:'card-img-top') %>
+                <div class="card-body">
+                  <h5 class="card-title">Explore les potagers</h5>
+                  <p class="card-text">Va explorer les potagers</p>
+                  <%= link_to "Explore les potagers", root_path, class: "btn btn-primary" %>
+                </div>
+              </div>
+            </div><!-- /.col-lg-4 -->
+          </div>
+                </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
