@@ -1,27 +1,26 @@
-<div class="d-flex align-content-between justify-content-center flex-wrap">
-  <h1 style="margin-top:100px; margin-bottom:40px">
-    Fil d'actualité
+<div class="container-status ">
+  <h1>
+    L'actu des potagers !
   </h1>
-  </div>
-<div class="main-status" style="margin:0 0 100px 0">
-  <div class="container-status">
+  <div>
     <div class="status-i">
-
-    <% @status.each do |status| %>
-      <div class="one-status">
-        <p class="para-strong"><%= link_to status.content, garden_path(status.user.gardens.last) %></p>
-        <p>Par <%= status.user.first_name %></p>
-          <% @date = ((Time.now - status.updated_at) / 86400 * 10).to_i %>
-          <% if @date == 0 %>
-          <p>Posté aujoud'hui</p>
-          <% elsif @date == 1 %>
-          <p>Posté hier</p>
-          <% else %>
-          <p>Il y a <%= @date %> jours</p>
-          <% end %>
+ 
+        <% @status.each do |status| %>
+         
+          <div class="one-status">
+            <p class="title-status"><%= link_to status.content, garden_path(status.user.gardens.last) %></p>
+            <p class="first-name-status">Par <%= status.user.first_name %></p>
+            <p > <% @date = ((Time.now - status.updated_at) / 86400 * 10).to_i %>
+              <% if @date == 0 %>
+              <p class="date-status">Posté aujoud'hui</p>
+              <% elsif @date == 1 %>
+              <p class="date-status">Posté hier</p>
+              <% else %>
+              <p class="date-status">Il y a <%= @date %> jours</p>
+              <% end %> 
           </div>
-        <% end %>
+            <% end %>
+          
     </div>
   </div>
-</div>
 </div>

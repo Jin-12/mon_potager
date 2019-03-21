@@ -195,7 +195,7 @@
           <%= button_tag type: 'button', class: 'btn submit-btn-ligth my-2 p-2', "data-dismiss": "modal" do %>
           Annuler
           <% end %>
-          <%= button_tag class: 'btn submit-btn my-2 p-2', id: 'send-btn' do %>
+          <%= button_tag  type: 'submit', class: 'btn submit-btn my-2 p-2', id: 'send-btn' do %>
           Envoyer
           <% end %>
           <% end %>
@@ -208,10 +208,8 @@
 
     <script>
       $(document).ready(function () {
-        $('#send-btn').click(function() {
-          $('#msg-form').submit();
+        $('#send-btn').mouseup(function() {
           $('#modal').modal('toggle');
-          console.log("yes!")
         });
       });
     </script>
