@@ -262,8 +262,9 @@ a:hover {
 
 .connexion-info li {
   display:flex;
-    font-size:0.6em;
+  font-size:0.6em;
   padding-left:20px;
+  padding-right:20px;
   display: row;
   vertical-align: middle;
 }
@@ -607,4 +608,22 @@ p {
  transform: translateY(-10px);
  animation-timing-function: cubic-bezier(0.2,0.8,0.2,1);
  transition: 0.3s;
+}
+
+.page-link {
+
+  color: #44C8B5 !important ;
+  background-color: white#44C8B5;
+  border: 1px solid #dee2e6;
+}
+
+.page-item.active .page-link{
+  background-color: #44c8b5;
+  border:  #44c8b5;
+  color:white !important;
+}
+
+.pagination {
+  margin-top:50px;
+  margin-bottom:50px;
 }
