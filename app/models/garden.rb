@@ -11,9 +11,8 @@ class Garden < ApplicationRecord
   has_many_attached :images
 
   geocoded_by :full_address
-  after_validation :geocode, if: ->(obj) { obj.adress.present? && (obj.adress_changed? || obj.zipcode.changed? || obj.city.changed?) }
+  after_validation :geocode, if: ->(obj) { obj.adress.present? && obj.adress_changed? }
 
-  
   def self.search(search)
     if search
       result = []
@@ -30,19 +29,19 @@ class Garden < ApplicationRecord
       final_result = result.map do |collection|
         collection.map(&:itself)
       end
-      search_result = final_result.flatten.uniq
-      if search_result.empty?
+      @search_result = final_result.flatten.uniq
+      if @search_result.empty?
         # flash[:warning] = "Pas de résultat, essayez une autre recherche"
         all
       else
-        search_result
+        @search_result
       end
     else
       all
     end
 
   end
-  
+
 
 
   private

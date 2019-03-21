@@ -2,6 +2,7 @@
  @import 'gardens.css.scss';
  @import 'users.css.scss';
  @import 'statuses.css.scss';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 
 body {
   display:flex;
@@ -12,38 +13,40 @@ body {
   margin: 0;
   font-size: 20px;
   -webkit-font-smoothing: antialiased;
-  line-height: 1.3
+  line-height: 1.3;
 }
 
 h1 {
   color: #44c8b5;
-  font-family: HelveticaNeue-Bold, sans-serif;
+  font-family: HelveticaNeue-Bold,'Open Sans';
   font-size: 50px;
   color: #44C8B5;
-  font-weight: bold;
+  font-weight: 700;
   letter-spacing: 1.2px;
 }
 
 h2 {
-  font-family: HelveticaNeue-Bold, sans-serif;
+  font-family: HelveticaNeue-Bold, 'Open Sans';
   font-size: 24px;
   color: #44C8B5;
+  font-weight: 700;
   letter-spacing: 0.5px;
 }
 
 h3 {
-  font-family: HelveticaNeue, sans-serif;
+  font-family: HelveticaNeue, 'Open Sans';
   font-size: 1.4em;
   line-height: 1.6;
   color: #44C8B5;
+  font-weight: 400;
   letter-spacing: 0.5px;
 }
 
 p {
-  font-family: HelveticaNeue-Light, sans-serif;
+  font-family: HelveticaNeue-Light, 'Open Sans';
   font-size: 1.2em;
   line-height: 1.7;
-  font-weight: 400;
+  font-weight: 300;
   color: #515151;
   letter-spacing: 0.5px;
 }
@@ -109,6 +112,7 @@ p {
     text-decoration: none;
   }
 
+
   .container_ui{
     margin: 50px 40px 100px;
   }
@@ -141,7 +145,12 @@ p {
 
   .container {
   flex: 1 0 auto;
+<<<<<<< HEAD
   }
+=======
+  margin-top:250px;
+}
+>>>>>>> delivery
 
 .container-edit {
 flex: 1 0 auto;
@@ -193,6 +202,26 @@ ul.horizontalist li{
   }
 
 /* NAVBAR */
+.button-2 {
+  padding: 8px 20px;
+  font-size: 20px;
+  margin: -7px 0 0 0;
+  color: white;
+  background: #44c8b5;
+  border:none;
+  font-weight: 700;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  transition: 1s cubic-bezier(0.2, 0.8,0.2,1);
+}
+
+.button-2:hover{
+  background: white;
+  box-shadow: 0 10px 20px rgba(0,0,0, 0.25);
+  color: #44c8b5;
+  transform: translateY(-3px);
+}
 
 a {
   color: #44C8B5
@@ -201,6 +230,23 @@ a {
 a:hover {
   color: #44C8B5;
 }
+
+.cl-effect-3 a::after {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(0,0,0,0.1);
+  content: '';
+  opacity: 0;
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+  -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
+  -webkit-transform: translateY(10px);
+  -moz-transform: translateY(10px);
+  transform: translateY(10px);
+  }
 
 .fa-search {
   color: #7B7B7B;
@@ -217,7 +263,6 @@ a:hover {
   flex-direction: row;
   justify-items: center;
   flex-wrap:wrap;
-
 }
 
 .connexion-info li {
@@ -293,8 +338,6 @@ navbar {
 .button-1 {
   padding: 8px 20px;
   font-size: 20px;
-  display:inline-flex;
-  flex-wrap:nowrap;
   color: white;
   background: #44c8b5;
   border:none;
@@ -360,6 +403,16 @@ label {
   border-radius:14px;
 }
 
+.submit-btn2 {
+  margin-top: 50px;
+  padding: 10px 0 10px 0;
+  background-color:#44C8B5;
+  color:white;
+  font-size: 1.1em;
+  float:right;
+  border-radius:14px;
+}
+
 .send-message {
   display:flex;
   justify-content: center;
@@ -378,8 +431,27 @@ label {
   font-size: 0.9em;
   border: solid 1px #44C8B5;
   border-radius:14px;
-display:inline-block;
+  display:inline-block;
+}
 
+.submit-btn-ligth2 {
+  margin: -30px 0 10px 0;
+  background-color:white;
+  color:#44C8B5;
+  font-size: 0.9em;
+  border: solid 1px #44C8B5;
+  border-radius:14px;
+  display:inline-block;
+}
+
+.submit-btn-ligth3 {
+  margin: -5px 0 0px 0;
+  background-color:white;
+  color:#44C8B5;
+  font-size: 0.9em;
+  border: solid 1px #44C8B5;
+  border-radius:14px;
+  display:inline-block;
 }
 
 .card input {
@@ -461,6 +533,83 @@ button:focus {
   margin: 80px 0 0 0;
 }
 
+<<<<<<< HEAD
 .affix {
   top: 20px;
 }
+=======
+.Slider {
+  background: url('./slide4.jpg');
+  height: 550px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.SliderGroup {
+  margin: 0 auto;
+  max-width: 750px;
+  padding: 100px 50px;
+  text-align: center;
+}
+
+.Slider h3 {
+  margin: 0 0 50px 0;
+  color: white;
+  font-size: 60px;
+  font-family: HelveticaNeue-Bold, 'Open Sans';
+  font-weight: 700;
+  line-height: 1.2;
+  opacity: 0;
+  animation: HeroAnimation;
+  animation-duration: 3s;
+  animation-delay: 0.1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.2,0.8,0.2,1);
+  text-shadow: #464646 1px 0 10px;
+
+}
+
+.Slider p {
+  font-family: HelveticaNeue-Light, 'Open Sans';
+  font-weight: 300;
+  margin: -35px 0 20px 0;
+  color: rgb(255,255,255);
+  font-size: 30px;
+  line-height: 1.5;
+  opacity: 0;
+  animation: HeroAnimation;
+  animation-duration: 3s;
+  animation-delay: 0.3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.2,0.8,0.2,1);
+  text-shadow: #000 1px 0 10px;
+}
+
+@keyframes HeroAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.fa-search {
+  color: #44c8b5;
+}
+
+.search-bar {
+  background: rgba(250,250,250, 0.8);
+}
+
+.status-cards-index {
+  font-size:18px;
+  padding:0 30px 0 30px;
+  margin: -10px 0 0 0;
+  text-align:center;
+}
+>>>>>>> delivery

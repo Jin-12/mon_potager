@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MonPotager</title>
+    <title>Mon Potager - Les potagers autour de chez toi !</title>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+    <%= favicon_link_tag asset_path('favicon.png') %>
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- Google maps API-->
@@ -19,7 +20,7 @@
   </head>
 
   <body>
-    <div>
+    <div class="container-fluid">
         <%= render 'layouts/navbar' %>
     <%= render 'shared/flash' %>
     <!--

@@ -1,0 +1,76 @@
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag('slide1', width:'100%', class:'d-block w-100') %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag('slide2', width:'100%', class:'d-block w-100') %>
+    </div>
+      <div class="carousel-item">
+      <%= image_tag('slide3', width:'100%', class:'d-block w-100') %>
+    </div>
+    <div class="carousel-caption d-none d-md-block">
+    <h2>Mon Potager</h2>
+    <p>Vendez ou troquez le surplus de votre potager !</p>
+  </div>
+  </div>
+
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<%= render 'gardens/index_gardens_cards' %>
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col gardens-list">
+      <ul class="list-group">
+        <% @search.each do |garden| %>
+        <li class="list-item">
+        <%= link_to garden.name, garden_path(garden) %>
+        </li>
+        <% end %>
+
+      </ul>
+
+
+    </div>
+    <div class="col">
+      <%= render 'map_for_index' %>
+    </div>
+  </div>
+</div>
+
+<div class="main-status">
+  <div class="container-status">
+    <div class="status-i">
+      <h1>
+        Fil d'actualité
+      </h1>
+
+    <% @status.each do |status| %>
+      <div class="one-status">
+        <p class="para-strong"><%= link_to status.content, garden_path(status.user.gardens.last) %></p>
+        <p>Par <%= status.user.first_name %></p>
+          <% @date = ((Time.now - status.updated_at) / 86400 * 10).to_i %>
+          <% if @date == 0 %>
+          <p>Posté aujoud'hui</p>
+          <% elsif @date == 1 %>
+          <p>Posté hier</p>
+          <% else %>
+          <p>Il y a <%= @date %> jours</p>
+          <% end %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+</div>

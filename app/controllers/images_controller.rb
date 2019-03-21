@@ -12,7 +12,7 @@ class ImagesController < ApplicationController
     @images = @garden.images
     @images.each do |image|
       image.purge
-      redirect_to(garden_path(@garden))
+      redirect_to root_path
     end
   end
 end
