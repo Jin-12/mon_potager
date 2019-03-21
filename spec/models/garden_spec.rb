@@ -13,6 +13,7 @@ RSpec.describe Garden, type: :model do
       it { expect(test_garden.name).to eq('Kikotager') }
       it { expect(test_garden.latitude).to eq(0.0) }
       it { expect(test_garden.longitude).to eq(0.0) }
+      it { expect(test_garden.zipcode).to eq('75001') }
       it { expect(test_garden.user).to be_valid }
       it { expect(test_garden.user).to be_a(User) }
     end
@@ -26,6 +27,7 @@ RSpec.describe Garden, type: :model do
       it { expect(test_garden.name).to be_a(String) }
       it { expect(test_garden.latitude).to be_a(Float) }
       it { expect(test_garden.longitude).to be_a(Float) }
+      it { expect(test_garden.zipcode).to be_a(String) }
       it { expect(test_garden.user).to be_valid }
       it { expect(test_garden.user).to be_a(User) }
     end
@@ -52,7 +54,7 @@ RSpec.describe Garden, type: :model do
 
     context 'with nil coords' do
       test_garden = FactoryBot.build(:garden, latitude: nil, longitude: nil)
-      it { expect(test_garden).to_not be_valid }
+      it { expect(test_garden).to be_valid }
     end
   end
 
@@ -62,6 +64,5 @@ RSpec.describe Garden, type: :model do
     it { expect(test_garden).to have_many(:products) }
     it { expect(test_garden).to have_many(:comments) }
     it { expect(test_garden).to have_many(:favorites) }
-    # it { expect(test_garden).to have_many_attached(:images) }
   end
 end
