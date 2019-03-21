@@ -3,6 +3,19 @@
 module GardensHelper
   include Rails.application.routes.url_helpers
 
+  def evaluate_search_result(search_params)
+    @results = Garden.search(search_params)
+    puts "#" * 20
+    puts @results
+    puts "#" * 20
+    if @results.empty?
+      flash[:warning] = "Cette recherche n'a pas donné de résultats"
+      return Garden.all
+    else
+      return @results
+    end
+  end
+  
   def locate_nearby_gardens(location)
     @garden = location
     @garden.nearbys(20)
