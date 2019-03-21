@@ -103,9 +103,9 @@
                   <%= link_to "Utilisateur Anonyme", user_path(@user), class:"titre-dark"%>
                 </p>
                 <% else %>
-                <p style='margin:0'>
-                  <%= link_to (@user.first_name + " " + @user.last_name), user_path(@user), class:"titre-dark"%>
-                </p>
+                <p class="titre-dark">
+                  <%= (@user.first_name + " " + @user.last_name)%>
+                </h1>
                 <% end %>
                 <p class="interlign-name">
                   <%= @garden.adress %>
