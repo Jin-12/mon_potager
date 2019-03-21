@@ -596,3 +596,9 @@ button:focus {
   margin: -10px 0 0 0;
   text-align:center;
 }
+
+.card:hover {
+ transform: translateY(-10px);
+ animation-timing-function: cubic-bezier(0.2,0.8,0.2,1);
+ transition: 0.3s;
+}
