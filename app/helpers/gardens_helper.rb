@@ -50,13 +50,13 @@ module GardensHelper
   def set_landing_map_message(integer)
     integer = integer - 1
     if integer == 0
-      "Il n'y a pas encore de potagers autour de chez toi, crée le premier !"
+      "Il n'y a pas encore de potager du coin, crée le premier !"
     elsif integer == 1
-      "Vous avez 1 potager à proximité, rejoins-le !"
+      "Tu as 1 potager à proximité, rejoins-le !"
     elsif integer >= 2
       "Tu as #{integer} potagers à proximité, rejoins-les !"
     else
-      "(You should not see this...)"
+      "(You should not see this message...)"
     end
   end
 end
