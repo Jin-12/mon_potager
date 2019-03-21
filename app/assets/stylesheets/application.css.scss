@@ -501,26 +501,6 @@ button:focus {
     outline: none;
 }
 
-.main-status{
-  margin-top: 100px;
-  margin-bottom: 100px;
-}
-
-.one-status{
-  margin-top: 0px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #CECECE;
-  text-align: center;
-}
-
-.container-status {
-  margin: 0 auto;
-  max-width: 600px;
-  text-align: center;
-  height: 400px;
-  overflow: scroll;
-}
-
 .container-new-garden {
   margin: 80px 0 0 0;
 }
@@ -626,4 +606,47 @@ p {
 .pagination {
   margin-top:50px;
   margin-bottom:50px;
+}
+
+.main-status{
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.one-status{
+  margin-top: 0px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #CECECE;
+}
+
+.one-status a {
+  font-size:1.3em;
+}
+
+.one-status p {
+  margin-top:5px;
+  margin-bottom:8px;
+}
+
+.container-status {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  max-width: 900px;
+  display: block;
+  margin: auto;
+}
+
+.container-status h1 {
+  margin-bottom:30px;
+}
+
+.title-status {
+}
+
+.date-status {
+ font-size: 0.6em;
+}
+
+.first-name-status {
+
 }
