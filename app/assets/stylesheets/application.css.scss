@@ -113,7 +113,6 @@ p {
     text-decoration: none;
   }
 
-
   .container_ui{
     margin: 50px 40px 100px;
   }
@@ -199,26 +198,6 @@ ul.horizontalist li{
   }
 
 /* NAVBAR */
-.button-2 {
-  padding: 8px 20px;
-  font-size: 20px;
-  margin: -7px 0 0 0;
-  color: white;
-  background: #44c8b5;
-  border:none;
-  font-weight: 700;
-  border-radius: 10px;
-  outline: none;
-  cursor: pointer;
-  transition: 1s cubic-bezier(0.2, 0.8,0.2,1);
-}
-
-.button-2:hover{
-  background: white;
-  box-shadow: 0 10px 20px rgba(0,0,0, 0.25);
-  color: #44c8b5;
-  transform: translateY(-3px);
-}
 
 a {
   color: #44C8B5
@@ -227,23 +206,6 @@ a {
 a:hover {
   color: #44C8B5;
 }
-
-.cl-effect-3 a::after {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: rgba(0,0,0,0.1);
-  content: '';
-  opacity: 0;
-  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-  -moz-transition: opacity 0.3s, -moz-transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s;
-  -webkit-transform: translateY(10px);
-  -moz-transform: translateY(10px);
-  transform: translateY(10px);
-  }
 
 .fa-search {
   color: #7B7B7B;
@@ -260,6 +222,7 @@ a:hover {
   flex-direction: row;
   justify-items: center;
   flex-wrap:wrap;
+
 }
 
 .connexion-info li {
