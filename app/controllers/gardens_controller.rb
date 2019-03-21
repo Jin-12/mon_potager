@@ -75,8 +75,6 @@ class GardensController < ApplicationController
 
 
   def contactmail
-    puts params
-    puts "SENDING SOMETHING ################################################"
     UserContactMailer.contact_garden(params).deliver_now
   end
 

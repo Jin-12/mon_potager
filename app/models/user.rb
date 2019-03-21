@@ -10,7 +10,10 @@ class User < ApplicationRecord
   has_many :favorites, as: :favoritable
   has_many :statuses
 
-  validates :description, length: { in: 6..1000 }, allow_nil: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  
+  # validates :description, length: { in: 6..1000 }, allow_nil: true
   # validate :is_date, :is_past
 
   # private
@@ -36,7 +39,7 @@ class User < ApplicationRecord
   # For the time being, every user is admin...
   # TODO: seed an admin
   def is_admin?
-    true
+    self.id.between?(1, 6)
   end
 
 end
