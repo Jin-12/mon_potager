@@ -7,7 +7,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :gardens
-  has_many :favorites, as: :favoritable
+  has_many :favorites
   has_many :statuses
 
   validates :first_name, presence: true
