@@ -17,10 +17,17 @@ Rails.application.routes.draw do
     resources :avatars, only: %i[create destroy]
     resources :statuses
   end
+
+  resources "contacts", only: [:new, :create]
+
   resources :gardens, concerns: [:commentable, :image_attachable]
   resources :favorites, only: [:create]
 
+  match "contactmail", to: "gardens#contactmail", via: :post
+  
   get "/static/landing", to: "static#landing"
   get "/static/landing_map", to: "static#landing_map"
   get "/static", to: "static#landing"
+
+
 end

@@ -31,13 +31,12 @@ Ma Plantation
 					</li>
 					
 				<% else %>
-						<li>
-						  <p style='font-size:25px'><%= link_to "Me connecter", new_user_session_path, class: "" %></p>
-						</li>
-						
-						<li>
-							  <p style='font-size:25px'><%= link_to "Créer mon potager", new_user_registration_path, class: "" %></>
-						</li>
+						<div class="col-sm-12 col-md-6 col-lg-auto">
+						  <%= link_to "Me connecter", new_user_session_path, class: " noHover" %>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-auto">
+							  <%= link_to "M'inscrire", new_user_registration_path, class: "noHover button-1" %>
+						</div>
 				<% end %>
 </ul>
 </div>
