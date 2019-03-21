@@ -580,8 +580,9 @@ button:focus {
   text-align:center;
 }
 
-p {
-  font-size: 1em;
+.cgu p {
+  font-size: 0.6em;
+  margin-top:10px;
 }
 
 .card:hover {
@@ -638,6 +639,7 @@ p {
 
 .container-status h1 {
   margin-bottom:30px;
+  text-align: center;
 }
 
 .title-status {
