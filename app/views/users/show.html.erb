@@ -1,68 +1,75 @@
 <div class="container">
 
-	<%= stylesheet_link_tag "users" %>
+  <%= stylesheet_link_tag "users" %>
 
-	<div class="card-container border shadow-lg p-4 col-md-8 col-sm-12 col-lg-8">
-		<div class="container-pic d-flex user-pic">
-			<%if @user.avatar.attached?%>
-				<%= image_tag @user.avatar, alt: 'avatar', class:'avatar-user circle-avatar-user' %>
-			<% else %>
-					<div class="avatar-user circle-avatar-user"></div>
-				<% end %>
-			</div>
+  <div class="card-container border shadow-lg p-4 col-md-8 col-sm-12 col-lg-8">
+    <div class="container-pic d-flex user-pic">
+      <%if @user.avatar.attached?%>
+      <%= image_tag @user.avatar, alt: 'avatar', class:'avatar-user circle-avatar-user' %>
+      <% else %>
+      <div class="avatar-user circle-avatar-user"></div>
+      <% end %>
+    </div>
 
-			<% if current_user == @user %>
-				<%= form_tag user_avatars_path(@user), multipart: true do %>
-				<div class='d-flex align-items-center'>
-					<div class="wtf-container d-flex align-self-center">
-						<div class="btn btn-large btn-primary btn-file">
-							<%if @user.avatar.attached?%>
-								Modifie ta photo
-							<% else %>
-								Rajoute une photo
-							<% end %>
-							<%= file_field_tag :avatar %>
-						</div>
-						<div>
-							<%= submit_tag "Mettre à jour", class:"btn btn-light", style:'margin-left:10px' %>
-						<% end %>
-					</div>
-				</div>
-			</div>
-			<div class="show_user_head border-15">
-				<% provide(:title, "Profil utilisateur") %><% end %>
+    <% if current_user == @user %>
+    <%= form_tag user_avatars_path(@user), multipart: true do %>
+    <div class='d-flex align-items-center'>
+      <div class="wtf-container d-flex align-self-center">
+        <div class="btn btn-large btn-primary btn-file">
+          <%if @user.avatar.attached?%>
+          Modifie ta photo
+          <% else %>
+          Rajoute une photo
+          <% end %>
+          <%= file_field_tag :avatar %>
+        </div>
+        <div>
+          <%= submit_tag "Mettre à jour", class:"btn btn-light", style:'margin-left:10px' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="show_user_head border-15">
+      <% provide(:title, "Profil utilisateur") %><% end %>
 
-				<p class="titre-dark text-center" style="margin:0px;">
-					<%= @user.first_name %>
-					<%= @user.last_name %></p>
-				<p class="text-center" style="margin-bottom:30px;">
-					<%= @user.birthdate %></p>
-			</div>
-			<div class="id-card row">
-				<div class="col">
-					<div >
-						<h2>Présentation</h2>
-						<p class="card-text"><%= @user.description %></p>
-					</div>
-				</div>
-				<div class="col">
-					<div>
-						<h2>Contact</h2>
-						<p class="card-text"><%= @user.email %></p>
-					</div>
-				</div>
-			</div>
-			<div class="infos-connexion d-flex wrap">
-				<%= link_to "Editer mon profil", edit_user_path(@user), class:"btn submit-btn" %>
-				<%= link_to "Editer infos de connexion", edit_user_registration_path, class:"btn submit-btn" %>
-			</div>
-			<div>
-				<h2>Favoris</h2>
-				<% Favorite.where(user_id: @user.id).each do |fav| %>
-					<p><%= link_to Garden.find(fav.favoritable_id).name, garden_path(fav.id) %></p>
-				<% end %>
-			</div>
-		</div>
+      <p class="titre-dark text-center" style="margin:0px;">
+        <%= @user.first_name %>
+        <%= @user.last_name %></p>
+      <p class="text-center" style="margin-bottom:30px;">
+        <%= @user.birthdate %></p>
+    </div>
+    <div class="id-card row">
+      <div class="col">
+        <div>
+          <h2>Présentation</h2>
+          <p class="card-text"><%= @user.description %></p>
+        </div>
+      </div>
+      <div class="col">
+        <div>
+          <h2>Contact</h2>
+          <p class="card-text"><%= @user.email %></p>
+        </div>
+      </div>
+    </div>
+    <div class="infos-connexion d-flex wrap">
+      <%= link_to "Editer mon profil", edit_user_path(@user), class:"btn submit-btn" %>
+      <%= link_to "Editer infos de connexion", edit_user_registration_path, class:"btn submit-btn" %>
+    </div>
+    <div>
+      <h2>Favoris</h2>
+      <% Favorite.where(user_id: @user.id).each do |fav| %>
+      <p><%= link_to Garden.find(fav.favoritable_id).name, garden_path(fav.id) %></p>
+      <% end %>
+    </div>
+  </div>
 
-	</div>
+</div>
+<%= render "signup_modal" %>
+
+<script>
+  $(document).ready(function () {
+    console.log("I'm loaded");
+  });
+</script>
 </div>
