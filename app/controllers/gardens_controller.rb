@@ -6,8 +6,13 @@ class GardensController < ApplicationController
     unless user_signed_in?
       redirect_to static_landing_path
     end
-    @gardens = Garden.order('created_at DESC').page(params[:page]).per(6)
     @search = Garden.search(params[:search])
+    puts "_______________________"
+    puts @search
+    puts "_______________________"
+
+    @gardens = Garden.order('created_at DESC').page(params[:page]).per(6)
+
     @hash = GenerateMapForIndex.new(@search).perform
     @status = Status.all.sort_by(&:created_at).reverse
   end
@@ -31,6 +36,7 @@ class GardensController < ApplicationController
   def new
   @user = current_user
   end
+
   def create
     User.find(current_user.id).update(first_name: params[:userfirstname], last_name: params[:userlastname])
 
