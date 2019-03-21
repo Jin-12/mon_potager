@@ -5,9 +5,6 @@ module GardensHelper
 
   def evaluate_search_result(search_params)
     @results = Garden.search(search_params)
-    puts "#" * 20
-    puts @results
-    puts "#" * 20
     if @results.empty?
       flash[:warning] = "Cette recherche n'a pas donné de résultats"
       return Garden.all

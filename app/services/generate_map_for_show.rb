@@ -38,6 +38,7 @@ class GenerateMapForShow < ApplicationController
         "width": 64,
         "height": 64
       )
+      marker.infowindow render_to_string(partial: 'gardens/map_info_show_self', locals: { garden: garden })
     end
     @hash = @hash_nearby + @hash_garden
   end
