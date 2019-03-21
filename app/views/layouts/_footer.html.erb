@@ -6,7 +6,7 @@
             </div>
             <div class="links col col-12 col-sm-12 col-md-4 col-lg-4">
                   <ul>
-                  <li>A propos</li>
+                  <li> <%= link_to "A propos", static_about_us_path, style: "color: white;" %></li>
                   <li>CGV</li>
                   <% if user_signed_in? && current_user.is_admin? %>
                   <li><%= link_to "Administration", rails_admin_path, style: "color: white;" %></li>
