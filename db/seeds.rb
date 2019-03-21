@@ -87,6 +87,9 @@ g = Garden.create(name: "Kikotager",
   longitude: 2.3696279)
   dl_image = open(Faker::LoremFlickr.image("640x480", ['garden', 'vegetable']))
   g.images.attach(io: dl_image, filename: "image.jpg", content_type: "image/jpeg")
+  5.times do |t|
+    Product.create(name: "   ", garden: g)
+  end
 
 g = Garden.create(name: "Porte des lilas",
   adress: "10 rue de la verrerie",
@@ -97,6 +100,9 @@ g = Garden.create(name: "Porte des lilas",
   user_id: 2)
   dl_image = open(Faker::LoremFlickr.image("640x480", ['garden', 'vegetable']))
   g.images.attach(io: dl_image, filename: "image.jpg", content_type: "image/jpeg")
+  5.times do |t|
+    Product.create(name: "   ", garden: g)
+  end
 
 g = Garden.create(name: "Nation Potager",
   adress: "10 avenue philippe Auguste",
@@ -108,6 +114,9 @@ g = Garden.create(name: "Nation Potager",
   user_id: 3)
   dl_image = open(Faker::LoremFlickr.image("640x480", ['garden', 'vegetable']))
   g.images.attach(io: dl_image, filename: "image.jpg", content_type: "image/jpeg")
+  5.times do |t|
+    Product.create(name: "   ", garden: g)
+  end
 
 g = Garden.create(name: "94ger",
   adress: "10 rue poissoniere",
@@ -119,6 +128,9 @@ g = Garden.create(name: "94ger",
   user_id: 4)
   dl_image = open(Faker::LoremFlickr.image("640x480", ['garden', 'vegetable']))
   g.images.attach(io: dl_image, filename: "image.jpg", content_type: "image/jpeg")
+  5.times do |t|
+    Product.create(name: "   ", garden: g)
+  end
 
 g = Garden.create(name: "Opotager",
   adress: "Rue des 3 Frères",
@@ -130,6 +142,9 @@ g = Garden.create(name: "Opotager",
   user_id: 5)
   dl_image = open(Faker::LoremFlickr.image("640x480", ['garden', 'vegetable']))
   g.images.attach(io: dl_image, filename: "image.jpg", content_type: "image/jpeg")
+  5.times do |t|
+    Product.create(name: "   ", garden: g)
+  end
 
 g = Garden.create(name: "Potamille",
   adress: "17 rue pierre Semard",
@@ -141,6 +156,9 @@ g = Garden.create(name: "Potamille",
   user_id: 6)
   dl_image = open(Faker::LoremFlickr.image("640x480", ['garden', 'vegetable']))
   g.images.attach(io: dl_image, filename: "image.jpg", content_type: "image/jpeg")
+  5.times do |t|
+    Product.create(name: "   ", garden: g)
+  end
 
 g = Garden.create(name: "Potacent",
   adress: "via fornacci",
@@ -152,6 +170,9 @@ g = Garden.create(name: "Potacent",
   user_id: 6)
   dl_image = open(Faker::LoremFlickr.image("640x480", ['garden', 'vegetable']))
   g.images.attach(io: dl_image, filename: "image.jpg", content_type: "image/jpeg")
+  5.times do |t|
+    Product.create(name: "   ", garden: g)
+  end
 
 
 50.times do |t|
@@ -183,6 +204,10 @@ Product.create(name: "Persil", garden: Garden.all.sample)
 Product.create(name: "Potiron", garden: Garden.all.sample)
 Product.create(name: "Navet", garden: Garden.all.sample)
 Product.create(name: "Carotte", garden: Garden.all.sample)
+
+50.times do
+  Status.create(content: Faker::Cannabis.health_benefit, user_id: User.all.sample)
+end
 
 100.times do
   Comment.create(content: Faker::Cannabis.health_benefit, user_id: User.all.sample, garden_id: Garden.all.sample)
