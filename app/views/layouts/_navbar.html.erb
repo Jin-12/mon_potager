@@ -12,7 +12,7 @@
               </div>
 				<% end %>
 			<% end %>
-		<div class="dropdown col-sm-12 col-md-6 col-lg-auto">
+		<li class="dropdown col-sm-12 col-md-6 col-lg-auto">
 			<h2 class="dropdown-toggle noHover button-2" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 			Ma Plantation
 			<span class="caret"></span>
@@ -31,12 +31,12 @@
 							<p style='font-size:18px'><%= link_to "Deconnexion",destroy_user_session_path, method: :delete, class: "" %></p>
 						</li>
 					<% else %>
-						<div class="col-sm-12 col-md-6 col-lg-auto">
-						  <%= link_to "Me connecter", new_user_session_path, class: " noHover" %>
-						</div>
-						<div class="col-sm-12 col-md-6 col-lg-auto">
-							<%= link_to "M'inscrire", new_user_registration_path, class: "noHover button-1" %>
-						</div>
+						<li>
+						 		<p style='font-size:18px'><%= link_to "Me connecter", new_user_session_path, class: " noHover" %></p>
+						</li>
+						<li>
+						 		<p style='font-size:18px'><%= link_to "M'inscrire", new_user_registration_path, class: "noHover" %></p>
+						</li>
 					<% end %>
 				</ul>
 			</div>
