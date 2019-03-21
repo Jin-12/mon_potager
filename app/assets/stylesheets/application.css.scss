@@ -350,11 +350,7 @@ navbar {
   transform: translateY(-3px);
 }
 
-/* CAROUSSEL */
-
-/* FORMULAIRES */
-
-
+/* FORMS */
 
 .card h2 {
   text-align: center;
@@ -605,4 +601,10 @@ button:focus {
 
 p {
   font-size: 1em;
+}
+
+.card:hover {
+ transform: translateY(-10px);
+ animation-timing-function: cubic-bezier(0.2,0.8,0.2,1);
+ transition: 0.3s;
 }

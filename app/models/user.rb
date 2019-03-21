@@ -12,34 +12,19 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  
-  # validates :description, length: { in: 6..1000 }, allow_nil: true
-  # validate :is_date, :is_past
-
-  # private
-
-  # def is_date
-  #   if birthdate.is_a?(Date)
-  #     errors.add(:birthdate, "Must be a Date class variable")
-  #   end
-  # end
-
-  # def is_past
-  #   if birthdate < Date.today
-  #     errors.add(:birthdate, "Must be in the past")
-  #   end
-  # end
-
-  has_one_attached :avatar
-
-  def welcome_send
-    UserMailer.welcome_email(self).deliver_now
-  end
 
   # For the time being, every user is admin...
   # TODO: seed an admin
   def is_admin?
     self.id.between?(1, 6)
+  end
+
+  private
+
+  has_one_attached :avatar
+
+  def welcome_send
+    UserMailer.welcome_email(self).deliver_now
   end
 
 end

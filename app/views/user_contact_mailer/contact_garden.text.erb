@@ -1,1 +1,6 @@
-Bonjour, ça roule ?
+Bonjour <%= @garden_owner.first_name %>
+
+Ça roule ? <%= @sender.first_name %> vous a envoyé un message.
+
+Sujet: <%= @subject %>
+Message: <%= @message %>

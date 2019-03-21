@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class GenerateMapForLanding < ApplicationController
-
-
   def initialize(gardens)
     @gardens = gardens
   end

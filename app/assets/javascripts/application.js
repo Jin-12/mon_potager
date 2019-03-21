@@ -36,5 +36,3 @@ $(document).ready(function() {
 
 let b = document.querySelector('#btn-adder');
 console.log(b)
-
-

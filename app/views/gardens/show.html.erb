@@ -103,9 +103,9 @@
                   <%= link_to "Utilisateur Anonyme", user_path(@user), class:"titre-dark"%>
                 </p>
                 <% else %>
-                <p style='margin:0'>
-                  <%= link_to (@user.first_name + " " + @user.last_name), user_path(@user), class:"titre-dark"%>
-                </p>
+                <p class="titre-dark">
+                  <%= (@user.first_name + " " + @user.last_name)%>
+                </h1>
                 <% end %>
                 <p class="interlign-name">
                   <%= @garden.adress %>
@@ -121,15 +121,6 @@
                 <%= link_to "Envoyer un message", "#modal", class: 'btn submit-btn', "data-toggle": "modal" %>
               </div>
             </div>
-            <%# <div class="near">
-					<h2>Potagers proches</h2>
-					<ul class="list-group">
-						<% @nearby.each do |near| %>
-            <%# <%= link_to near.name, near, class: "list-group-item" %>
-            <%# <% end %>
-            <%# </ul> %>
-            <%# </div> %>
-            <!-- element comments -->
           </div>
         </div>
       </div>
@@ -141,9 +132,6 @@
       </div>
 
       <div class="favorite-button ">
-        <% puts "_________________________________________" %>
-        <% puts @garden.favorites.where(user_id: current_user.id) %>
-        <% puts "_________________________________________" %>
         <% if @garden.favorites.where(user_id: current_user.id).empty? %>
         <span><%=form_tag url_for(controller: 'favorites', action: 'create'), method: "post" do %></span>
         <%= hidden_field_tag(:gardenid, @garden.id) %>
@@ -151,8 +139,6 @@
         <% end %>
         <% end %>
       </div>
-      <!-- fin de div map-garden -->
-      <!-- fin de div gardenshow-1 -->
 
 <div class="card col-lg-12 comment-content">
 								<ul class="list-group list-group-flush">
@@ -182,7 +168,6 @@
 							</div>
 						</div>
 					</div>
-    <!-- DIV POUR MODAL ENVOI MESSAGE -->
     <div id="modal" class="modal hide fade" tabindex="-1" role="dialog" title="Envoyer un message">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
