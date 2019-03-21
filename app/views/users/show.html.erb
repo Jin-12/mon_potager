@@ -32,37 +32,37 @@
     <div class="show_user_head border-15">
       <% provide(:title, "Profil utilisateur") %><% end %>
 
-      <p class="titre-dark text-center" style="margin:0px;">
-        <%= @user.first_name %>
-        <%= @user.last_name %></p>
-      <p class="text-center" style="margin-bottom:30px;">
-        <%= @user.birthdate %></p>
-    </div>
-    <div class="id-card row">
-      <div class="col">
-        <div>
-          <h2>Présentation</h2>
-          <p class="card-text"><%= @user.description %></p>
-        </div>
-      </div>
-      <div class="col">
-        <div>
-          <h2>Contact</h2>
-          <p class="card-text"><%= @user.email %></p>
-        </div>
-      </div>
-    </div>
-    <div class="infos-connexion d-flex wrap">
-      <%= link_to "Editer mon profil", edit_user_path(@user), class:"btn submit-btn" %>
-      <%= link_to "Editer infos de connexion", edit_user_registration_path, class:"btn submit-btn" %>
-    </div>
-    <div>
-      <h2>Favoris</h2>
-      <% Favorite.where(user_id: @user.id).each do |fav| %>
-      <p><%= link_to Garden.find(fav.favoritable_id).name, garden_path(fav.id) %></p>
-      <% end %>
-    </div>
-  </div>
+				<p class="titre-dark text-center" style="margin:0px;">
+					<%= @user.first_name %>
+					<%= @user.last_name %></p>
+				<p class="text-center" style="margin-bottom:30px;">
+					<%= @user.birthdate %></p>
+			</div>
+			<div class="id-card row">
+				<div class="col">
+					<div >
+						<h2>Présentation</h2>
+						<p class="card-text"><%= @user.description %></p>
+					</div>
+				</div>
+				<div class="col">
+					<div>
+						<h2>Contact</h2>
+						<p class="card-text"><%= @user.email %></p>
+					</div>
+				</div>
+			</div>
+			<div class="infos-connexion d-flex wrap">
+				<%= link_to "Editer mon profil", edit_user_path(@user), class:"btn submit-btn" %>
+				<%= link_to "Editer infos de connexion", edit_user_registration_path, class:"btn submit-btn" %>
+			</div>
+			<div>
+				<h2>Favoris</h2>
+				<% Favorite.where(user_id: @user.id).each do |fav| %>
+					<p><%= link_to Garden.find(fav.favoritable_id).name, garden_path(fav.favoritable_id) %></p>
+				<% end %>
+			</div>
+		</div>
 
 </div>
 <%= render "signup_modal" %>
