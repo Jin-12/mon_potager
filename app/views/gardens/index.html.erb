@@ -7,13 +7,10 @@
 <% end %>
 </div>
 <div class="col">
-  <%= render 'static/map_for_landing' %>
+<%= render 'static/map_for_landing' %>
 </div>
-
 <div>
-<!-- <div class="container"> <div class="row"> <div class="col gardens-list"> <ul class="list-group"> <% @search.each do |garden| %> <li class="list-item"> <%= link_to garden.name, garden_path(garden) %> </li> <% end %> </ul> </div> <div class="col">
-<%= render 'map_for_index' %> </div> </div> </div> -->
-<%= render 'gardens/index_gardens_cards' %>
 <%= render 'gardens/status_index' %>
+<%= render 'gardens/index_gardens_cards' %>
 </div>
 </div>

@@ -26,8 +26,8 @@ class UsersController < ApplicationController
   def correct_user
     @user = User.find(params[:id].to_i)
     if current_user != @user
-      flash[:alert] = 'This profile is not accessible'
-      # redirect_to root_path
+      flash[:alert] = 'Ce profil n\'est pas accessible'
+      redirect_to root_path
     end
   end
 end
