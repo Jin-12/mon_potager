@@ -108,51 +108,51 @@ p {
 
 /* FOOTER */
 
-  a {
-    text-decoration: none;
-  }
+a {
+  text-decoration: none;
+}
 
-  a:hover {
-    text-decoration: none;
-  }
+a:hover {
+  text-decoration: none;
+}
 
-  .container_ui{
-    margin: 50px 40px 100px;
-  }
+.container_ui{
+  margin: 50px 40px 100px;
+}
 
-  input[type=text] {
-    border: none;
-  }
+input[type=text] {
+  border: none;
+}
 
-  .footer-container {
-    padding-left:20px;
-    display:flex;
-    align-content: space-between;
-  }
+.footer-container {
+  padding-left:20px;
+  display:flex;
+  align-content: space-between;
+}
 
-  .footer {
-    min-height: 100px;
-    background-color: #44c8b5;
-    width: 100%;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-shrink: 0;
-  }
+.footer {
+  min-height: 100px;
+  background-color: #44c8b5;
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+}
 
-  .footer-container {
-      padding-left:20px;
-      display:flex;
-      align-content: space-between;
-  }
+.footer-container {
+  padding-left:20px;
+  display:flex;
+  align-content: space-between;
+}
 
-  .container {
-  flex: 1 0 auto;
-  }
+.container {
+ flex: 1 0 auto;
+ }
 
 .container-edit {
-flex: 1 0 auto;
-margin-top:100px;
+  flex: 1 0 auto;
+  margin-top:100px;
 }
 
 html, body {
@@ -160,7 +160,7 @@ html, body {
   margin:0px;
 }
 
- .fab, .far {
+.fab, .far {
   color:white;
   font-size:2.3em;
   padding:15px;
@@ -174,9 +174,9 @@ ul.horizontalist li{
   display:flex;
   align-items: center;
   justify-content: center;
-  }
+}
 
-  .icons {
+.icons {
   display:flex;
   flex-direction: row;
   }
@@ -224,7 +224,6 @@ a:hover {
   flex-direction: row;
   justify-items: center;
   flex-wrap:wrap;
-
 }
 
 .connexion-info li {
@@ -261,7 +260,7 @@ a:hover {
 }
 
 .nav-connexion {
-    margin: 15px;
+  margin: 15px;
 }
 
 .nav-bar {
@@ -278,11 +277,12 @@ navbar {
   font-size: 0.7em;
  }
 
- .nav-link-hover {
+.nav-link-hover {
   color: #44c8b5;
   text-decoration: none;
   font-weight: 600;
 }
+
 .nav-research {
   display: flex;
   padding: 5px 5px 5px 20px;
@@ -325,7 +325,6 @@ navbar {
   padding-top:10px;
   font-size:1.5em;
   padding-bottom:30px;
-
 }
 
 .container-card {
@@ -375,14 +374,12 @@ label {
 .send-message {
   display:flex;
   justify-content: center;
- }
-
+}
 
 .send-message button {
   float: none;
   margin-top:20px;
- }
-
+}
 
 .submit-btn-ligth {
   background-color:white;
@@ -439,24 +436,24 @@ label {
 }
 
 .btn-file {
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-file input[type=file] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    font-size: 100px;
-    text-align: right;
-    filter: alpha(opacity=0);
-    opacity: 0;
-    outline: none;
-    background: white;
-    cursor: inherit;
-    display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
 }
 
 .status-group {
@@ -476,7 +473,7 @@ input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-    outline: none;
+  outline: none;
 }
 
 .container-new-garden {
@@ -620,9 +617,6 @@ button:focus {
   text-align: center;
 }
 
-.title-status {
-}
-
 .date-status {
  font-size: 0.6em;
 }
@@ -634,7 +628,6 @@ button:focus {
   font-weight: 300;
   color: #515151;
   letter-spacing: 0.5px;
-
 }
 
 .one-status #cercle {
@@ -656,3 +649,17 @@ font-size:1em;
 margin-bottom:-20px;
 margin-top:15px;
 }
+
+.space-gardens {
+  width: 22rem; 
+  margin: 1%;
+}
+
+.card-img-top {
+  width:100%;
+}
+
+.card-garden-title h1 {
+  padding-top:20px;
+  padding-bottom:40px;
+} 
