@@ -6,35 +6,32 @@
 }
 
 #cercle {
-  width: 10px;
-  height: 10px;
-  border-radius: 20px;
+	width: 10px;
+	height: 10px;
+	border-radius: 20px;
 	background: #47C844;
 	margin: 9px 15px 0 2px;
 	animation: lighting 1s infinite;
 	animation-timing-function: cubic-bezier(0.2,0.8,0.2,1);
 }
-
-
-
 @keyframes lighting {
-  0% {
-  	background: #47C844;
-  }
+	0% {
+		background: #47C844;
+	}
 
-  50% {
-  	background: #d4ffd3;
-  }
+	50% {
+		background: #d4ffd3;
+	}
 
-  100% {
-  	background: #47C844;
-  }
+	100% {
+		background: #47C844;
+	}
 }
 
 #cerclejaune {
-  width: 10px;
-  height: 10px;
-  border-radius: 20px;
+	width: 10px;
+	height: 10px;
+	border-radius: 20px;
 	background: #ffd800;
 	margin: 9px 15px 0 2px;
 }
@@ -44,7 +41,7 @@
 }
 
 .status-content {
-	margin: 0 0 0 0px;
+	margin: 0;
 }
 
 .status-user {
@@ -52,31 +49,31 @@
 }
 
 .para-small {
-	padding: 5px 0 0px 30px;
+	padding: 5px 0 0 30px;
 }
 
 .slider-photos {
-	margin: 10px 0 0 0;
+	margin: 10px 0 0;
 	background: red;
 	max-height: 400px;
 }
 
 .products-garden {
-	margin: 30px 0 20px 0;
+	margin: 30px 0 20px;
 }
 
 .legumes-garden {
-	margin: 15px 0 20px 0;
+	margin: 15px 0 20px;
 }
 
 .legumes-list {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	grid-gap: 0px;
+	grid-gap: 0;
 }
 
 button:focus {
-	outline:0;
+	outline: 0;
 }
 
 .gardenshow-2 {
@@ -84,11 +81,11 @@ button:focus {
 	box-shadow: 0 4px 10px 1px rgba(203,203,203,0.50);
 	border-radius: 6px 6px 0 6px 6px;
 	margin-bottom: 30px;
-	padding-bottom:50px;
+	padding-bottom: 50px;
 }
 
 .name-usergarden {
-	margin: 50px 0 0 0;
+	margin: 50px 0 0;
 	background: white;
 	text-align: center;
 }
@@ -113,9 +110,9 @@ button:focus {
 }
 
 .flex-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .space-gardens {
@@ -123,23 +120,23 @@ button:focus {
 }
 
 .avatar-garden {
-	margin-top:15px;
-	margin-bottom:30px;
-	width:100%;
+	margin-top: 15px;
+	margin-bottom: 30px;
+	width: 100%;
 }
 
 .favorite-button .btn {
-	float:none;
+	float: none;
 }
 
 #GardenMap {
 	width: 1200px;
 	height: 600px;
-	display:block;
+	display: block;
 }
 
 .comment-content {
-	margin-top:50px;
+	margin-top: 50px;
 }
 
 .circle-avatar-user {

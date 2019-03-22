@@ -1,13 +1,13 @@
-  <form>
-    <div class="col-4 col-md-5 col-lg-4 nav-research">
-      <div class="form-row">
-        <div>
-          <i class="fa fa-search" aria-hidden="true"></i>
-          <%= form_for(@gardens) do %>
-            <%= text_field :search, params[:search] %>
-            <%= submit "Go !", :name => nil %>
-          <% end %>
-        </div>
-      </div>
+<form>
+  <div class="col-4 col-md-5 col-lg-4 nav-research">
+    <div class="form-row">
+      <div>
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <%= form_for(@gardens) do %>
+        <%= text_field :search, params[:search] %>
+        <%= submit "Go !", :name => nil %>
+      <% end %>
     </div>
-  </form>
+  </div>
+</div>
+</form>

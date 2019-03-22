@@ -6,7 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <%= favicon_link_tag asset_path('favicon.png') %>
@@ -20,10 +20,10 @@
 
   <body>
     <div>
-        <%= render 'layouts/navbar' %>
-    <%= render 'shared/flash' %>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
-  </div>
+      <%= render 'layouts/navbar' %>
+      <%= render 'shared/flash' %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>

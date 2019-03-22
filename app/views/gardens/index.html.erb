@@ -1,11 +1,10 @@
-
 <div class="d-flex justify-content-center flex-wrap">
   <%= form_tag gardens_path, method: :get do %>
-  	<%= text_field_tag :search, params[:search], placeholder: 'Carottes, Paris', class: "btn bg-light text-left m-2 p-2" %>
-  	<%= button_tag type: 'submit', class: 'col-1 btn btn-yeah2 my-2 p-2' do %>
-  		<i class="fa fa-search" aria-hidden="true"></i>
-		<% end %>
-	<% end %>
+  <%= text_field_tag :search, params[:search], placeholder: 'Carottes, Paris', class: "btn bg-light text-left m-2 p-2" %>
+  <%= button_tag type: 'submit', class: 'col-1 btn btn-yeah2 my-2 p-2' do %>
+  <i class="fa fa-search" aria-hidden="true"></i>
+<% end %>
+<% end %>
 </div>
 <div class="col">
 <%= render 'static/map_for_landing' %>

@@ -1,6 +1,12 @@
-<h1>Bonjour <%= @garden_owner.first_name %></h1>
+<h1>Bonjour
+  <%= @garden_owner.first_name %></h1>
 
-<p>Ça roule ? <%= @sender.first_name %> vous a envoyé un message au sujet du potager <%= link_to @garden.name, garden_url(@garden, host: "127.0.0.1") %>.</p>
+<p>Ça roule ?
+  <%= @sender.first_name %>
+  vous a envoyé un message au sujet du potager
+  <%= link_to @garden.name, garden_url(@garden, host: "127.0.0.1") %>.</p>
 
-<p>Sujet: <%= @subject %></p>
-<p>Message: <%= @message %></p>
+<p>Sujet:
+  <%= @subject %></p>
+<p>Message:
+  <%= @message %></p>

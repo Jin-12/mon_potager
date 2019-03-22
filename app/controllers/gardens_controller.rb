@@ -5,9 +5,7 @@ class GardensController < ApplicationController
   before_action :set_garden, only: %i[show]
 
   def index
-    unless user_signed_in?
-      redirect_to static_landing_path
-    end
+    redirect_to static_landing_path unless user_signed_in?
     @search = helpers.evaluate_search_result(params[:search])
 
     # TODO: decide if update_at better
@@ -17,8 +15,8 @@ class GardensController < ApplicationController
     @status = Status.last(3).sort_by(&:updated_at).reverse
   end
 
-    # TODO: rename @nearby to @nearbies
-    # TODO: rename @hash
+  # TODO: rename @nearby to @nearbies
+  # TODO: rename @hash
   def show
     @comments = @garden.comments.order created_at: :desc
     @user = @garden.user
@@ -33,7 +31,7 @@ class GardensController < ApplicationController
   end
 
   def new
-  @user = current_user
+    @user = current_user
   end
 
   def create
@@ -41,10 +39,10 @@ class GardensController < ApplicationController
 
     @garden = Garden.new(user_id: current_user.id, name: params[:gardenname], adress: params[:adress], city: params[:city], zipcode: params[:zipcode], country: params[:country])
     if @garden.save
-      flash.now[:success] = "Potager bien enregistré !"
+      flash.now[:success] = 'Potager bien enregistré !'
       redirect_to garden_path @garden
     else
-      flash.now[:warning] = "Ooops..."
+      flash.now[:warning] = 'Ooops...'
       render :new
     end
 
@@ -76,7 +74,6 @@ class GardensController < ApplicationController
   end
 
   def destroy; end
-
 
   def contactmail
     UserContactMailer.contact_garden(params).deliver_now

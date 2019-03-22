@@ -2,7 +2,7 @@
 
 # app/controllers/favorites_controller.rb
 class FavoritesController < ApplicationController
-	# TODO: rename @fav to @favorites
+  # TODO: rename @fav to @favorites
   def index
     @fav = current_user.favorites
   end

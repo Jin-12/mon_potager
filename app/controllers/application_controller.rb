@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
 
   protected
 
-	# Allow extra parameters on devise sign up form (email, password, password_confirmation by default)
+  # Allow extra parameters on devise sign up form (email, password, password_confirmation by default)
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :birthdate, :description])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name birthdate description])
   end
 end

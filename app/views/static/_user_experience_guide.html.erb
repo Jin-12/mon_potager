@@ -4,36 +4,43 @@
 		<div class='col-lg-11 col-md-9 col-sm-11 mx-auto mt-6 text-center'>
 			<h1>L'annuaire des potagers</h1>
 			<div class='m-4'>
-				<div class="intro">Tu es citadin et veux manger plus <strong>local</strong> parce que, oui, tu es sensible à la surconsommation et à la pollution !</div>
-				<div class="intro"> Tu es maraîcher du dimanche et tu veux faire profiter de tes récoltes parfois trop fructueuses pour toi seul et ne plus rien gâcher.</div>
-				<div class="intro"><strong>Tu es au bon endroit !</strong></>
+				<div class="intro">Tu es citadin et veux manger plus
+					<strong>local</strong>
+					parce que, oui, tu es sensible à la surconsommation et à la pollution !</div>
+				<div class="intro">
+					Tu es maraîcher du dimanche et tu veux faire profiter de tes récoltes parfois trop fructueuses pour toi seul et ne plus rien gâcher.</div>
+				<div class="intro">
+					<strong>Tu es au bon endroit !</strong>
+				</>
 			</div>
-			
-			</div>
+
 		</div>
 	</div>
+</div>
 
-	<div class='CTA bg-light mt-6 mb-4 pt-4 pb-4'>
-		<div class='d-flex flex-row flex-wrap justify-content-around col-lg-11 col-md-11 col-sm-11 mx-auto text-left'>
-			<div class='col-lg-6 col-md-6 align-self-center'>
-				<h3>Fais une recherche par nom, code postal, fruit, légume... pour trouver les potagers autour de chez toi.</h3>
-				<%= link_to "Voir les potagers", new_user_registration_path, class: "submit-btn-ligth3" %>
-				
-			</div>
-			<div class='col-lg-5 col-md-5'>
-				<%= image_tag('lettuce', class: 'guidance-step-image') %>
-			</div>
+<div class='CTA bg-light mt-6 mb-4 pt-4 pb-4'>
+	<div class='d-flex flex-row flex-wrap justify-content-around col-lg-11 col-md-11 col-sm-11 mx-auto text-left'>
+		<div class='col-lg-6 col-md-6 align-self-center'>
+			<h3>Fais une recherche par nom, code postal, fruit, légume... pour trouver les potagers autour de chez toi.</h3>
+			<%= link_to "Voir les potagers", new_user_registration_path, class: "submit-btn-ligth3" %>
+
+		</div>
+		<div class='col-lg-5 col-md-5'>
+			<%= image_tag('lettuce', class: 'guidance-step-image') %>
 		</div>
 	</div>
+</div>
 
-		<div class='CTA d-flex flex-wrap justify-content-around flex-row-reverse col-lg-11 col-md-11 col-sm-11 mx-auto mt-6 mb-6 toto text-right '>
-			<div class='col-lg-6 col-md-6 align-self-center'>
-				<h3>Crée ton espace de verdure en ligne et propose le surplus de ta production aux autres jardiniers.</h3>
-				<div> <%= link_to 'Créer mon potager', new_garden_path, class: "submit-btn-ligth3" %> </div>
-			</div>
-			<div class='col-lg-5 col-md-5'>
-				<%= image_tag('tomatoes-hands', class: 'guidance-step-image') %>
-			</div>
+<div class='CTA d-flex flex-wrap justify-content-around flex-row-reverse col-lg-11 col-md-11 col-sm-11 mx-auto mt-6 mb-6 toto text-right '>
+	<div class='col-lg-6 col-md-6 align-self-center'>
+		<h3>Crée ton espace de verdure en ligne et propose le surplus de ta production aux autres jardiniers.</h3>
+		<div>
+			<%= link_to 'Créer mon potager', new_garden_path, class: "submit-btn-ligth3" %>
 		</div>
+	</div>
+	<div class='col-lg-5 col-md-5'>
+		<%= image_tag('tomatoes-hands', class: 'guidance-step-image') %>
+	</div>
+</div>
 
 </div>
