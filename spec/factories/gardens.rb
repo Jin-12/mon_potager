@@ -6,12 +6,12 @@ FactoryBot.define do
       constant { false }
     end
 
-    name { Faker::Nation.capital_city }
+    name { Faker::String.random(5..50) }
     user { User.all.sample }
     latitude { Faker::Address.latitude.to_f }
     longitude { Faker::Address.longitude.to_f }
-    # Faker not viable while generating french postal code
-    zipcode { "#{10 + rand(87)}000" }
+    zipcode = nil
+    zipcode { while !Geocoder.search(zipcode).select { |location| location.country.include?("France") }.first do zipcode = Faker::Address.zip_code end; zipcode }
 
     after :build do |garden, options|
       if options.constant

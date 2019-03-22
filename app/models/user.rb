@@ -19,6 +19,10 @@ class User < ApplicationRecord
     self.id.between?(1, 6)
   end
 
+  def find_favorite_gardens
+    self.favorites.where(favoritable_type: :Garden).map(&:favoritable).uniq
+  end
+
   private
 
   has_one_attached :avatar
