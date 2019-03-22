@@ -60,7 +60,7 @@
             <span class="btn btn-large submit-btn-ligth btn-file" style="margin-top:-40px">
               Rajoute une photo
               <% else %>
-              <span class="btn btn-large btn-file">
+              <span class="btn btn-large btn-file btn-file-hover">
                 <%= image_tag('img-default.jpg', alt: 'garden_image', class:'avatar-garden', style:"margin:0") %>
                 <% end %>
                 <%= file_field_tag :images, onchange: 'this.form.submit();' %>
