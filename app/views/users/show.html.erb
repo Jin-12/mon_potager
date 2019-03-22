@@ -66,10 +66,14 @@
 
 </div>
 <%= render "signup_modal" %>
-
+<div id="test"></div>
 <script>
   $(document).ready(function () {
     console.log("I'm loaded");
+    console.log("<%= params[:status] %>");
+    if ('<%= params[:status] %>' == 'new') {
+      $('#enroute').modal('toggle');
+    };
   });
 </script>
 </div>

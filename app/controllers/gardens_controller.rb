@@ -6,15 +6,12 @@ class GardensController < ApplicationController
     unless user_signed_in?
       redirect_to static_landing_path
     end
-    @search = Garden.search(params[:search])
-    puts "_______________________"
-    puts @search
-    puts "_______________________"
+    @search = helpers.evaluate_search_result(params[:search])
 
     @gardens = Garden.order('created_at DESC').page(params[:page]).per(6)
 
     @hash = GenerateMapForIndex.new(@search).perform
-    @status = Status.all.sort_by(&:created_at).reverse
+    @status = Status.last(3).sort_by(&:created_at).reverse
   end
 
   def show

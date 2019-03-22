@@ -7,10 +7,9 @@
       </h1>
 
       <% @user.statuses.each do |status| %>
-      <div class="one-status">
-        <p class="para-strong"><%= status.content %></p>
-        <p>Posté le
-          <%= status.created_at.to_date %></p>
+        <div class="one-status">
+          <p class="para-strong"><%= status.content %></p>
+          <p>Posté le<%= status.created_at.to_date %></p>
         </div>
       <% end %>
     </div>
