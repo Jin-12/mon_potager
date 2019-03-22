@@ -4,7 +4,8 @@
 class GardensController < ApplicationController
   before_action :set_garden, only: %i[show]
   before_action :authenticate_user!, only: %i[show new create edit update]
-  before_action :correct_user, only: %i[show new create edit update]
+  before_action :correct_user, only: %i[create edit update]
+  before_action :connected_user, only: %i[show new]
 
   def index
     redirect_to static_landing_path unless user_signed_in?
@@ -95,6 +96,13 @@ class GardensController < ApplicationController
     elsif current_user != @garden.user
       flash[:alert] = "Ce jardin n'est pas accessible"
       redirect_to root_path
+    end
+  end
+
+  def connected_user
+    if current_user.nil?
+      flash[:alert] = "Vous ne me semblez pas connecté"
+      redirect_to new_user_registration_path
     end
   end
 end
