@@ -62,6 +62,10 @@ p {
   margin-top: ($spacer * 6) !important;
 }
 
+.mb-6 {
+  margin-bottom: 100px !important;
+}
+
 .mt-7 {
   margin-top: ($spacer * 10) !important;
 }
@@ -444,6 +448,17 @@ label {
   border: solid 1px #44C8B5;
   border-radius:14px;
   display:inline-block;
+}
+
+.CTA .submit-btn-ligth3 {
+  margin-top:8px;
+  background-color:#44C8B5;
+  color:white;
+  font-size: 0.9em;
+  border: solid 1px #44C8B5;
+  border-radius:14px;
+  display:inline-block;
+  padding: 10px;
 }
 
 .card input {
