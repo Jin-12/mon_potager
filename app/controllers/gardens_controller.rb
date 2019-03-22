@@ -53,8 +53,6 @@ class GardensController < ApplicationController
     Product.create(name: params[:productname3], garden_id: Garden.last.id)
     Product.create(name: params[:productname4], garden_id: Garden.last.id)
     Product.create(name: params[:productname5], garden_id: Garden.last.id)
-
-    redirect_to garden_path(@garden)
   end
 
   def edit

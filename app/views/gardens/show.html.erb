@@ -132,12 +132,7 @@
     </div>
 
     <div class="favorite-button ">
-      <% if @garden.favorites.where(user_id: current_user.id).empty? %>
-      <span><%=form_tag url_for(controller: 'favorites', action: 'create'), method: "post" do %></span>
-      <%= hidden_field_tag(:gardenid, @garden.id) %>
-      <%= submit_tag "Ajouter ce jardin en favoris", class:"btn submit-btn2 col col-sm-12 col-md-12 col-lg-12 col-xl-12"%>
-      <% end %>
-      <% end %>
+        <span><%= link_to "Ajouter ce jardin en favoris", garden_favorites_path(@garden), method: :post, class:"btn submit-btn2 col col-sm-12 col-md-12 col-lg-12 col-xl-12"%></span>
     </div>
 
     <div class="card col-lg-12 comment-content">

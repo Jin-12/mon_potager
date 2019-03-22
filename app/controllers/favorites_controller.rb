@@ -7,10 +7,8 @@ class FavoritesController < ApplicationController
     @fav = current_user.favorites
   end
 
-  # TODO: rename :gardenid
   def create
-  	garden = Garden.find params(:gardenid)
-    Favorite.create favoritable: garden, user: current_user
-    redirect_to gardens_path(garden)
+    current_user.favorites.create favoritable: Garden.find(params[:garden_id])
+    redirect_to user_path(current_user)
   end
 end

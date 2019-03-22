@@ -57,8 +57,8 @@
 			</div>
 			<div>
 				<h2>Favoris</h2>
-				<% Favorite.where(user_id: @user.id).each do |fav| %>
-					<p><%= link_to Garden.find(fav.favoritable_id).name, garden_path(fav.favoritable_id) %></p>
+				<% @favorite_gardens.each do |garden| %>
+					<p><%= link_to garden.name, garden_path(garden) %></p>
 				<% end %>
 			</div>
 		</div>
@@ -68,8 +68,6 @@
 <div id="test"></div>
 <script>
   $(document).ready(function () {
-    console.log("I'm loaded");
-    console.log("<%= params[:status] %>");
     if ('<%= params[:status] %>' == 'new') {
       $('#enroute').modal('toggle');
     };
