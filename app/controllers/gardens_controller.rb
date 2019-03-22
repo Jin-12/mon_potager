@@ -40,10 +40,10 @@ class GardensController < ApplicationController
     @garden = Garden.new(user_id: current_user.id, name: params[:gardenname], adress: params[:adress], city: params[:city], zipcode: params[:zipcode], country: params[:country])
     puts "@" * 20
     if @garden.save
-      flash.now[:success] = "Potager bien enregistré ! Bravo, top !"
+      flash.now[:success] = "Potager bien enregistré !"
       redirect_to garden_path @garden
     else
-      flash.now[:warning] = "Ooops, comme un blème.."
+      flash.now[:warning] = "Ooops..."
       render :new
     end
 
