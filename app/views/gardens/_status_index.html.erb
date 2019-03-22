@@ -8,7 +8,10 @@
         <% @status.each do |status| %>
          
           <div class="one-status">
-            <p class="title-status"><%= link_to status.content, garden_path(status.user.gardens.last) %></p>
+            <div class="d-flex align-items-center">
+              <div id="cercle"></div>
+              <p class="title-status"> <%= link_to status.content, garden_path(status.user.gardens.last) %></p>
+            </div>
             <p class="first-name-status">Par <%= status.user.first_name %></p>
             <p > <% @date = ((Time.now - status.updated_at) / 86400 * 10).to_i %>
               <% if @date == 0 %>
