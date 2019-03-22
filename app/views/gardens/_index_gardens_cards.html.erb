@@ -16,9 +16,8 @@
                 <h2 class='align-self-center' ,="," style="margin: 1% 0 -20px 0;"><%=link_to garden.name, garden_path(garden.id) %></h2>
                 <p class='align-self-center' style="margin:0"><%= garden.city %></p>
                 <p class='align-self-center'>
-                    <% if Status.find_by(user_id: garden.user_id).nil? %>
-                    <% else %>
-                    <p class="status-cards-index"><span class='para-strong'>Statut</span> : "<%= Status.find_by(user_id: garden.user_id).content %>"</p>
+                    <% if garden.user.statuses.any? %>
+                        <p class="status-cards-index"><span class='para-strong'>Statut</span> : "<%= garden.user.statuses.last.content %>"</p>
                     <% end %>
                 </p>
                 <%= link_to "Voir le jardin", garden_path(garden), class:"btn btn-light" %>

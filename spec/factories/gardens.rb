@@ -6,7 +6,7 @@ FactoryBot.define do
       constant { false }
     end
 
-    name { Faker::Nation.capital_city }
+    name { Faker::String.random(5..50) }
     user { User.all.sample }
     latitude { Faker::Address.latitude.to_f }
     longitude { Faker::Address.longitude.to_f }
