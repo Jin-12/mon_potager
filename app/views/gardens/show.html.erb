@@ -60,14 +60,13 @@
             <span class="btn btn-large submit-btn-ligth btn-file" style="margin-top:-40px">
               Rajoute une photo
               <% else %>
-              <span class="btn btn-large btn-file">
-                <%= image_tag('img-default.jpg', alt: 'garden_image', class:'avatar-garden') %>
+              <span class="btn btn-large btn-file btn-file-hover">
+                <%= image_tag('img-default.jpg', alt: 'garden_image', class:'avatar-garden', style:"margin:0") %>
                 <% end %>
-                <%= file_field_tag :images %>
+                <%= file_field_tag :images, onchange: 'this.form.submit();' %>
               </span>
-              <%= submit_tag "Ajouter", class:"btn submit-btn-ligth2" %>
               <% end %>
-              <%if @garden.images.attached?%>
+              <%if @garden.images.attached? %>
               <%= form_tag garden_image_path(@garden), method: "delete", style: "display: inline" do %>
               <%= submit_tag "Supprimer les images", class:"btn submit-btn-ligth3" %>
               <% else %>
@@ -213,4 +212,3 @@
         });
       });
     </script>
-    

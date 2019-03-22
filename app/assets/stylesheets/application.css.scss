@@ -440,6 +440,11 @@ label {
   overflow: hidden;
 }
 
+.btn-file-hover:hover{
+  transform: translateY(-5px);
+  transition: 0.7s cubic-bezier(0.2, 0.8,0.2,1);
+}
+
 .btn-file input[type=file] {
   position: absolute;
   top: 0;
