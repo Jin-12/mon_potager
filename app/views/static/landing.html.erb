@@ -4,17 +4,17 @@
       <h3>La plateforme d'échange de fruits et légumes</h3>
       <p>Pour enfin manger bon et local !</p>
       <form>
-        <div class="form-row shadow-sm p-1 mb-5 rounded search-bar">
+        <div class="form-row shadow-sm p-2 mb-5 rounded search-bar">
           <%= form_tag gardens_path, :method => 'get' do %>
           <%= text_field_tag :search_near, nil, placeholder: 'Entre ton code postal...', class: "col-8 btn bg-light text-left m-2 p-2" %>
-          <%= button_tag type: 'submit', class: 'col-1 btn btn-yeah2 my-2 p-2' do %>
-          <i class="fa fa-search" aria-hidden="true"></i>
-        <% end %>
-      <% end %>
+          <%= button_tag type: 'submit', class: 'col-3 btn submit-btn-ligth3' do %>
+          Essaye-moi&nbsp;!
+          <% end %>
+          <% end %>
+        </div>
+      </form>
     </div>
-  </form>
-</div>
-</div>
+  </div>
 </div>
 
 <%= render 'static/user_experience_guide' %>
