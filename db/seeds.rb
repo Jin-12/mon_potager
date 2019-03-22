@@ -5,7 +5,10 @@ require 'open-uri'
 Faker::Config.locale = 'fr'
 I18n.reload!
 
-u = User.create(email: "kiko@kiko.com",
+#
+# Team members
+#
+u = User.create(email: "kiko@yopmail.com",
   birthdate: Date.new(1958, 3, 13),
   description: "un humble serviteur",
   password: "kikokiko",
@@ -14,7 +17,7 @@ u = User.create(email: "kiko@kiko.com",
   dl_avatar = open("https://api.adorable.io/avatars/128/#{u.email}.png")
   u.avatar.attach(io: dl_avatar, filename: "avatar.jpg", content_type: "image/jpeg")
 
-u = User.create(email: "clem@clem.com",
+u = User.create(email: "clem@yopmail.com",
   birthdate: Date.new(1958, 3, 13),
   description: "un humble penseur",
   password: "clemclem",
@@ -23,7 +26,7 @@ u = User.create(email: "clem@clem.com",
   dl_avatar = open("https://api.adorable.io/avatars/128/#{u.email}.png")
   u.avatar.attach(io: dl_avatar, filename: "avatar.jpg", content_type: "image/jpeg")
 
-u = User.create(email: "aurel@aurel.com",
+u = User.create(email: "aurel@yopmail.com",
   birthdate: Date.new(1958, 3, 13),
   description: "un humble designer",
   password: "aurelaurel",
@@ -32,7 +35,7 @@ u = User.create(email: "aurel@aurel.com",
   dl_avatar = open("https://api.adorable.io/avatars/128/#{u.email}.png")
   u.avatar.attach(io: dl_avatar, filename: "avatar.jpg", content_type: "image/jpeg")
 
-u = User.create(email: "jul@jul.com",
+u = User.create(email: "jul@yopmail.com",
   birthdate: Date.new(1958, 3, 13),
   description: "bun humble analyste",
   password: "juljul",
@@ -41,7 +44,7 @@ u = User.create(email: "jul@jul.com",
   dl_avatar = open("https://api.adorable.io/avatars/128/#{u.email}.png")
   u.avatar.attach(io: dl_avatar, filename: "avatar.jpg", content_type: "image/jpeg")
 
-u = User.create(email: "cam@cam.com",
+u = User.create(email: "cam@yopmail.com",
   birthdate: Date.new(1958, 3, 13),
   description: "une humble marketeuse",
   password: "camcam",
@@ -50,7 +53,7 @@ u = User.create(email: "cam@cam.com",
   dl_avatar = open("https://api.adorable.io/avatars/128/#{u.email}.png")
   u.avatar.attach(io: dl_avatar, filename: "avatar.jpg", content_type: "image/jpeg")
 
-u = User.create(email: "oliv@oliv.com",
+u = User.create(email: "oliv@yopmail.com",
   birthdate: Date.new(1958, 3, 13),
   description: "une force tranquille",
   password: "olivoliv",
@@ -60,17 +63,6 @@ u = User.create(email: "oliv@oliv.com",
   u.avatar.attach(io: dl_avatar, filename: "avatar.jpg", content_type: "image/jpeg")
 
 
-20.times do |i|
-  user =  User.create(email: "user#{i}@yopmail.com",
-          first_name: Faker::Name.first_name,
-          last_name: Faker::Name.last_name,
-          birthdate: Faker::Date.between(65.year.ago, 18.year.ago),
-          description: Faker::HitchhikersGuideToTheGalaxy.quote,
-          password: "password")
-  dl_avatar = open("https://api.adorable.io/avatars/128/#{user.email}.png")
-  user.avatar.attach(io: dl_avatar, filename: "avatar#{i}.jpg", content_type: "image/jpeg")
-end
-
 Status.create(user_id: 1,
   content: "Ca s'affiche?")
 Status.create(user_id: 2,
@@ -78,6 +70,9 @@ Status.create(user_id: 2,
 Status.create(user_id: 3,
   content: "Arretez de vous afficher")
 
+  #
+  # Team member gardens
+  #
 g = Garden.create(name: "Kikotager",
   adress: "15, avenue Secrétan Paris",
   city: "Paris",
@@ -174,26 +169,71 @@ g = Garden.create(name: "Potacent",
     Product.create(name: "   ", garden: g)
   end
 
-
+#
+# Generate 50 users with gardens
+#
+print "Generating users and gardens "
 50.times do |t|
-  geocity = Geocoder.search(Faker::Address.city).select{ |location| location.country == "France"}.first
-  coordinates = geocity.coordinates
-  geocode = geocity.postal_code
-  geocity_name = geocity.city
-  g = Garden.create(name: Faker::Cannabis.buzzword,
-  adress: Faker::Address.street_address,
-  city: geocity_name,
-  zipcode: geocode,
-  country: "France",
-  user_id: rand(1...6),
-  latitude: coordinates[0],
-  longitude: coordinates[1])
-  5.times do |t|
-    Product.create(name: "   ", garden: g)
+  print '.'
+  begin
+    geocity = Geocoder.search(Faker::Address.city).select{ |location| location.country == "France"}.first
+    coordinates = geocity.coordinates
+    geocode = geocity.postal_code
+    geocity_name = geocity.city
+    f_name = Faker::Name.first_name
+    l_name = Faker::Name.last_name
+    e_name = "#{f_name.chars.reject { |char| char.ascii_only? and (char.ord < 32 or char.ord == 127) }.join}.#{l_name.chars.reject { |char| char.ascii_only? and (char.ord < 32 or char.ord == 127) }.join}@yopmail.com"
+    u = User.create(
+      birthdate: Faker::Date.between(65.year.ago, 15.year.ago),
+      description: Faker::Cannabis.health_benefit,
+      password: "password",
+      first_name: f_name,
+      last_name: l_name,
+      email: e_name
+      )
+      dl_avatar = open("https://api.adorable.io/avatars/128/#{Faker::Lorem.word}.png")
+      u.avatar.attach(io: dl_avatar, filename: "avatar.jpg", content_type: "image/jpeg")
+    g = Garden.create(name: Faker::Cannabis.buzzword,
+      adress: Faker::Address.street_address,
+      city: geocity_name,
+      zipcode: geocode,
+      country: "France",
+      user_id: u.id,
+      latitude: coordinates[0],
+      longitude: coordinates[1])
+    5.times do |t|
+      Product.create(name: "   ", garden: g)
+    end
+    dl_image = open(Faker::LoremFlickr.image("640x480", ['garden', 'vegetable']))
+    g.images.attach(io: dl_image, filename: "image.jpg", content_type: "image/jpeg")
+  rescue
+    print 'x'
+    next
   end
-  dl_image = open(Faker::LoremFlickr.image("640x480", ['garden', 'vegetable']))
-  g.images.attach(io: dl_image, filename: "image.jpg", content_type: "image/jpeg")
 end
+
+#
+# Generate 20 users without gardens
+#
+20.times do |t|
+  print '.'
+  begin
+    u = User.create(
+      birthdate: Faker::Date.between(65.year.ago, 15.year.ago),
+      description: Faker::Cannabis.health_benefit,
+      password: "password",
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      email: "user#{t}@yopmail.com"
+      )
+      dl_avatar = open("https://api.adorable.io/avatars/128/#{Faker::Lorem.word}.png")
+      u.avatar.attach(io: dl_avatar, filename: "avatar.jpg", content_type: "image/jpeg")
+  rescue
+    print 'x'
+    next
+  end
+end
+puts "\n Users and gardens generated"
 
 Product.create(name: "Tomates", garden: Garden.all.sample)
 Product.create(name: "Patates", garden: Garden.all.sample)
@@ -205,8 +245,10 @@ Product.create(name: "Potiron", garden: Garden.all.sample)
 Product.create(name: "Navet", garden: Garden.all.sample)
 Product.create(name: "Carotte", garden: Garden.all.sample)
 
+Products = ['Tomates', 'Patates', 'Melon', 'Cerises', 'Fraises', 'Persil', 'Potiron', 'Navet', 'Carottes', 'Choux']
+
 50.times do
-  Status.create(content: Faker::Cannabis.health_benefit, user_id: User.all.sample)
+  Status.create(user_id: User.all.sample, content: Faker::Cannabis.health_benefit)
 end
 
 100.times do
