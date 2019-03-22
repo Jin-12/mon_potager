@@ -29,5 +29,5 @@ Rails.application.routes.draw do
   get "/static/landing_map", to: "static#landing_map"
   get "/static", to: "static#landing"
   get "/static/about_us", to: "static#about_us"
-  get "/static/cgu", to: "static#cgu"
+  get "/static/gtu", to: "static#gtu"
 end
