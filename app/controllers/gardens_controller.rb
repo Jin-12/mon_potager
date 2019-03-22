@@ -41,8 +41,10 @@ class GardensController < ApplicationController
     puts "@" * 20
     if @garden.save
       flash.now[:success] = "Potager bien enregistré ! Bravo, top !"
+      redirect_to garden_path @garden
     else
       flash.now[:warning] = "Ooops, comme un blème.."
+      render :new
     end
 
     Product.create(name: params[:productname1], garden_id: Garden.last.id)
@@ -51,7 +53,6 @@ class GardensController < ApplicationController
     Product.create(name: params[:productname4], garden_id: Garden.last.id)
     Product.create(name: params[:productname5], garden_id: Garden.last.id)
 
-    redirect_to garden_path @garden
   end
 
   def edit
