@@ -4,7 +4,7 @@
 class GardensController < ApplicationController
   before_action :set_garden, only: %i[show]
   before_action :authenticate_user!, only: %i[show new create edit update]
-  before_action :correct_user, only: %i[create edit update]
+  before_action :correct_user, only: %i[edit update]
   before_action :connected_user, only: %i[show new]
 
   def index
