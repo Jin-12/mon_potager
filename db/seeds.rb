@@ -185,7 +185,7 @@ print "Generating users and gardens "
     e_name = "#{f_name.chars.reject { |char| char.ascii_only? and (char.ord < 32 or char.ord == 127) }.join}.#{l_name.chars.reject { |char| char.ascii_only? and (char.ord < 32 or char.ord == 127) }.join}@yopmail.com"
     u = User.create(
       birthdate: Faker::Date.between(65.year.ago, 15.year.ago),
-      description: "une force tranquille",
+      description: Faker::Cannabis.health_benefit,
       password: "password",
       first_name: f_name,
       last_name: l_name,
@@ -220,7 +220,7 @@ end
   begin
     u = User.create(
       birthdate: Faker::Date.between(65.year.ago, 15.year.ago),
-      description: "une force tranquille",
+      description: Faker::Cannabis.health_benefit,
       password: "password",
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
