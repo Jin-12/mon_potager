@@ -1,24 +1,34 @@
-# README
+# Mon Potager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description 
+ 
+ This project is the final project of the "The Hacking Project" web dev formation. The goal is to use the skills acquired during the Hacking Project to build a group project. 
+ Mon Potager is a platfom to help connect people who are growing vegetables and fruits and would like to put the extra to use and peoples who want to consume more local goods. A side goal of the platform is to improve the local social connection.
+ The collaborators on this project are : [Camille Bideaux](https://github.com/kamiyechung), [Olivier Cardinaux](https://github.com/ocardinaux), [Jules Couturaud](https://github.com/Jin-12), [Clément Kuzniewycz](https://github.com/KuzniClem), [Nicolas Lucchetta](https://github.com/lucchettan), [Aurelien Verchueren](https://github.com/aurelienvvv).
 
-Things you may want to cover:
+---
 
-* Ruby version
+Production link : https://mon-potager-production.herokuapp.com/.
 
-* System dependencies
+---
 
-* Configuration
+Ruby version : 2.5.1
 
-* Database creation
+Rails version : 5.2.2
 
-* Database initialization
+---
 
-* How to run the test suite
+If you want to use the website in local :
 
-* Services (job queues, cache servers, search engines, etc.)
+``` git clone https://github.com/Jin-12/cat_e_commerce.git ```
 
-* Deployment instructions
+``` bundle install ```
 
-* ...
+``` rails db:create ```
+
+``` rails db:migrate ```
+
+``` rails db:seed ```
+
+
+![le chat n'est pas la](https://media.giphy.com/media/xUPGcuomRFMUcsB9nO/giphy.gif)
