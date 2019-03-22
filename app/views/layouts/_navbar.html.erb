@@ -3,7 +3,7 @@
     <div class="col-12 col-md-4 col-lg-4" >
       <%= link_to (image_tag('logo', width:'60%')), root_path %>
     </div>
-    <div class="connexion-info">
+    <div class="connexion-info" style='margin-right:50px;'>
 			<% if user_signed_in?  %>
 				<% if !current_user.gardens.empty? %>
 					<% else %>
@@ -17,7 +17,7 @@
 			Menu
 			<span class="caret"></span>
 			</h2>
-				<ul class="dropdown-menu" style="flex-wrap:no-wrap" aria-labelledby="dropdownMenu1">
+				<ul class="dropdown-menu" style="flex-wrap:no-wrap; min-width: 200px;" aria-labelledby="dropdownMenu1">
 					<% if user_signed_in?  %>
 						<% if !current_user.gardens.empty? %>
 							<li>
