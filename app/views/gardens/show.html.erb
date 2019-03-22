@@ -168,43 +168,43 @@
         <% end %>
       </div>
     </div>
-  </div>
-  <div id="modal" class="modal hide fade" tabindex="-1" role="dialog" title="Envoyer un message">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">
-            <% image_tag "logo", style:"width=100px;" %> Envoyer un message</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <%= form_with(url: contactmail_path, id: 'msg-form') do |f| %>
-          <%= f.hidden_field :garden_id, value: @garden.id %>
-          <%= f.hidden_field :current_user_id, value: current_user.id %>
-          <div class="form-group">
-            <label for="subject">Objet</label>
-            <%= f.text_field :subject, id: "subject", class: 'form-control p-2', placeholder: "Objet du message", :required => true %>
+    <div id="modal" class="modal hide fade" tabindex="-1" role="dialog" title="Envoyer un message">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">
+              <% image_tag "logo", style:"width=100px;" %> Envoyer un message</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <%= f.text_field :message, id: "message", class: 'form-control p-2', placeholder: "Texte du message", :required => true %>
+          <div class="modal-body">
+            <%= form_with(url: contactmail_path, id: 'msg-form') do |f| %>
+            <%= f.hidden_field :garden_id, value: @garden.id %>
+            <%= f.hidden_field :current_user_id, value: current_user.id %>
+            <div class="form-group">
+              <label for="subject">Objet</label>
+              <%= f.text_field :subject, id: "subject", class: 'form-control p-2', placeholder: "Objet du message", :required => true %>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <%= f.text_field :message, id: "message", class: 'form-control p-2', placeholder: "Texte du message", :required => true %>
+            </div>
+            </br>
+            <%= button_tag type: 'button', class: 'btn submit-btn-ligth my-2 p-2', "data-dismiss": "modal" do %>
+            Annuler
+            <% end %>
+            <%= button_tag  type: 'submit', class: 'btn submit-btn my-2 p-2', id: 'send-btn' do %>
+            Envoyer
+            <% end %>
+            <% end %>
           </div>
-          </br>
-          <%= button_tag type: 'button', class: 'btn submit-btn-ligth my-2 p-2', "data-dismiss": "modal" do %>
-          Annuler
-          <% end %>
-          <%= button_tag  type: 'submit', class: 'btn submit-btn my-2 p-2', id: 'send-btn' do %>
-          Envoyer
-          <% end %>
-          <% end %>
-        </div>
-        <div class="modal-footer">
+          <div class="modal-footer">
+          </div>
         </div>
       </div>
-    </div>
-    </div>
+      </div>
+  </div>
 
     <script>
       $(document).ready(function () {

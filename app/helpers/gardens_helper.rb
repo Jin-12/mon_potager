@@ -6,7 +6,7 @@ module GardensHelper
   def evaluate_search_result(search_params)
     @results = Garden.search(search_params)
     if @results.empty?
-      flash[:warning] = "Cette recherche n'a pas donné de résultats"
+      flash.now[:warning] = "Cette recherche n'a pas donné de résultats"
       return Garden.all
     else
       return @results
@@ -37,10 +37,10 @@ module GardensHelper
   def locate_by_zipcode(location)
     @search = Geocoder.search(location).select{ |location| location.country == "France"}.first
     if @search.nil?
-      flash[:warning] = "Code postal non reconnu"
+      flash.now[:warning] = "Code postal non reconnu"
       return nil
     elsif @search.country != "France"
-      flash[:warning] = "Code postal non existant en France (#{@search.country})"
+      flash.now[:warning] = "Code postal non existant en France (#{@search.country})"
       return nil
     else
       locate_closest_gardens(@search)
