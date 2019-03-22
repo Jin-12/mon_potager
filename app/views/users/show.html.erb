@@ -15,17 +15,16 @@
     <%= form_tag user_avatars_path(@user), multipart: true do %>
     <div class='d-flex align-items-center'>
       <div class="wtf-container d-flex align-self-center">
-        <div class="btn btn-large btn-primary btn-file">
+        <div class="btn btn-large submit-btn-ligth3 btn-file">
           <%if @user.avatar.attached?%>
           Modifie ta photo
           <% else %>
           Rajoute une photo
           <% end %>
-          <%= file_field_tag :avatar %>
+          <%= file_field_tag :avatar, onchange: 'this.form.submit();' %>
         </div>
         <div>
-          <%= submit_tag "Mettre à jour", class:"btn btn-light", style:'margin-left:10px' %>
-          <% end %>
+        <% end %>
         </div>
       </div>
     </div>
