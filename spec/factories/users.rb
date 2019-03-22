@@ -11,7 +11,7 @@ FactoryBot.define do
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
     birthdate { rand(Date.new(1900, 1, 1)..Date.today) }
-    email { Faker::Internet.unique.safe_email(first_name) }
+    email { Faker::Internet.unique.safe_email(I18n.transliterate(last_name)) }
     description { Faker::Quote.most_interesting_man_in_the_world }
     password { rand_password }
     password_confirmation { rand_password }
@@ -21,17 +21,17 @@ FactoryBot.define do
         user.first_name = 'Urbain'
         user.last_name = 'Test'
         user.birthdate = Date.new(1997, 3, 13)
-        user.email = "#{user.first_name.downcase}@example.org"
+        user.email = "#{user.last_name.downcase}@example.org"
         user.description = 'For 3 years known as "Holy Cucumber", so big, so good'
         user.password = 'password'
         user.password_confirmation = 'password'
       end
     end
 
-    after :create do |user, options|
+    after :build do |user, options|
       if options.empty_profile
         rand_password = Faker::Internet.password(10, 20, true)
-        user.email { Faker::Internet.unique.safe_email(user.first_name) }
+        user.email { Faker::Internet.unique.safe_email(I18n.transliterate(user.last_name)) }
         user.first_name = nil
         user.last_name = nil
         user.birthdate = nil

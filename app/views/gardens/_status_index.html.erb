@@ -1,26 +1,35 @@
-<div class="container-status ">
-  <h1>
-    L'actu des potagers !
-  </h1>
-  <div>
-    <div class="status-i">
- 
-        <% @status.each do |status| %>
-         
-          <div class="one-status">
-            <p class="title-status"><%= link_to status.content, garden_path(status.user.gardens.last) %></p>
-            <p class="first-name-status">Par <%= status.user.first_name %></p>
-            <p > <% @date = ((Time.now - status.updated_at) / 86400 * 10).to_i %>
-              <% if @date == 0 %>
-              <p class="date-status">Posté aujoud'hui</p>
-              <% elsif @date == 1 %>
-              <p class="date-status">Posté hier</p>
-              <% else %>
-              <p class="date-status">Il y a <%= @date %> jours</p>
-              <% end %> 
-          </div>
-            <% end %>
+<div class="container">
+  <div class="container-status ">
+    <h1>
+      L'actu des potagers !
+    </h1>
+    <div>
+      <div class="status-i">
+  
+          <% @status.each do |status| %>
           
+            <div class="one-status">
+              <div class="d-flex align-items-center">
+                <%if status.user.avatar.attached?%>
+                  <div><%= image_tag status.user.avatar, alt: 'avatar', class:'circle-avatar-user-status' %></div>
+                <% end %>
+                <div id="cercle"></div>
+                <p class="title-status"> <%= link_to status.content, garden_path(status.user.gardens.last) %></p>
+              </div>
+              
+                <p class="first-name-status">Par <%= status.user.first_name %></p>
+                <p > <% @date = ((Time.now - status.updated_at) / 86400 * 10).to_i %>
+                  <% if @date == 0 %>
+                  <p class="date-status">Posté aujoud'hui</p>
+                  <% elsif @date == 1 %>
+                  <p class="date-status">Posté hier</p>
+                  <% else %>
+                  <p class="date-status">Il y a <%= @date %> jours</p>
+                  <% end %>
+            </div>
+              <% end %>
+            
+      </div>
     </div>
   </div>
 </div>
