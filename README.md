@@ -31,4 +31,4 @@ If you want to use the website in local :
 ``` rails db:seed ```
 
 
-![le chat n'est pas la](https://media.giphy.com/media/xUPGcuomRFMUcsB9nO/giphy.gif)
+![Pas de légumes](https://media.giphy.com/media/8lMQKIZIXiOn0VVs3A/giphy.gif)
