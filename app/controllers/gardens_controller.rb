@@ -11,7 +11,7 @@ class GardensController < ApplicationController
     @gardens = Garden.order('created_at DESC').page(params[:page]).per(6)
 
     @hash = GenerateMapForIndex.new(@search).perform
-    @status = Status.all.sort_by(&:created_at).reverse
+    @status = Status.last(3).sort_by(&:created_at).reverse
   end
 
   def show
