@@ -9,6 +9,7 @@
          
           <div class="one-status">
             <div class="d-flex align-items-center">
+              <div><%= image_tag status.user.avatar, alt: 'avatar', class:'circle-avatar-user-status' %></div>
               <div id="cercle"></div>
               <p class="title-status"> <%= link_to status.content, garden_path(status.user.gardens.last) %></p>
             </div>
