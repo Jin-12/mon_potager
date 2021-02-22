@@ -1,8 +1,8 @@
 <div class="container">
- <div class="container-card row justify-content-md-center align-items-center">
+  <div class="container-card row justify-content-md-center align-items-center">
     <div class="col col-md-8 col-sm5 col-lg-7 col-xl-7">
       <div class="card border shadow-lg p-4">
-        <h2>Editer
+        <h2>Mettre à jour le
           <%= resource_name.to_s.humanize %>
         </h2>
 
@@ -13,39 +13,30 @@
           <%= f.input :email, required: true, autofocus: true %>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <p>En attente de confirmation de de:
-            <%= resource.unconfirmed_email %>
-          </p>
+            <p>En attente de confirmation de de:
+              <%= resource.unconfirmed_email %>
+            </p>
           <% end %>
 
-          <%= f.input :password, placeholder:"Nouveau mot de passe",
-                hint: "Laisser vide si pas de changement ",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-          <%= f.input :password_confirmation, placeholder:"Confirmation du nouveau mot de passe",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-          <%= f.input :current_password, placeholder:"Mot de passe actuel",
-                hint: "Mot de passe actuel afin de confirmer les changements",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+          <%= f.input :password, placeholder:"Nouveau mot de passe", hint: "Laisser vide si pas de changement ", required: false, input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation, placeholder:"Confirmation du nouveau mot de passe", required: false, input_html: { autocomplete: "new-password" } %>
+          <%= f.input :current_password, placeholder:"Mot de passe actuel", hint: "Mot de passe actuel afin de confirmer les changements", required: true, input_html: { autocomplete: "current-password" } %>
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Update" %>
+          <%= f.button :submit, "Update", class:"btn submit-btn" %>
         </div>
-        <% end %>
-
+      <% end %>
+      <div class="infos-reset-password">
         <h3>Supprimer mon compte</h3>
 
-        <p>Unsatisfait?
-          <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
-        </p>
-
-        <%= link_to "Back", :back %>
+        <p>Vous n'êtes pas satisfait ?</p>
+        <div class="link-reset-password"><%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes-vous certain ?" }, method: :delete %>
+        </div>
+        <div><%= link_to "Retour", :back %></div>
       </div>
+
     </div>
   </div>
-  </div>
-  
-
+</div>
+</div>

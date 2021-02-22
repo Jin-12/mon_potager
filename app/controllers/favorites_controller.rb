@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
+# app/controllers/favorites_controller.rb
 class FavoritesController < ApplicationController
-  def create
-    Favorite.create(favoritable_type: Garden, favoritable_id: params[:gardenid], user_id: current_user.id)
-    redirect_to gardens_path(params[:gardenid])
+  # TODO: rename @fav to @favorites
+  def index
+    @fav = current_user.favorites
   end
 
-  def index
-    @fav = Favorite.where(user_id: current_user.id)
+  def create
+    current_user.favorites.create favoritable: Garden.find(params[:garden_id])
+    redirect_to user_path(current_user)
   end
 end

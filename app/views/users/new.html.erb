@@ -1,0 +1,34 @@
+<div class="container-edit">
+  <div class="container-form">
+    <div class="container-card row justify-content-md-center align-items-center">
+      <div class="col col-md-8 col-sm5 col-lg-7 col-xl-7">
+        <div class="card border shadow-lg p-4">
+          <div class="form-group">
+            <h2>Rejoins la communauté
+              <i class="em em-deciduous_tree"></i>
+            </h2>
+            <h4 class="text-center">Étape 2/2 : dis-nous en plus sur toi</i>
+          </h4>
+
+          <!-- <form_tag url_for(action: 'update'), method: "patch" do > <form action="/users/30" accept-charset="UTF-8" method="post"> -->
+          <%= simple_form_for(@user, html: { method: :patch }) do %>
+          <%= label_tag 'Prénom' %>
+          <%= text_field_tag 'first_name', @user.first_name, placeholder: 'Prénom*', class:'form-control' %>
+
+          <%= label_tag 'Nom' %>
+          <%= text_field_tag 'last_name', @user.last_name, class:'form-control', placeholder: 'Nom*', class:'form-control' %>
+
+          <%= label_tag 'Date de naissance' %>
+          <%= text_field_tag 'birthdate', @user.birthdate, placeholder: 'Date de naissance*', class:'form-control' %>
+          <br>
+          <%= label_tag 'Description' %>
+          <%= text_area_tag 'description', @user.description, placeholder: 'Description : Raconte nous ta passion du potager et / ou des légumes !', class:'form-control' %>
+
+          <%= submit_tag "Inscription", class:"btn submit-btn" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>

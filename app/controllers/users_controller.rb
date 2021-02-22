@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id].to_i)
     @status = Status.where(user_id: @user.id)
+    @favorite_gardens = @user.find_favorite_gardens
   end
 
   def edit; end
@@ -26,8 +27,8 @@ class UsersController < ApplicationController
   def correct_user
     @user = User.find(params[:id].to_i)
     if current_user != @user
-      flash[:alert] = 'This profile is not accessible'
-      # redirect_to root_path
+      flash[:alert] = "Ce profil n'est pas accessible"
+      redirect_to root_path
     end
   end
 end

@@ -1,0 +1,45 @@
+<div class="modal fade" id="enroute">
+  <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Inscription réussie</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row align-content-center justify-content-center" style="width: 100%">
+            <div class="col text-center p-4">
+              <h2>Tu peux maintenant…</h2>
+            </div>
+          </div>
+          <div class="row justify-content-center" style="width: 100%">
+            <div class="col">
+              <%= link_to new_garden_path do %>
+              <div class="card" id="create-card">
+                <%= image_tag('img-modal-create', style:'width:100%;', class:'card-img-top') %>
+                <div class="card-body">
+                  <p class="card-text">… créer ton jardin et commencer à parler de tes produits.</p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <!-- /.col-lg-4 -->
+          <div class="col">
+            <%= link_to root_path do %>
+            <div class="card" id="index-card">
+              <%= image_tag('img-modal-index', style:'width:100%;', class:'card-img-top') %>
+              <div class="card-body">
+                <p class="card-text">… explorer et rechercher tous les potagers existants.</p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <!-- /.col-lg-4 -->
+      </div>
+    </div>
+    <div class="modal-footer my-4"></div>
+  </div>
+</div>
+</div>

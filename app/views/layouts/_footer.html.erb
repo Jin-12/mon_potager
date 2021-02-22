@@ -1,23 +1,36 @@
 <footer class="footer">
 
-      <div class="footer-container row">
-            <div class="reverse-logo col col-12 col-sm-12 col-md-4 col-lg-4"  >
-                  <%= link_to(image_tag('logo-white', class: 'w-100'), root_path)  %>
-            </div>
-            <div class="links col col-12 col-sm-12 col-md-4 col-lg-4">
-                  <ul>
-                  <li>A propos</li>
-                  <li>CGV</li>
-                  <% if user_signed_in? && current_user.is_admin? %>
-                  <li><%= link_to "Administration", rails_admin_path, style: "color: white;" %></li>
-                  <% end %>
-                  </ul>
-            </div>
-            <div class="social-media col col-12 col-sm-12 col-md-4 col-lg-4" >
-                  <div class="icons ">
-                  <i class="fab fa-facebook-f"></i><i class="fab fa-instagram"></i><i class="fab fa-twitter"></i><i class="far fa-envelope"></i>
-                  </div>
-            </div>
+  <div class="footer-container row">
+    <div class="reverse-logo col col-12 col-sm-12 col-md-4 col-lg-4">
+      <%= link_to(image_tag('logo-white', class: 'w-75'), root_path) %>
+    </div>
+    <div class="links col col-12 col-sm-12 col-md-4 col-lg-4">
+      <ul>
+        <li>
+          <%= link_to "A propos", static_about_us_path, style: "color: white;" %></li>
+        <li>
+          <%= link_to "CGU", static_gtu_path, style: "color: white;" %></li>
+        <% if user_signed_in? && current_user.is_admin? %>
+          <li><%= link_to "Administration", rails_admin_path, style: "color: white;" %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="social-media col col-12 col-sm-12 col-md-4 col-lg-4">
+      <div class="icons ">
+        <a href="https://www.facebook.com/Mon-Potager-424363834981158" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/monpotager8/" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://twitter.com/MonPotager3" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="mailto:monpotagerbiz@gmail.com">
+          <i class="far fa-envelope"></i>
+        </a>
       </div>
+    </div>
+  </div>
 
 </footer>

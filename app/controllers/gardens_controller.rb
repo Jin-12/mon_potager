@@ -1,45 +1,52 @@
 # frozen_string_literal: true
+
+# app/controllers/gardens_controller.rb
 class GardensController < ApplicationController
-  before_action :user_has_name?
+  before_action :set_garden, only: %i[show]
+  before_action :authenticate_user!, only: %i[show new create edit update]
+  before_action :correct_user, only: %i[edit update]
+  before_action :connected_user, only: %i[show new]
 
   def index
-    unless user_signed_in?
-      redirect_to static_landing_path
-    end
-    @gardens = Garden.order('created_at DESC').page(params[:page]).per(6)
-    @search = Garden.search(params[:search])
+    redirect_to static_landing_path unless user_signed_in?
+    @search = helpers.evaluate_search_result(params[:search])
+
+    # TODO: decide if update_at better
+    @gardens = Garden.order(created_at: :desc).page(params[:page]).per(6)
+
     @hash = GenerateMapForIndex.new(@search).perform
-    @status = Status.all.sort_by(&:created_at).reverse
+    @status = Status.last(3).sort_by(&:updated_at).reverse
   end
 
+  # TODO: rename @nearby to @nearbies
+  # TODO: rename @hash
   def show
-    @garden = Garden.find_by(id: params[:id])
-    @comments = Comment.where(garden_id: @garden.id)
-    @comments.all.sort_by(&:created_at)
-    @user = User.find(@garden.user_id)
+    @comments = @garden.comments.order created_at: :desc
+    @user = @garden.user
     @nearby = helpers.locate_nearby_gardens(@garden)
     @hash = GenerateMapForShow.new(@garden, @nearby).perform
 
     @products = @garden.products
+    # TODO: from find_by to .last/.first or get an array
     @status = Status.find_by(user_id: @garden.user_id)
 
-    unless @status.nil?
-      @how_many_days = (Time.now - @status.updated_at) / 86_400 * 10
-    end
+    @how_many_days = (Time.now - @status.updated_at) / 86_400 * 10 if @status
   end
 
   def new
-  @user = current_user
+    @user = current_user
   end
+
   def create
     User.find(current_user.id).update(first_name: params[:userfirstname], last_name: params[:userlastname])
 
     @garden = Garden.new(user_id: current_user.id, name: params[:gardenname], adress: params[:adress], city: params[:city], zipcode: params[:zipcode], country: params[:country])
-    puts "@" * 20
     if @garden.save
-      flash.now[:success] = "Potager bien enregistré ! Bravo, top !"
+      flash.now[:success] = 'Potager bien enregistré !'
+      redirect_to garden_path @garden
     else
-      flash.now[:warning] = "Ooops, comme un blème.."
+      flash.now[:warning] = 'Ooops...'
+      render :new
     end
 
     Product.create(name: params[:productname1], garden_id: Garden.last.id)
@@ -47,8 +54,6 @@ class GardensController < ApplicationController
     Product.create(name: params[:productname3], garden_id: Garden.last.id)
     Product.create(name: params[:productname4], garden_id: Garden.last.id)
     Product.create(name: params[:productname5], garden_id: Garden.last.id)
-
-    redirect_to garden_path @garden
   end
 
   def edit
@@ -73,23 +78,31 @@ class GardensController < ApplicationController
 
   def destroy; end
 
-  
   def contactmail
-    puts params
-    puts "SENDING SOMETHING ################################################"
     UserContactMailer.contact_garden(params).deliver_now
   end
 
-
   private
 
-  def user_has_name?
-    if user_signed_in?
-      if current_user.first_name.nil?
-        redirect_to edit_user_path(current_user)
-      elsif current_user.last_name.nil?
-        redirect_to edit_user_path(current_user)
-      end
+  def set_garden
+    @garden = Garden.find(params[:id])
+  end
+
+  def correct_user
+    @garden = Garden.find(params[:id])
+    if current_user.nil?
+      flash[:alert] = "Vous ne me semblez pas connecté"
+      redirect_to new_user_registration_path
+    elsif current_user != @garden.user
+      flash[:alert] = "Ce jardin n'est pas accessible"
+      redirect_to root_path
+    end
+  end
+
+  def connected_user
+    if current_user.nil?
+      flash[:alert] = "Vous ne me semblez pas connecté"
+      redirect_to new_user_registration_path
     end
   end
 end

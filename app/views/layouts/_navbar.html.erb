@@ -1,35 +1,44 @@
-<nav class="homepage" >
+<nav class="homepage">
   <div class="navbar">
-    <div class="col-12 col-md-4 col-lg-4" >
+    <div class="col-12 col-md-4 col-lg-4">
       <%= link_to (image_tag('logo', width:'60%')), root_path %>
     </div>
-
-    <div class="connexion-info">
-
-				<% if user_signed_in?  %>
-					<% if !current_user.gardens.empty? %>
-					<div class="col-sm-12 col-md-6 col-lg-auto">
-						 <%= link_to 'Voir mon potager', garden_path(current_user.gardens.last.id), class: "noHover" %>
-					</div>
-					<% else %>
-					<div class="col-sm-12 col-md-6 col-lg-auto">
-						 <%= link_to 'Créer mon potager', new_garden_path, class: "noHover button-1 " %>
-					</div>
-					<% end %>
-					<div class="col-sm-12 col-md-6 col-lg-auto">
-						 <%= link_to "Mon profil", user_path(current_user), class: " noHover" %>
-					</div>
-					<div class="col-sm-12 col-md-6 col-lg-auto">
-						 <%= link_to "Deconnexion",destroy_user_session_path, method: :delete, class: "noHover nav-item" %>
-					</div>
-				<% else %>
-						<div class="col-sm-12 col-md-6 col-lg-auto">
-						  <%= link_to "Me connecter", new_user_session_path, class: " noHover" %>
-						</div>
-						<div class="col-sm-12 col-md-6 col-lg-auto">
-							  <%= link_to "Créer mon potager", new_user_registration_path, class: "noHover button-1" %>
-						</div>
-				<% end %>
+    <div class="connexion-info" style='margin-right:50px;'>
+      <% if user_signed_in?  %>
+        <% if !current_user.gardens.empty? %>
+        <% else %>
+          <div class="col-sm-12 col-md-6 col-lg-auto">
+            <%= link_to 'Créer mon potager', new_garden_path, class: "noHover button-1" %>
+          </div>
+        <% end %>
+      <% end %>
+      <li class="dropdown col-sm-12 col-md-6 col-lg-auto">
+        <h2 class="dropdown-toggle noHover button-2" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Menu
+          <span class="caret"></span>
+        </h2>
+        <ul class="dropdown-menu" style="flex-wrap:no-wrap; min-width: 200px;" aria-labelledby="dropdownMenu1">
+          <% if user_signed_in?  %>
+            <% if !current_user.gardens.empty? %>
+              <li>
+                <p style='font-size:18px'><%= link_to 'Voir mon potager', garden_path(current_user.gardens.last.id), class: "" %></p>
+              </li>
+            <% end %>
+            <li>
+              <p style='font-size:18px'><%= link_to "Mon profil", user_path(current_user), class: "" %></p>
+            </li>
+            <li>
+              <p style='font-size:18px'><%= link_to "Deconnexion",destroy_user_session_path, method: :delete, class: "" %></p>
+            </li>
+          <% else %>
+            <li>
+              <p style='font-size:18px'><%= link_to "Me connecter", new_user_session_path, class: " noHover" %></p>
+            </li>
+            <li>
+              <p style='font-size:18px'><%= link_to "M'inscrire", new_user_registration_path, class: "noHover" %></p>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>

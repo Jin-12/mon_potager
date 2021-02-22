@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-    # REF https://coderwall.com/p/jzofog/ruby-on-rails-flash-messages-with-bootstrap
     def flash_class(level)
       case level
           when 'notice' then "alert alert-primary alert-info alert-dismissible fade show"
@@ -11,7 +10,6 @@ module ApplicationHelper
       end
     end
 
-    # REF https://www.railstutorial.org/book/rails_flavored_ruby#code-application_layout_full_title
     def full_title(page_title = '')
       base_title = "MonPotager"
       if page_title.empty?

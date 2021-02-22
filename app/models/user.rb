@@ -7,36 +7,28 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :gardens
-  has_many :favorites, as: :favoritable
+  has_many :favorites
   has_many :statuses
 
-  validates :description, length: { in: 6..1000 }, allow_nil: true
-  # validate :is_date, :is_past
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 
-  # private
+  # For the time being, every user is admin...
+  # TODO: seed an admin
+  def is_admin?
+    self.id.between?(1, 6)
+  end
 
-  # def is_date
-  #   if birthdate.is_a?(Date)
-  #     errors.add(:birthdate, "Must be a Date class variable")
-  #   end
-  # end
+  def find_favorite_gardens
+    self.favorites.where(favoritable_type: :Garden).map(&:favoritable).uniq
+  end
 
-  # def is_past
-  #   if birthdate < Date.today
-  #     errors.add(:birthdate, "Must be in the past")
-  #   end
-  # end
+  private
 
   has_one_attached :avatar
 
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
-  end
-
-  # For the time being, every user is admin...
-  # TODO: seed an admin
-  def is_admin?
-    true
   end
 
 end
